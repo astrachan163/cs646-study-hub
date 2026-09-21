@@ -1,0 +1,39 @@
+{
+  "name": "cs646-study-hub",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Static, data-driven study hub for UAB CS 646 Blockchain & Cryptocurrency (Fall 2026): study guides, lexicon, flashcards and practice quizzes built from plain content files.",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "validate": "tsx scripts/validate-content.ts",
+    "lint": "oxlint",
+    "typecheck": "tsc -b",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "check": "npm run validate && npm run lint && npm run typecheck && npm run test"
+  },
+  "dependencies": {
+    "mermaid": "^12.0.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "react-markdown": "^10.1.0",
+    "remark-gfm": "^4.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^24.13.3",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.7",
+    "@vitejs/plugin-react": "^6.1.1",
+    "oxlint": "^1.81.0",
+    "tsx": "^4.23.15",
+    "typescript": "~6.0.2",
+    "vite": "^8.3.0",
+    "vitest": "^5.0.1"
+  }
+}
