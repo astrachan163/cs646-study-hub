@@ -7,8 +7,8 @@ import { ChipGroup } from '../components/ChipGroup.tsx'
 import { Empty, ErrorBox, Loading } from '../components/States.tsx'
 import { UnitNav } from '../components/UnitNav.tsx'
 import { loadLexicon } from '../content/repository.ts'
-import { COVERAGES, type Coverage, type LexiconEntry, type UnitIndex } from '../content/types.ts'
-import { COVERAGE_HELP, COVERAGE_LABEL } from '../lib/labels.ts'
+import { type Coverage, type LexiconEntry, type UnitIndex } from '../content/types.ts'
+import { COVERAGE_FILTER_OPTIONS, matchesCoverageFilter } from '../lib/labels.ts'
 
 interface LexiconPageProps {
   unit: UnitIndex
@@ -37,7 +37,7 @@ export function LexiconPage({ unit, path, initialSearch }: LexiconPageProps) {
   const entries = useMemo(() => {
     const all = lexicon.data ?? []
     return all
-      .filter((e) => (chapters.length === 0 || chapters.includes(e.chapter)) && (coverage.length === 0 || coverage.includes(e.coverage)))
+      .filter((e) => (chapters.length === 0 || chapters.includes(e.chapter)) && matchesCoverageFilter(e.coverage, coverage))
       .filter((e) => matches(e, search.trim()))
       .sort((a, b) => a.term.localeCompare(b.term, 'en', { sensitivity: 'base' }))
   }, [lexicon.data, chapters, coverage, search])
@@ -78,12 +78,7 @@ export function LexiconPage({ unit, path, initialSearch }: LexiconPageProps) {
             </div>
             <div className="filters">
               <ChipGroup label="Chapter" options={chapterOptions} selected={chapters} onChange={setChapters} />
-              <ChipGroup
-                label="Coverage"
-                options={COVERAGES.map((c) => ({ value: c, label: COVERAGE_LABEL[c], title: COVERAGE_HELP[c] }))}
-                selected={coverage}
-                onChange={setCoverage}
-              />
+              <ChipGroup label="Coverage" options={COVERAGE_FILTER_OPTIONS} selected={coverage} onChange={setCoverage} />
             </div>
           </div>
 

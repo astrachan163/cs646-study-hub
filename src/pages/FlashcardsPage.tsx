@@ -7,8 +7,8 @@ import { ChipGroup } from '../components/ChipGroup.tsx'
 import { Empty, ErrorBox, Loading } from '../components/States.tsx'
 import { UnitNav } from '../components/UnitNav.tsx'
 import { loadLexicon } from '../content/repository.ts'
-import { COVERAGES, type Coverage, type LexiconEntry, type UnitIndex } from '../content/types.ts'
-import { COVERAGE_HELP, COVERAGE_LABEL } from '../lib/labels.ts'
+import { type Coverage, type LexiconEntry, type UnitIndex } from '../content/types.ts'
+import { COVERAGE_FILTER_OPTIONS, matchesCoverageFilter } from '../lib/labels.ts'
 import { randomSeedString, rngFromSeed } from '../lib/random.ts'
 import { applyResult, buildQueue, emptyCardState, requeue, summarize, type CardResult, type CardState } from '../lib/spaced.ts'
 import { clearCardStates, loadCardStates, saveCardStates } from '../lib/storage.ts'
@@ -40,7 +40,9 @@ export function FlashcardsPage({ unit, path }: FlashcardsPageProps) {
 
   const deck = useMemo(() => {
     const all = lexicon.data ?? []
-    return all.filter((e) => (chapters.length === 0 || chapters.includes(e.chapter)) && (coverage.length === 0 || coverage.includes(e.coverage)))
+    return all.filter(
+      (e) => (chapters.length === 0 || chapters.includes(e.chapter)) && matchesCoverageFilter(e.coverage, coverage),
+    )
   }, [lexicon.data, chapters, coverage])
 
   const byTerm = useMemo(() => new Map(deck.map((e) => [e.term, e])), [deck])
@@ -119,12 +121,7 @@ export function FlashcardsPage({ unit, path }: FlashcardsPageProps) {
           <div className="card card--tight no-print" style={{ marginBottom: '0.8rem' }}>
             <div className="filters">
               <ChipGroup label="Chapter" options={chapterOptions} selected={chapters} onChange={setChapters} />
-              <ChipGroup
-                label="Coverage"
-                options={COVERAGES.map((c) => ({ value: c, label: COVERAGE_LABEL[c], title: COVERAGE_HELP[c] }))}
-                selected={coverage}
-                onChange={setCoverage}
-              />
+              <ChipGroup label="Coverage" options={COVERAGE_FILTER_OPTIONS} selected={coverage} onChange={setCoverage} />
             </div>
             <div className="row row--between" style={{ marginTop: '0.8rem' }}>
               <div className="row">
