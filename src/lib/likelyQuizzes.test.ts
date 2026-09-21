@@ -90,11 +90,12 @@ describe('take a predicted quiz as a timed practice quiz', () => {
     expect(isAutostartRequested(new URLSearchParams('set=likely&lq=lecture'))).toBe(false)
   })
 
-  it('the interim split keeps each prediction on its coverage', () => {
+  it('each shipped prediction respects its basis (lecture cited, mixed = lecture+book, book never lecture-only)', () => {
     const byId = new Map(questions.map((q) => [q.id, q]))
-    const coverages = (basis: 'lecture' | 'mixed' | 'book') => new Set(findLikelyQuiz(quizzes, basis)!.questionIds.map((id) => byId.get(id)!.coverage))
-    expect([...coverages('lecture')].every((c) => c === 'lecture-only' || c === 'lecture+book')).toBe(true)
-    expect([...coverages('mixed')]).toEqual(['lecture+book'])
-    expect([...coverages('book')]).toEqual(['book-only'])
+    const of = (basis: 'lecture' | 'mixed' | 'book') => findLikelyQuiz(quizzes, basis)!.questionIds.map((id) => byId.get(id)!)
+    expect(of('lecture').every((q) => typeof q.source.lecture === 'string' && q.source.lecture.length > 0)).toBe(true)
+    expect(of('mixed').every((q) => q.coverage === 'lecture+book')).toBe(true)
+    expect(of('book').every((q) => q.coverage !== 'lecture-only')).toBe(true)
+    expect(findLikelyQuiz(quizzes, 'mixed')!.primary).toBe(true)
   })
 })
