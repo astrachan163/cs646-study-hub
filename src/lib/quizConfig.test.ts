@@ -33,6 +33,7 @@ describe('quiz config <-> URL', () => {
       seed: 'k3v9x2',
       ids: ['a-ch01-q01', 'a-ch02-q02'],
       set: 'random',
+      likelyQuiz: null,
     }
     const params = serializeQuizConfig(config, defaults)
     // Re-parse from the string form exactly as the browser would.
@@ -43,6 +44,18 @@ describe('quiz config <-> URL', () => {
   it('omits defaults so links stay short, but always writes the seed', () => {
     const params = serializeQuizConfig({ ...defaults, seed: 'abc' }, defaults)
     expect(params.toString()).toBe('seed=abc')
+  })
+
+  it('round-trips the chosen predicted quiz and ignores it for random quizzes', () => {
+    const book: QuizConfig = { ...defaults, set: 'likely', likelyQuiz: 'book', seed: 's' }
+    const params = serializeQuizConfig(book, defaults)
+    expect(params.toString()).toBe('set=likely&lq=book&seed=s')
+    expect(parseQuizConfig(new URLSearchParams(params.toString()), defaults)).toEqual(book)
+    // Old links (before there were three predictions) still open the primary quiz.
+    expect(parseQuizConfig(new URLSearchParams('set=likely&seed=s'), defaults)).toEqual({ ...defaults, set: 'likely', likelyQuiz: null, seed: 's' })
+    expect(parseQuizConfig(new URLSearchParams('set=likely&lq=slides'), defaults).likelyQuiz).toBeNull()
+    expect(parseQuizConfig(new URLSearchParams('lq=book'), defaults)).toMatchObject({ set: 'random', likelyQuiz: null })
+    expect(serializeQuizConfig({ ...defaults, likelyQuiz: 'book', seed: 's' }, defaults).toString()).toBe('seed=s')
   })
 
   it('falls back to defaults for missing or garbage values', () => {
@@ -68,6 +81,7 @@ describe('quiz config <-> URL', () => {
   it('describes the configuration for humans', () => {
     expect(describeQuizConfig(defaults)).toBe('20 questions · 10 min · instant feedback')
     expect(describeQuizConfig({ ...defaults, set: 'likely' })).toBe('Predicted quiz, in order')
+    expect(describeQuizConfig({ ...defaults, set: 'likely', likelyQuiz: 'mixed' })).toBe('Predicted quiz (lecture + book), in order')
     expect(describeQuizConfig({ ...defaults, ids: ['a', 'b'], chapters: [2], timerMinutes: 0, feedback: 'end' })).toBe(
       '2 chosen questions · ch 2 · untimed · feedback at end',
     )

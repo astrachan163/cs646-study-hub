@@ -63,6 +63,28 @@ export interface LexiconEntry {
   related: string[]
 }
 
+/**
+ * What a predicted quiz is built from. The Likely Quiz page shows one tab per
+ * basis, in this order.
+ */
+export const QUIZ_BASES = ['lecture', 'mixed', 'book'] as const
+export type QuizBasis = (typeof QUIZ_BASES)[number]
+
+/** likely-quizzes.json holds exactly this many quizzes, one per basis. */
+export const LIKELY_QUIZ_COUNT = QUIZ_BASES.length
+
+/** One predicted quiz (an entry of likely-quizzes.json). */
+export interface LikelyQuiz {
+  id: string
+  basis: QuizBasis
+  /** Exactly one quiz per unit is the primary prediction (the default tab and the home-page link). */
+  primary: boolean
+  title: string
+  description: string
+  /** Question ids from questions.json, in the order the quiz should be shown. */
+  questionIds: string[]
+}
+
 export interface Assessment {
   type: string
   questions: number

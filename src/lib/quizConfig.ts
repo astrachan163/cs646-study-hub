@@ -5,8 +5,10 @@ import {
   type Coverage,
   type Difficulty,
   type Likelihood,
+  type QuizBasis,
   type UnitMeta,
 } from '../content/types.ts'
+import { BASIS_LABEL, parseQuizBasis } from './likelyQuizzes.ts'
 
 export type FeedbackMode = 'instant' | 'end'
 export type QuizSet = 'random' | 'likely'
@@ -28,6 +30,8 @@ export interface QuizConfig {
   /** Explicit question ids (retry missed only). Empty means "pick randomly". */
   ids: string[]
   set: QuizSet
+  /** Which predicted quiz when `set` is "likely"; null means the unit's primary prediction. */
+  likelyQuiz: QuizBasis | null
 }
 
 export function defaultQuizConfig(unit: UnitMeta, seed: string): QuizConfig {
@@ -42,7 +46,23 @@ export function defaultQuizConfig(unit: UnitMeta, seed: string): QuizConfig {
     seed,
     ids: [],
     set: 'random',
+    likelyQuiz: null,
   }
+}
+
+/** `?start=1` makes the quiz page begin at once instead of showing the setup screen. */
+export const AUTOSTART_PARAM = 'start'
+
+export function isAutostartRequested(params: URLSearchParams): boolean {
+  return params.get(AUTOSTART_PARAM) === '1'
+}
+
+/**
+ * The link behind "Take this as a timed practice quiz": the given predicted quiz,
+ * in order, with the real quiz's timer (the unit default) and feedback only at the end.
+ */
+export function likelyQuizLaunchParams(basis: QuizBasis): URLSearchParams {
+  return new URLSearchParams({ set: 'likely', lq: basis, fb: 'end', [AUTOSTART_PARAM]: '1' })
 }
 
 function parseList(value: string | null): string[] {
@@ -82,13 +102,17 @@ export function parseQuizConfig(params: URLSearchParams, defaults: QuizConfig): 
     seed: params.get('seed')?.trim() || defaults.seed,
     ids: parseList(params.get('ids')),
     set: setRaw === 'likely' ? 'likely' : 'random',
+    likelyQuiz: setRaw === 'likely' ? parseQuizBasis(params.get('lq')) : null,
   }
 }
 
 /** Only non-default values are written so shared links stay short. The seed is always written. */
 export function serializeQuizConfig(config: QuizConfig, defaults: QuizConfig): URLSearchParams {
   const params = new URLSearchParams()
-  if (config.set === 'likely') params.set('set', 'likely')
+  if (config.set === 'likely') {
+    params.set('set', 'likely')
+    if (config.likelyQuiz !== null) params.set('lq', config.likelyQuiz)
+  }
   if (config.n !== defaults.n) params.set('n', String(config.n))
   if (config.chapters.length > 0) params.set('ch', config.chapters.join(','))
   if (config.coverage.length > 0) params.set('cov', config.coverage.join(','))
@@ -103,7 +127,10 @@ export function serializeQuizConfig(config: QuizConfig, defaults: QuizConfig): U
 
 /** Human summary used on the setup screen and in attempt history. */
 export function describeQuizConfig(config: QuizConfig): string {
-  if (config.set === 'likely') return 'Predicted quiz, in order'
+  if (config.set === 'likely') {
+    const which = config.likelyQuiz === null ? '' : ` (${BASIS_LABEL[config.likelyQuiz].toLowerCase()})`
+    return `Predicted quiz${which}, in order`
+  }
   const parts: string[] = []
   parts.push(config.ids.length > 0 ? `${config.ids.length} chosen questions` : `${config.n} questions`)
   if (config.chapters.length > 0) parts.push(`ch ${config.chapters.join(', ')}`)
