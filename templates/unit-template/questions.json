@@ -1,0 +1,141 @@
+[
+  {
+    "id": "ex-ch01-q01",
+    "chapter": 1,
+    "section": "Introduction > What Is Bitcoin?",
+    "type": "mcq",
+    "prompt": "Which statement best describes Bitcoin?",
+    "choices": [
+      "A digital currency issued and backed by a consortium of central banks",
+      "A collection of concepts and technologies that form the basis of a decentralized digital money ecosystem",
+      "A company founded by Satoshi Nakamoto that operates the payment network",
+      "A faster version of the international wire-transfer system"
+    ],
+    "answer": 1,
+    "explanation": "The book's definition: Bitcoin is a collection of concepts and technologies (protocol, peer-to-peer network, currency). It has no issuer, no company and no central operator, so the other options are wrong.",
+    "source": {
+      "book": "ch01 > What Is Bitcoin?",
+      "lecture": null
+    },
+    "coverage": "book-only",
+    "likelihood": "high",
+    "difficulty": "easy",
+    "tags": [
+      "definition",
+      "introduction"
+    ]
+  },
+  {
+    "id": "ex-ch01-q05",
+    "chapter": 1,
+    "section": "Introduction > What Is Bitcoin?",
+    "type": "tf",
+    "prompt": "The total number of bitcoin that will ever exist is capped at about 21 million.",
+    "answer": true,
+    "explanation": "Issuance follows a fixed schedule with a halving every 210,000 blocks, so the supply approaches but never exceeds 21 million.",
+    "source": {
+      "book": "ch01 > What Is Bitcoin?",
+      "lecture": null
+    },
+    "coverage": "book-only",
+    "likelihood": "high",
+    "difficulty": "easy",
+    "tags": [
+      "supply",
+      "issuance"
+    ]
+  },
+  {
+    "id": "ex-ch01-q12",
+    "chapter": 1,
+    "section": "Introduction > What Is Bitcoin?",
+    "type": "short",
+    "prompt": "In one or two sentences: what problem does proof-of-work consensus solve for a currency with no central authority?",
+    "answer": "It lets independent nodes agree on a single history of transactions (preventing double spending) without trusting anyone, because creating blocks is costly and anyone can cheaply verify the work.",
+    "explanation": "Without a central authority you need a way for strangers to agree on which transaction came first. Proof-of-work makes rewriting history expensive while keeping verification cheap, so the longest valid chain becomes the agreed ledger.",
+    "source": {
+      "book": "ch01 > What Is Bitcoin?",
+      "lecture": null
+    },
+    "coverage": "book-only",
+    "likelihood": "medium",
+    "difficulty": "hard",
+    "tags": [
+      "proof-of-work",
+      "consensus"
+    ]
+  },
+  {
+    "id": "ex-ch02-q01",
+    "chapter": 2,
+    "section": "How Bitcoin Works > Bitcoin Transactions",
+    "type": "mcq",
+    "prompt": "Which statement best describes a UTXO?",
+    "choices": [
+      "A user's account balance stored on the blockchain",
+      "An output of a previous transaction that has not yet been spent",
+      "A transaction waiting in the mempool for confirmation",
+      "The fee paid to the miner"
+    ],
+    "answer": 1,
+    "explanation": "UTXO = unspent transaction output. Bitcoin has no accounts; a wallet's balance is the sum of the UTXOs its keys can unlock.",
+    "source": {
+      "book": "ch02 > Transaction Inputs and Outputs",
+      "lecture": null
+    },
+    "coverage": "book-only",
+    "likelihood": "high",
+    "difficulty": "easy",
+    "tags": [
+      "utxo",
+      "transactions"
+    ]
+  },
+  {
+    "id": "ex-ch02-q04",
+    "chapter": 2,
+    "section": "How Bitcoin Works > Transaction Inputs and Outputs",
+    "type": "tf",
+    "prompt": "A transaction output can be partially spent, leaving the remainder in the same output.",
+    "answer": false,
+    "explanation": "UTXOs are indivisible. A spend consumes the entire output; any excess must be returned as a new change output.",
+    "source": {
+      "book": "ch02 > Transaction Inputs and Outputs",
+      "lecture": null
+    },
+    "coverage": "book-only",
+    "likelihood": "high",
+    "difficulty": "medium",
+    "tags": [
+      "utxo",
+      "change"
+    ]
+  },
+  {
+    "id": "ex-ch02-q13",
+    "chapter": 2,
+    "section": "How Bitcoin Works > Transaction Inputs and Outputs",
+    "type": "mcq",
+    "prompt": "Alice spends a 0.05 BTC output to pay 0.03 BTC and includes a 0.0001 BTC fee. How much is her change output?",
+    "choices": [
+      "0.02 BTC",
+      "0.0199 BTC",
+      "0.0201 BTC",
+      "0.0301 BTC"
+    ],
+    "answer": 1,
+    "explanation": "Change = inputs − payment − fee = 0.05 − 0.03 − 0.0001 = 0.0199 BTC. Included for understanding only: the instructor said calculations are out of scope.",
+    "source": {
+      "book": "ch02 > Transaction Inputs and Outputs",
+      "lecture": null
+    },
+    "coverage": "book-only",
+    "likelihood": "low",
+    "difficulty": "medium",
+    "tags": [
+      "calculation",
+      "change",
+      "fees"
+    ]
+  }
+]

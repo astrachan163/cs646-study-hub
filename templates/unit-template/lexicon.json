@@ -1,0 +1,74 @@
+[
+  {
+    "term": "Bitcoin",
+    "definition": "A collection of concepts and technologies (a protocol, a peer-to-peer network and a currency) that form the basis of a decentralized digital money ecosystem. Capital B for the system, lower-case b for the currency unit.",
+    "chapter": 1,
+    "coverage": "book-only",
+    "related": [
+      "blockchain",
+      "proof-of-work"
+    ]
+  },
+  {
+    "term": "satoshi",
+    "definition": "The smallest unit of bitcoin: 0.00000001 BTC (one hundred-millionth). 100,000,000 satoshis make one bitcoin.",
+    "chapter": 1,
+    "coverage": "book-only",
+    "related": [
+      "Bitcoin"
+    ]
+  },
+  {
+    "term": "blockchain",
+    "definition": "The public, append-only journal of all transactions, grouped into blocks that each reference the previous block by hash.",
+    "chapter": 1,
+    "coverage": "book-only",
+    "related": []
+  },
+  {
+    "term": "proof-of-work",
+    "definition": "The consensus mechanism in which miners repeatedly hash a block header (varying a nonce) until the result is below the network target; it makes rewriting history costly and lets the network agree on one chain.",
+    "chapter": 1,
+    "coverage": "book-only",
+    "related": []
+  },
+  {
+    "term": "transaction",
+    "definition": "A signed data structure that consumes one or more existing outputs (inputs) and creates new outputs, transferring value.",
+    "chapter": 2,
+    "coverage": "book-only",
+    "related": [
+      "UTXO",
+      "fee"
+    ]
+  },
+  {
+    "term": "UTXO",
+    "definition": "Unspent transaction output: an output that has not yet been used as an input. A wallet's balance is the sum of the UTXOs its keys can unlock. UTXOs are indivisible.",
+    "chapter": 2,
+    "coverage": "book-only",
+    "related": [
+      "change",
+      "transaction"
+    ]
+  },
+  {
+    "term": "change",
+    "definition": "An output a transaction sends back to the spender when the inputs are worth more than the payment plus fee, because outputs cannot be partially spent.",
+    "chapter": 2,
+    "coverage": "book-only",
+    "related": [
+      "UTXO",
+      "fee"
+    ]
+  },
+  {
+    "term": "fee",
+    "definition": "The difference between the total value of a transaction's inputs and its outputs; it is collected by the miner who includes the transaction in a block. There is no explicit fee field.",
+    "chapter": 2,
+    "coverage": "book-only",
+    "related": [
+      "transaction"
+    ]
+  }
+]

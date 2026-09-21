@@ -1,0 +1,75 @@
+{
+  "id": "cs646-fall-2026",
+  "code": "CS 646 / CS 746",
+  "name": "Blockchain & Cryptocurrency",
+  "term": "Fall 2026",
+  "institution": "University of Alabama at Birmingham",
+  "instructor": "Dr. Yuliang Zheng (TA: Amulya Kanumuri)",
+  "meeting": "Tuesdays 5:00-7:30 pm, UH 4002",
+  "timezone": "America/Chicago",
+  "textbooks": [
+    {
+      "title": "Mastering Bitcoin, 3rd ed. (Antonopoulos & Harding) - free online",
+      "url": "https://github.com/bitcoinbook/bitcoinbook"
+    },
+    {
+      "title": "Mastering Ethereum, 2nd ed. (Parisi, Mazza, Pozzolini) - free online",
+      "url": "https://github.com/ethereumbook/ethereumbook"
+    }
+  ],
+  "schedule": [
+    {
+      "title": "Quiz 1: Mastering Bitcoin Chapters 01-05",
+      "type": "quiz",
+      "points": 20,
+      "at": "2026-09-22T18:30:00-05:00",
+      "unit": "quiz-1-mastering-bitcoin-ch01-05"
+    },
+    {
+      "title": "Midterm exam (Respondus LockDown Browser)",
+      "type": "exam",
+      "points": null,
+      "at": "2026-09-29T17:00:00-05:00",
+      "unit": null
+    },
+    {
+      "title": "Project 2 due",
+      "type": "project",
+      "points": 100,
+      "at": "2026-10-04T23:59:00-05:00",
+      "unit": null
+    },
+    {
+      "title": "Project 3 due",
+      "type": "project",
+      "points": 100,
+      "at": "2026-10-18T23:59:00-05:00",
+      "unit": null
+    },
+    {
+      "title": "Project 4 due",
+      "type": "project",
+      "points": 100,
+      "at": "2026-11-01T23:59:00-05:00",
+      "unit": null
+    },
+    {
+      "title": "Project 5 due",
+      "type": "project",
+      "points": 100,
+      "at": "2026-12-04T23:59:00-06:00",
+      "unit": null
+    },
+    {
+      "title": "Final exam (time per official UAB exam schedule)",
+      "type": "exam",
+      "points": null,
+      "at": "2026-12-08T17:00:00-06:00",
+      "unit": null
+    }
+  ],
+  "notes": [
+    "Remaining chapter quizzes from the syllabus: Mastering Bitcoin ch06-10 (20 pts), ch11-14 (16 pts); Mastering Ethereum ch01-06 (18 pts), ch07-12 (16 pts), ch13-17 (8 pts). Dates are announced in Canvas; add a schedule entry when a date is known.",
+    "All deadlines are Central Time."
+  ]
+}

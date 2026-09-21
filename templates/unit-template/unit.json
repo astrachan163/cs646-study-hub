@@ -1,0 +1,23 @@
+{
+  "id": "unit-template",
+  "title": "Example unit (copy me): Mastering Bitcoin Chapters 1-2",
+  "course": "cs646-fall-2026",
+  "assessment": {
+    "type": "quiz",
+    "questions": 6,
+    "points": 6,
+    "minutes": 5,
+    "opens": "2026-12-31T18:30:00-06:00",
+    "closes": "2026-12-31T18:40:00-06:00"
+  },
+  "sources": [
+    {
+      "label": "Mastering Bitcoin, 3rd ed., chapters 1-2",
+      "url": "https://github.com/bitcoinbook/bitcoinbook"
+    }
+  ],
+  "scopeNotes": [
+    "This is an example unit used as a copy-and-edit template and as a test fixture; replace every file.",
+    "Questions tagged calculation must have likelihood low (the validator enforces this)."
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "id": "quiz-1-mastering-bitcoin-ch01-05",
+  "title": "Quiz 1: Mastering Bitcoin Chapters 1-5",
+  "course": "cs646-fall-2026",
+  "assessment": {
+    "type": "quiz",
+    "questions": 20,
+    "points": 20,
+    "minutes": 10,
+    "opens": "2026-09-22T18:30:00-05:00",
+    "closes": "2026-09-22T18:40:00-05:00"
+  },
+  "sources": [
+    {
+      "label": "Mastering Bitcoin, 3rd ed., chapters 1-5",
+      "url": "https://github.com/bitcoinbook/bitcoinbook"
+    },
+    {
+      "label": "Lecture notes, weeks 1-4",
+      "url": null
+    }
+  ],
+  "scopeNotes": [
+    "Instructor said calculations are out of scope: questions tagged calculation are low likelihood and included for understanding only.",
+    "Slides the instructor skipped are marked skipped-slide and are low priority.",
+    "The real quiz is 20 questions, 20 points, 10 minutes, on Canvas."
+  ]
+}

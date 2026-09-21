@@ -1,0 +1,2195 @@
+[
+  {
+    "term": "Bitcoin (capital B) vs bitcoin (small b)",
+    "definition": "Capital-B Bitcoin is the system: protocol, peer-to-peer network, and software. Small-b bitcoin is the unit of currency stored and transmitted on that network.",
+    "chapter": 1,
+    "coverage": "book-only",
+    "related": [
+      "Bitcoin protocol",
+      "Satoshi (sat)"
+    ]
+  },
+  {
+    "term": "Bitcoin protocol",
+    "definition": "The set of rules and message formats used by peers to communicate, primarily over the internet; available as open source software that runs on laptops and smartphones.",
+    "chapter": 1,
+    "coverage": "book-only",
+    "related": [
+      "Peer-to-peer (P2P) network",
+      "Bitcoin Core"
+    ]
+  },
+  {
+    "term": "Peer-to-peer (P2P) network",
+    "definition": "A distributed network with no central server or point of control in which every full node (peer) connects to several others to propagate transactions and blocks.",
+    "chapter": 1,
+    "coverage": "book-only",
+    "related": [
+      "Full node",
+      "Gossiping",
+      "Decentralization"
+    ]
+  },
+  {
+    "term": "Decentralization",
+    "definition": "Design property that Bitcoin has no central authority, server, or issuer; mining decentralizes the currency-issuance and clearing functions of a central bank.",
+    "chapter": 1,
+    "coverage": "book-only",
+    "related": [
+      "Peer-to-peer (P2P) network",
+      "Consensus rules",
+      "Mining"
+    ]
+  },
+  {
+    "term": "Blockchain",
+    "definition": "The public transaction journal: a chain of validated blocks, each committing to its predecessor, back to the genesis block. It is the authoritative record of all confirmed transactions.",
+    "chapter": 1,
+    "coverage": "book-only",
+    "related": [
+      "Block",
+      "Genesis block",
+      "Confirmation"
+    ]
+  },
+  {
+    "term": "Consensus rules",
+    "definition": "The rules every full node independently applies to validate transactions and blocks and to enforce currency issuance; miners earn rewards only for blocks that follow them.",
+    "chapter": 1,
+    "coverage": "book-only",
+    "related": [
+      "Full node",
+      "Proof of work (PoW)",
+      "Mining"
+    ]
+  },
+  {
+    "term": "Proof of work (PoW)",
+    "definition": "Bitcoin's mechanism for global decentralized consensus: miners repeatedly hash candidate blocks until the hash matches a protocol template. The winning block is costly to produce but trivial to verify, so it proves work was done.",
+    "chapter": 1,
+    "coverage": "book-only",
+    "related": [
+      "Mining",
+      "Hash function",
+      "Candidate block",
+      "Difficulty (adjustment)"
+    ]
+  },
+  {
+    "term": "Mining",
+    "definition": "Repeatedly performing the proof-of-work computation over a candidate block of recent transactions; on average one miner succeeds every 10 minutes and is rewarded with new bitcoins plus transaction fees.",
+    "chapter": 1,
+    "coverage": "book-only",
+    "related": [
+      "Proof of work (PoW)",
+      "Block reward / block subsidy",
+      "Transaction fee",
+      "Miner"
+    ]
+  },
+  {
+    "term": "Miner",
+    "definition": "Any network participant who builds candidate blocks and searches for a valid proof of work; miners may operate alone or in pools.",
+    "chapter": 1,
+    "coverage": "book-only",
+    "related": [
+      "Mining",
+      "Mining pool"
+    ]
+  },
+  {
+    "term": "Difficulty (adjustment)",
+    "definition": "A network-wide parameter that scales how hard the proof-of-work puzzle is; it is adjusted dynamically so blocks arrive every 10 minutes on average regardless of total hashing power.",
+    "chapter": 1,
+    "coverage": "book-only",
+    "related": [
+      "Proof of work (PoW)",
+      "Block interval (10 minutes)"
+    ]
+  },
+  {
+    "term": "Block interval (10 minutes)",
+    "definition": "The average time between blocks targeted by the protocol; individual intervals vary, the difficulty adjustment keeps the average near 10 minutes.",
+    "chapter": 1,
+    "coverage": "book-only",
+    "related": [
+      "Difficulty (adjustment)",
+      "Confirmation"
+    ]
+  },
+  {
+    "term": "21 million cap",
+    "definition": "The fixed upper bound on bitcoins that will ever exist (slightly below 21,000,000), enforced by the issuance schedule in the consensus rules; about 99% will have been issued by around 2035.",
+    "chapter": 1,
+    "coverage": "book-only",
+    "related": [
+      "Halving",
+      "Deflationary",
+      "Block reward / block subsidy"
+    ]
+  },
+  {
+    "term": "Halving",
+    "definition": "The scheduled reduction of new-coin issuance: half of the remaining coins are added to circulation every four years because the block subsidy is cut in half periodically.",
+    "chapter": 1,
+    "coverage": "book-only",
+    "related": [
+      "21 million cap",
+      "Block reward / block subsidy"
+    ]
+  },
+  {
+    "term": "Deflationary",
+    "definition": "Because Bitcoin's issuance diminishes toward a fixed cap, the book describes the currency as deflationary over the long term.",
+    "chapter": 1,
+    "coverage": "book-only",
+    "related": [
+      "21 million cap",
+      "Halving"
+    ]
+  },
+  {
+    "term": "Four key innovations",
+    "definition": "The book's list of what Bitcoin consists of: a decentralized P2P network (the protocol), a public transaction journal (the blockchain), consensus rules for independent validation and issuance, and the proof-of-work consensus mechanism.",
+    "chapter": 1,
+    "coverage": "book-only",
+    "related": [
+      "Bitcoin protocol",
+      "Blockchain",
+      "Consensus rules",
+      "Proof of work (PoW)"
+    ]
+  },
+  {
+    "term": "Double-spend problem",
+    "definition": "The risk that the same unit of digital money is spent twice. Physical cash avoids it trivially; earlier digital currencies used a central clearinghouse; Bitcoin solves it with proof-of-work consensus on a single transaction history.",
+    "chapter": 1,
+    "coverage": "book-only",
+    "related": [
+      "Proof of work (PoW)",
+      "Central clearinghouse",
+      "Confirmation"
+    ]
+  },
+  {
+    "term": "Central clearinghouse",
+    "definition": "A trusted central authority that settles all transactions and holds a global view of the currency, as used by banks and pre-Bitcoin digital currencies; a single point of attack that Bitcoin removes.",
+    "chapter": 1,
+    "coverage": "book-only",
+    "related": [
+      "Double-spend problem",
+      "Decentralization"
+    ]
+  },
+  {
+    "term": "Digital signature",
+    "definition": "A cryptographic value produced with a private key over a message (transaction) that anyone can verify with the corresponding public key; proves ownership/authorization without revealing the private key.",
+    "chapter": 1,
+    "coverage": "book-only",
+    "related": [
+      "Private key",
+      "Public key",
+      "Public key cryptography (asymmetric cryptography)"
+    ]
+  },
+  {
+    "term": "Satoshi Nakamoto",
+    "definition": "Pseudonymous author of the 2008 paper 'Bitcoin: A Peer-to-Peer Electronic Cash System' and of the 2009 reference implementation; withdrew from public view in April 2011; identity unknown; exerts no control over Bitcoin.",
+    "chapter": 1,
+    "coverage": "book-only",
+    "related": [
+      "Whitepaper",
+      "Bitcoin Core"
+    ]
+  },
+  {
+    "term": "Whitepaper",
+    "definition": "Nakamoto's 2008 paper describing Bitcoin: electronic coin as a chain of digital signatures, a P2P timestamp server, hash-based proof of work, longest-chain rule, incentives, SPV, and privacy via fresh key pairs. Reproduced as Appendix A of the book.",
+    "chapter": 1,
+    "coverage": "book-only",
+    "related": [
+      "Satoshi Nakamoto",
+      "Timestamp server (whitepaper)",
+      "Longest chain (whitepaper)"
+    ]
+  },
+  {
+    "term": "Hashcash",
+    "definition": "Adam Back's proof-of-work scheme that Nakamoto combined with digital signatures to build Bitcoin.",
+    "chapter": 1,
+    "coverage": "book-only",
+    "related": [
+      "Proof of work (PoW)",
+      "Satoshi Nakamoto"
+    ]
+  },
+  {
+    "term": "Byzantine Generals' Problem",
+    "definition": "The distributed-computing problem of getting leaderless participants to agree on a course of action over an unreliable, possibly compromised network; Bitcoin's PoW consensus is a practical solution without a trusted authority.",
+    "chapter": 1,
+    "coverage": "book-only",
+    "related": [
+      "Proof of work (PoW)",
+      "Consensus rules"
+    ]
+  },
+  {
+    "term": "Wallet",
+    "definition": "The most common user interface to Bitcoin (like a browser is to HTTP): software that manages keys, builds and signs transactions, and tracks balances. The 'wallet database' holds keys, not coins.",
+    "chapter": 1,
+    "coverage": "book-only",
+    "related": [
+      "Wallet database",
+      "Noncustodial wallet",
+      "Bitcoin Core"
+    ]
+  },
+  {
+    "term": "Bitcoin Core",
+    "definition": "The reference implementation of the Bitcoin protocol, derived from Satoshi's original client; includes a wallet, validation engine, block construction tools, and P2P networking.",
+    "chapter": 1,
+    "coverage": "book-only",
+    "related": [
+      "Reference implementation",
+      "Full node",
+      "bitcoind"
+    ]
+  },
+  {
+    "term": "Desktop wallet",
+    "definition": "Wallet running on a general-purpose OS (Windows/macOS); the first wallet type (the reference implementation); offers autonomy but inherits desktop security weaknesses.",
+    "chapter": 1,
+    "coverage": "book-only",
+    "related": [
+      "Mobile wallet",
+      "Web wallet",
+      "Hardware signing device"
+    ]
+  },
+  {
+    "term": "Mobile wallet",
+    "definition": "The most common wallet type, running on iOS/Android; often simplest for new users; most fetch data from remote servers, which reduces privacy.",
+    "chapter": 1,
+    "coverage": "book-only",
+    "related": [
+      "Lightweight client (SPV client)",
+      "Desktop wallet"
+    ]
+  },
+  {
+    "term": "Web wallet",
+    "definition": "Wallet accessed through a browser and stored on a third-party server (like webmail); most take control of the user's keys in exchange for convenience, so large balances should not be kept there.",
+    "chapter": 1,
+    "coverage": "book-only",
+    "related": [
+      "Custodial vs noncustodial",
+      "Desktop wallet"
+    ]
+  },
+  {
+    "term": "Hardware signing device",
+    "definition": "Special-purpose hardware that stores private keys and signs transactions (via USB, NFC, or QR codes); often called a 'hardware wallet' but must be paired with a full-featured wallet application to send and receive.",
+    "chapter": 1,
+    "coverage": "book-only",
+    "related": [
+      "Wallet",
+      "Extended public key (xpub)",
+      "Cold storage"
+    ]
+  },
+  {
+    "term": "Full node",
+    "definition": "A program that validates the entire history of Bitcoin transactions against every consensus rule; may store and serve data to others; the peers of the P2P network; offers complete autonomy at substantial resource cost.",
+    "chapter": 1,
+    "coverage": "book-only",
+    "related": [
+      "Full verification node",
+      "Lightweight client (SPV client)",
+      "Peer vs client"
+    ]
+  },
+  {
+    "term": "Lightweight client (SPV client)",
+    "definition": "A simplified-payment-verification client that connects to full nodes for transaction data, stores its wallet locally, partially validates what it receives, and builds its own transactions; its security depends on the integrity of its peers.",
+    "chapter": 1,
+    "coverage": "book-only",
+    "related": [
+      "Full node",
+      "Simplified payment verification (SPV)",
+      "Peer vs client"
+    ]
+  },
+  {
+    "term": "Third-party API client",
+    "definition": "A client that interacts with Bitcoin only through a third party's API rather than the network; trusts that provider for accurate data and privacy.",
+    "chapter": 1,
+    "coverage": "book-only",
+    "related": [
+      "Lightweight client (SPV client)",
+      "Custodial vs noncustodial"
+    ]
+  },
+  {
+    "term": "Peer vs client",
+    "definition": "Full nodes are peers that independently validate everything; lightweight wallets and other software are clients that depend on one or more peers for valid data.",
+    "chapter": 1,
+    "coverage": "book-only",
+    "related": [
+      "Full node",
+      "Lightweight client (SPV client)"
+    ]
+  },
+  {
+    "term": "Custodial vs noncustodial",
+    "definition": "Custodial: a third party controls the private keys (an account with a custodian). Noncustodial: the user controls the keys and bears backup responsibility. 'Your keys, your coins. Not your keys, not your coins.'",
+    "chapter": 1,
+    "coverage": "book-only",
+    "related": [
+      "Private key",
+      "Recovery code",
+      "Web wallet"
+    ]
+  },
+  {
+    "term": "Noncustodial wallet",
+    "definition": "A wallet in which the user alone controls the private keys; the user must back up the recovery code because losing the keys loses the funds.",
+    "chapter": 1,
+    "coverage": "book-only",
+    "related": [
+      "Custodial vs noncustodial",
+      "Recovery code"
+    ]
+  },
+  {
+    "term": "Recovery code",
+    "definition": "Numbers, letters, or words randomly selected by the wallet software that serve as the basis for all of the wallet's keys; used to rebuild the wallet after loss. Also called mnemonic, mnemonic phrase, or seed phrase.",
+    "chapter": 1,
+    "coverage": "book-only",
+    "related": [
+      "Seed",
+      "BIP39",
+      "Mnemonic / seed phrase"
+    ]
+  },
+  {
+    "term": "Mnemonic / seed phrase",
+    "definition": "Alternative names for a recovery code. 'Mnemonic' implies memorizing, but the book recommends writing it down; 'seed phrase' because it seeds the key-generation function.",
+    "chapter": 1,
+    "coverage": "book-only",
+    "related": [
+      "Recovery code",
+      "BIP39"
+    ]
+  },
+  {
+    "term": "Offchain",
+    "definition": "Payments or protocols (e.g., Lightning) in which not every payment is recorded on the public blockchain; cheaper and more private, but seed-based recovery cannot guarantee restoring such funds.",
+    "chapter": 1,
+    "coverage": "book-only",
+    "related": [
+      "Recovery code",
+      "Lightning Network (LN)",
+      "Static channel backup"
+    ]
+  },
+  {
+    "term": "Address",
+    "definition": "A string derived from a key (or script) that directs payments to a wallet; generated independently by the wallet and never registered with any service; safe to share, but reuse links payments and harms privacy.",
+    "chapter": 1,
+    "coverage": "book-only",
+    "related": [
+      "Invoice",
+      "Address reuse",
+      "Base58check",
+      "Bech32"
+    ]
+  },
+  {
+    "term": "Address reuse",
+    "definition": "Receiving multiple payments to the same address; lets observers link those payments and see amounts; the book recommends a fresh address per payment request.",
+    "chapter": 1,
+    "coverage": "book-only",
+    "related": [
+      "Address",
+      "Privacy",
+      "Change output / change address"
+    ]
+  },
+  {
+    "term": "Invoice",
+    "definition": "A payment request shared with a payer; in BIP21 form it is a QR-encoded URI containing an address, amount, label, and description so the wallet can prefill the payment.",
+    "chapter": 1,
+    "coverage": "book-only",
+    "related": [
+      "BIP21 URI",
+      "QR code",
+      "Address"
+    ]
+  },
+  {
+    "term": "QR code",
+    "definition": "Two-dimensional barcode used to share addresses and invoices between wallets by camera scan; bech32 addresses in uppercase use a smaller QR mode.",
+    "chapter": 1,
+    "coverage": "book-only",
+    "related": [
+      "Invoice",
+      "Bech32"
+    ]
+  },
+  {
+    "term": "Irreversibility",
+    "definition": "Bitcoin transactions cannot be reversed once confirmed, unlike credit-card, PayPal, or bank transfers; this is why sellers of bitcoin require KYC before accepting reversible payments.",
+    "chapter": 1,
+    "coverage": "book-only",
+    "related": [
+      "Confirmation",
+      "KYC (know your customer)"
+    ]
+  },
+  {
+    "term": "Bitcoin ATM",
+    "definition": "A machine that accepts cash and sends bitcoins to a smartphone wallet; one of the book's listed ways for a new user to acquire bitcoin.",
+    "chapter": 1,
+    "coverage": "book-only",
+    "related": [
+      "Currency exchange"
+    ]
+  },
+  {
+    "term": "Currency exchange",
+    "definition": "A market where buyers and sellers swap bitcoin for local currency, usually linked to a bank account and subject to identity regulations; price is set by supply and demand.",
+    "chapter": 1,
+    "coverage": "book-only",
+    "related": [
+      "Floating exchange rate",
+      "KYC (know your customer)"
+    ]
+  },
+  {
+    "term": "KYC (know your customer)",
+    "definition": "Identity-verification requirements imposed where Bitcoin touches regulated systems such as exchanges; once an address is tied to an identity, associated transactions can be tracked.",
+    "chapter": 1,
+    "coverage": "book-only",
+    "related": [
+      "Currency exchange",
+      "Privacy"
+    ]
+  },
+  {
+    "term": "Floating exchange rate",
+    "definition": "Bitcoin's price is set by markets through supply and demand, differs slightly per market, and changes many times per second; pricing services publish a volume-weighted average (e.g., BTC/USD).",
+    "chapter": 1,
+    "coverage": "book-only",
+    "related": [
+      "Currency exchange"
+    ]
+  },
+  {
+    "term": "Satoshi (sat)",
+    "definition": "The smallest unit of bitcoin recorded on the blockchain: 0.00000001 BTC (1 BTC = 100,000,000 sats). Serialized transactions encode values as integers of this base unit.",
+    "chapter": 1,
+    "coverage": "book-only",
+    "related": [
+      "Millibitcoin (mBTC)",
+      "Bitcoin (capital B) vs bitcoin (small b)"
+    ]
+  },
+  {
+    "term": "Millibitcoin (mBTC)",
+    "definition": "One thousandth of a bitcoin (0.001 BTC = 100,000 satoshis); Alice's first purchase from Joe was 1 mBTC.",
+    "chapter": 1,
+    "coverage": "book-only",
+    "related": [
+      "Satoshi (sat)"
+    ]
+  },
+  {
+    "term": "Transaction fee",
+    "definition": "The implied difference between a transaction's total inputs and total outputs, collected by the miner who includes the transaction; a higher fee rate generally means faster confirmation.",
+    "chapter": 1,
+    "coverage": "book-only",
+    "related": [
+      "Fee rate",
+      "Input",
+      "Output",
+      "Miner"
+    ]
+  },
+  {
+    "term": "Confirmation",
+    "definition": "Inclusion of a transaction in a block on the blockchain (one confirmation); each subsequent block adds another. 'Unconfirmed' means propagated but not yet in a block. Bitcoin's equivalent of clearing.",
+    "chapter": 1,
+    "coverage": "book-only",
+    "related": [
+      "Block",
+      "Clearing",
+      "Six confirmations"
+    ]
+  },
+  {
+    "term": "Clearing",
+    "definition": "The traditional-finance term for a payment being finalized; in Bitcoin, confirmation of a transaction by inclusion in a block plays this role.",
+    "chapter": 1,
+    "coverage": "book-only",
+    "related": [
+      "Confirmation"
+    ]
+  },
+  {
+    "term": "Privacy",
+    "definition": "Bitcoin itself requires no personal information, but addresses are public: reuse, block-explorer lookups, remote-server wallets, and exchange KYC can all link activity to a person. Best practice: new address per payment.",
+    "chapter": 1,
+    "coverage": "book-only",
+    "related": [
+      "Address reuse",
+      "KYC (know your customer)",
+      "Blockchain explorer"
+    ]
+  },
+  {
+    "term": "Blockchain explorer",
+    "definition": "A web application that acts as a search engine for the blockchain (addresses, transactions, blocks), e.g., Blockstream Explorer, Mempool.Space, BlockCypher; looking up your own transactions reveals your interest to the operator.",
+    "chapter": 2,
+    "coverage": "book-only",
+    "related": [
+      "Privacy",
+      "Block height",
+      "Transaction ID (txid)"
+    ]
+  },
+  {
+    "term": "BIP21 URI",
+    "definition": "The 'bitcoin:' URI scheme for invoices: bitcoin:<address>?amount=...&label=...&message=..., usually shown as a QR code.",
+    "chapter": 2,
+    "coverage": "book-only",
+    "related": [
+      "Invoice",
+      "QR code"
+    ]
+  },
+  {
+    "term": "Transaction",
+    "definition": "A signed data structure by which the owner of some bitcoins authorizes transferring that value to a new owner; each new owner can spend by creating another transaction, forming a chain of ownership.",
+    "chapter": 2,
+    "coverage": "book-only",
+    "related": [
+      "Input",
+      "Output",
+      "Transaction chain",
+      "Digital signature"
+    ]
+  },
+  {
+    "term": "Input",
+    "definition": "A reference to a previous transaction output being spent (its txid plus output index) together with the proof of ownership (signature/input script). Inputs do not store their value; it is looked up from the referenced output.",
+    "chapter": 2,
+    "coverage": "book-only",
+    "related": [
+      "Output",
+      "UTXO (unspent transaction output)",
+      "Transaction ID (txid)",
+      "Input script"
+    ]
+  },
+  {
+    "term": "Output",
+    "definition": "A component of a transaction that receives funds: a value plus an output script that encumbers the value with spending conditions (e.g., a signature from the recipient's key).",
+    "chapter": 2,
+    "coverage": "book-only",
+    "related": [
+      "Input",
+      "UTXO (unspent transaction output)",
+      "Output script",
+      "Change output / change address"
+    ]
+  },
+  {
+    "term": "UTXO (unspent transaction output)",
+    "definition": "A transaction output that has not yet been spent by any input; the set of all UTXOs is what a full node tracks and what wallets select from when building payments.",
+    "chapter": 2,
+    "coverage": "book-only",
+    "related": [
+      "Output",
+      "Input",
+      "Coin selection"
+    ]
+  },
+  {
+    "term": "Double-entry bookkeeping analogy",
+    "definition": "The book's description of transactions as ledger lines with inputs (debits/spending) on one side and outputs (credits/receiving) on the other, with outputs summing to slightly less than inputs (the fee).",
+    "chapter": 2,
+    "coverage": "book-only",
+    "related": [
+      "Input",
+      "Output",
+      "Transaction fee"
+    ]
+  },
+  {
+    "term": "Transaction chain",
+    "definition": "The linkage created when the output of one transaction becomes the input of the next (e.g., Joe -> Alice -> Bob -> Gopesh), tracing ownership back through history.",
+    "chapter": 2,
+    "coverage": "book-only",
+    "related": [
+      "Input",
+      "Output",
+      "Transaction ID (txid)"
+    ]
+  },
+  {
+    "term": "Transaction ID (txid)",
+    "definition": "The 32-byte identifier of a transaction used by inputs to reference the transaction whose output they spend (e.g., 'Tx1:0' = output 0 of Tx1). Not authoritative until confirmed because of malleability.",
+    "chapter": 2,
+    "coverage": "book-only",
+    "related": [
+      "Input",
+      "Transaction malleability"
+    ]
+  },
+  {
+    "term": "Change output / change address",
+    "definition": "An output that returns excess input value to the spender because inputs cannot be partially spent; at the protocol level identical to a payment output; for privacy it usually pays a fresh address from the spender's wallet.",
+    "chapter": 2,
+    "coverage": "book-only",
+    "related": [
+      "Output",
+      "Changeless transaction",
+      "Coin selection"
+    ]
+  },
+  {
+    "term": "Changeless transaction",
+    "definition": "A transaction with a single output and no change, practical only when the input amount roughly equals the payment plus fee.",
+    "chapter": 2,
+    "coverage": "book-only",
+    "related": [
+      "Change output / change address"
+    ]
+  },
+  {
+    "term": "Coin selection",
+    "definition": "A wallet's strategy for choosing which UTXOs to spend (aggregate many small ones vs use one large one), balancing fees, change, and privacy like a person choosing bills and coins.",
+    "chapter": 2,
+    "coverage": "book-only",
+    "related": [
+      "UTXO (unspent transaction output)",
+      "Change output / change address"
+    ]
+  },
+  {
+    "term": "Simple payment",
+    "definition": "The most common transaction form: one input and two outputs (payment plus change).",
+    "chapter": 2,
+    "coverage": "book-only",
+    "related": [
+      "Consolidation transaction",
+      "Payment batching"
+    ]
+  },
+  {
+    "term": "Consolidation transaction",
+    "definition": "A transaction spending several inputs into a single output, like exchanging a pile of coins for one large note; used to clean up many small amounts.",
+    "chapter": 2,
+    "coverage": "book-only",
+    "related": [
+      "Simple payment",
+      "Payment batching"
+    ]
+  },
+  {
+    "term": "Payment batching",
+    "definition": "A single transaction paying many recipients through multiple outputs, e.g., payroll.",
+    "chapter": 2,
+    "coverage": "book-only",
+    "related": [
+      "Simple payment",
+      "Consolidation transaction"
+    ]
+  },
+  {
+    "term": "Encumbrance (output script)",
+    "definition": "The condition placed on an output's value by its script, e.g., 'paid to whoever can present a signature from the key matching Bob's address'; the recipient's wallet satisfies it when spending.",
+    "chapter": 2,
+    "coverage": "book-only",
+    "related": [
+      "Output",
+      "Output script",
+      "Input script"
+    ]
+  },
+  {
+    "term": "Offline transaction construction",
+    "definition": "A wallet that already knows its UTXOs can build and sign a transaction with no network connection, then broadcast it later, like writing a check at home and mailing it.",
+    "chapter": 2,
+    "coverage": "book-only",
+    "related": [
+      "Transaction",
+      "Hardware signing device"
+    ]
+  },
+  {
+    "term": "Full verification node",
+    "definition": "The book's fuller name for a full node: a peer with both the software logic and the data to fully verify new transactions and blocks; nodes are the dots and connections the edges in the network graph.",
+    "chapter": 2,
+    "coverage": "book-only",
+    "related": [
+      "Full node",
+      "Gossiping"
+    ]
+  },
+  {
+    "term": "Gossiping",
+    "definition": "The propagation technique in which any node that receives a valid, previously unseen transaction (or block) forwards it to all its connected peers, reaching most of the network within seconds.",
+    "chapter": 2,
+    "coverage": "book-only",
+    "related": [
+      "Peer-to-peer (P2P) network",
+      "Full verification node"
+    ]
+  },
+  {
+    "term": "Block",
+    "definition": "A bundle of transactions plus a small header that commits to the previous block and must satisfy proof of work; enormous computation to produce, trivial to verify.",
+    "chapter": 2,
+    "coverage": "book-only",
+    "related": [
+      "Blockchain",
+      "Candidate block",
+      "Proof of work (PoW)"
+    ]
+  },
+  {
+    "term": "Candidate block",
+    "definition": "A miner's proposed block, its 'lottery ticket', containing the transactions it wants to mine plus header fields; the miner varies it and hashes it until the hash matches the protocol's template.",
+    "chapter": 2,
+    "coverage": "book-only",
+    "related": [
+      "Mining",
+      "Proof of work (PoW)",
+      "Hash function"
+    ]
+  },
+  {
+    "term": "Hash function",
+    "definition": "A function that scrambles input data into a fixed-size output: the same input always yields the same output, but the output for a new or slightly changed input is unpredictable, and finding another input with the same output is impractical.",
+    "chapter": 2,
+    "coverage": "book-only",
+    "related": [
+      "SHA256",
+      "Commitment",
+      "Proof of work (PoW)"
+    ]
+  },
+  {
+    "term": "Block reward / block subsidy",
+    "definition": "New bitcoins created in each block, paid together with the block's transaction fees to the miner's own address via a special transaction; the subsidy follows a fixed, diminishing schedule.",
+    "chapter": 2,
+    "coverage": "book-only",
+    "related": [
+      "Mining",
+      "Coinbase transaction",
+      "Halving"
+    ]
+  },
+  {
+    "term": "Coinbase transaction",
+    "definition": "The special first transaction of a block, created by the miner, that pays the block reward plus fees to an address of the miner's choosing (the book describes it in ch02 without naming it; the whitepaper calls it the first transaction that 'starts a new coin').",
+    "chapter": 2,
+    "coverage": "book-only",
+    "related": [
+      "Block reward / block subsidy",
+      "Mining"
+    ]
+  },
+  {
+    "term": "Mining pool",
+    "definition": "A group of miners whose candidate blocks assign the reward to a pool address; the pool shares rewards with members in proportion to the work they contributed.",
+    "chapter": 2,
+    "coverage": "book-only",
+    "related": [
+      "Miner",
+      "Block reward / block subsidy"
+    ]
+  },
+  {
+    "term": "Fee rate",
+    "definition": "Fee per unit of transaction size; miners prioritize transactions with the highest fee rates when filling candidate blocks.",
+    "chapter": 2,
+    "coverage": "book-only",
+    "related": [
+      "Transaction fee",
+      "Candidate block"
+    ]
+  },
+  {
+    "term": "Best blockchain (most total PoW)",
+    "definition": "When competing valid chains exist, full nodes choose the one with the most total proof of work; the whitepaper phrased this as the 'longest chain'.",
+    "chapter": 2,
+    "coverage": "book-only",
+    "related": [
+      "Longest chain (whitepaper)",
+      "Blockchain reorganization (reorg)",
+      "Confirmation"
+    ]
+  },
+  {
+    "term": "Longest chain (whitepaper)",
+    "definition": "Nakamoto's rule that nodes consider the longest proof-of-work chain correct and keep extending it; it embodies the majority of CPU power ('one-CPU-one-vote').",
+    "chapter": 2,
+    "coverage": "book-only",
+    "related": [
+      "Best blockchain (most total PoW)",
+      "Proof of work (PoW)"
+    ]
+  },
+  {
+    "term": "Six confirmations",
+    "definition": "The conventional depth after which a transaction is considered very hard to change, because an attacker would need to redo six blocks plus one more.",
+    "chapter": 2,
+    "coverage": "book-only",
+    "related": [
+      "Confirmation",
+      "Best blockchain (most total PoW)"
+    ]
+  },
+  {
+    "term": "Genesis block",
+    "definition": "Block #0, the first block in the blockchain, to which every later block ultimately links.",
+    "chapter": 2,
+    "coverage": "book-only",
+    "related": [
+      "Blockchain",
+      "Block height"
+    ]
+  },
+  {
+    "term": "Block height",
+    "definition": "A block's position in the chain, i.e., how many blocks precede it (the genesis block is height 0).",
+    "chapter": 2,
+    "coverage": "book-only",
+    "related": [
+      "Genesis block",
+      "Confirmations (block depth)"
+    ]
+  },
+  {
+    "term": "Simplified payment verification (SPV)",
+    "definition": "Lightweight verification that a transaction is in the blockchain by checking block headers and inclusion (Merkle branch) plus the number of blocks mined after it, without validating the whole history.",
+    "chapter": 2,
+    "coverage": "book-only",
+    "related": [
+      "Lightweight client (SPV client)",
+      "Full node"
+    ]
+  },
+  {
+    "term": "Timestamp server (whitepaper)",
+    "definition": "Nakamoto's conceptual building block: hash a block of items and widely publish the hash, each timestamp including the previous one, forming a chain that proves data existed at that time.",
+    "chapter": 2,
+    "coverage": "book-only",
+    "related": [
+      "Whitepaper",
+      "Blockchain",
+      "Proof of work (PoW)"
+    ]
+  },
+  {
+    "term": "Nonce (whitepaper)",
+    "definition": "The header field a miner increments so that the block's hash meets the required difficulty (leading zero bits in the whitepaper's description).",
+    "chapter": 2,
+    "coverage": "book-only",
+    "related": [
+      "Proof of work (PoW)",
+      "Block"
+    ]
+  },
+  {
+    "term": "Merkle tree / Merkle root (whitepaper)",
+    "definition": "A tree of hashes over a block's transactions whose root is committed in the block header, allowing old transactions to be pruned and SPV clients to verify inclusion with a short branch.",
+    "chapter": 2,
+    "coverage": "book-only",
+    "related": [
+      "Block",
+      "Simplified payment verification (SPV)"
+    ]
+  },
+  {
+    "term": "Reference implementation",
+    "definition": "The implementation that provides a reference for how each part of the technology should be implemented; for Bitcoin this is Bitcoin Core, evolved from Satoshi's original 'Bitcoin' client.",
+    "chapter": 3,
+    "coverage": "book-only",
+    "related": [
+      "Bitcoin Core",
+      "BIP (Bitcoin Improvement Proposal)"
+    ]
+  },
+  {
+    "term": "MIT license / open source",
+    "definition": "Bitcoin's source code is released under the open MIT license, free to download and use for any purpose, and developed by an open community of volunteers (over 1,000 contributors by 2023).",
+    "chapter": 3,
+    "coverage": "book-only",
+    "related": [
+      "Bitcoin Core"
+    ]
+  },
+  {
+    "term": "BIP (Bitcoin Improvement Proposal)",
+    "definition": "Numbered design documents that have specified most major parts of Bitcoin since 2011 (e.g., BIP9 for upgrade deployment, BIP16 P2SH, BIP21 URIs, BIP32/39/44 wallets, BIP173/350 addresses).",
+    "chapter": 3,
+    "coverage": "book-only",
+    "related": [
+      "Reference implementation",
+      "BIP32",
+      "BIP39",
+      "BIP44"
+    ]
+  },
+  {
+    "term": "bitcoind",
+    "definition": "The Bitcoin Core daemon (server) that runs the full node; started in the foreground with -printtoconsole or in the background with -daemon.",
+    "chapter": 3,
+    "coverage": "book-only",
+    "related": [
+      "Bitcoin Core",
+      "bitcoin-cli",
+      "bitcoin.conf"
+    ]
+  },
+  {
+    "term": "bitcoin-cli",
+    "definition": "The command-line helper that sends JSON-RPC calls to a running bitcoind (e.g., bitcoin-cli getblockchaininfo); 'help' lists commands and 'help <cmd>' documents one.",
+    "chapter": 3,
+    "coverage": "book-only",
+    "related": [
+      "bitcoind",
+      "JSON-RPC"
+    ]
+  },
+  {
+    "term": "Release tag / release candidate (rc)",
+    "definition": "Git tags mark Bitcoin Core versions; tags with the 'rc' suffix are release candidates for testing, stable releases have no suffix; checking out a tag leaves Git in 'detached HEAD'.",
+    "chapter": 3,
+    "coverage": "book-only",
+    "related": [
+      "Bitcoin Core"
+    ]
+  },
+  {
+    "term": "Build pipeline (autogen.sh, configure, make, make check, make install)",
+    "definition": "Steps to compile Bitcoin Core from source: autogen.sh generates build scripts, configure detects libraries and options (e.g., --with-gui=no, --disable-wallet, --prefix=$HOME), make compiles, make check runs unit tests, make install copies bitcoind/bitcoin-cli/bitcoin-tx to /usr/local/bin.",
+    "chapter": 3,
+    "coverage": "book-only",
+    "related": [
+      "bitcoind",
+      "bitcoin-cli"
+    ]
+  },
+  {
+    "term": "Data directory (~/.bitcoin)",
+    "definition": "Default location (datadir option) for the blockchain database, bitcoin.conf, the .cookie RPC password, and wallets; can use from ~10 GB (pruned) to ~1 TB.",
+    "chapter": 3,
+    "coverage": "book-only",
+    "related": [
+      "bitcoin.conf",
+      "prune option",
+      "Cookie authentication"
+    ]
+  },
+  {
+    "term": "bitcoin.conf",
+    "definition": "Bitcoin Core's configuration file, read at every start; holds options such as txindex, prune, dbcache, blocksonly, maxmempool, alertnotify, datadir (more than 100 options exist).",
+    "chapter": 3,
+    "coverage": "book-only",
+    "related": [
+      "Data directory (~/.bitcoin)",
+      "txindex option",
+      "prune option"
+    ]
+  },
+  {
+    "term": "txindex option",
+    "definition": "Configuration option that builds an index of all transactions so any transaction can be fetched by txid with getrawtransaction; by default Core indexes only wallet-related transactions.",
+    "chapter": 3,
+    "coverage": "book-only",
+    "related": [
+      "getrawtransaction / decoderawtransaction",
+      "bitcoin.conf"
+    ]
+  },
+  {
+    "term": "prune option",
+    "definition": "Configuration option that caps blockchain disk usage by deleting old blocks; the node still downloads and validates the entire chain.",
+    "chapter": 3,
+    "coverage": "book-only",
+    "related": [
+      "bitcoin.conf",
+      "Initial block download (headers-first sync)"
+    ]
+  },
+  {
+    "term": "dbcache option",
+    "definition": "Size of the UTXO cache in memory (default 450 MiB); larger on high-end hardware, smaller on constrained nodes.",
+    "chapter": 3,
+    "coverage": "book-only",
+    "related": [
+      "UTXO (unspent transaction output)",
+      "bitcoin.conf"
+    ]
+  },
+  {
+    "term": "blocksonly option",
+    "definition": "Configuration option that minimizes bandwidth by accepting only blocks of confirmed transactions and not relaying unconfirmed transactions.",
+    "chapter": 3,
+    "coverage": "book-only",
+    "related": [
+      "Mempool (memory pool)",
+      "bitcoin.conf"
+    ]
+  },
+  {
+    "term": "maxmempool option",
+    "definition": "Configuration option limiting the memory used by the transaction memory pool.",
+    "chapter": 3,
+    "coverage": "book-only",
+    "related": [
+      "Mempool (memory pool)",
+      "bitcoin.conf"
+    ]
+  },
+  {
+    "term": "Mempool (memory pool)",
+    "definition": "A node's pool of validated but unconfirmed transactions awaiting inclusion in a block; inspected with getmempoolinfo and bounded by maxmempool.",
+    "chapter": 3,
+    "coverage": "book-only",
+    "related": [
+      "maxmempool option",
+      "Confirmation"
+    ]
+  },
+  {
+    "term": "Initial block download (headers-first sync)",
+    "definition": "The multi-hour or multi-day process in which a new node first fetches block headers from peers to find the chain with the most proof of work, then downloads and validates full blocks; the node cannot process transactions or show balances until done.",
+    "chapter": 3,
+    "coverage": "book-only",
+    "related": [
+      "Full node",
+      "Best blockchain (most total PoW)"
+    ]
+  },
+  {
+    "term": "JSON-RPC",
+    "definition": "Bitcoin Core's API: remote procedure calls encoded as JSON over HTTP (default port 8332 on localhost), used by bitcoin-cli, curl, and wrapper libraries such as python-bitcoinlib.",
+    "chapter": 3,
+    "coverage": "book-only",
+    "related": [
+      "bitcoin-cli",
+      "Cookie authentication",
+      "Wrapper library"
+    ]
+  },
+  {
+    "term": "Cookie authentication",
+    "definition": "Bitcoin Core writes a random RPC password to the .cookie file in its data directory at every start; bitcoin-cli reads it automatically and curl users can copy it; a static password can be made with rpcauth.py.",
+    "chapter": 3,
+    "coverage": "book-only",
+    "related": [
+      "JSON-RPC",
+      "Data directory (~/.bitcoin)"
+    ]
+  },
+  {
+    "term": "Status RPCs (getblockchaininfo, getnetworkinfo, getmempoolinfo, getwalletinfo)",
+    "definition": "The most important Bitcoin Core status commands; getblockchaininfo reports chain, blocks, headers, bestblockhash, difficulty, verificationprogress, pruned; getnetworkinfo reports version, protocol, connections.",
+    "chapter": 3,
+    "coverage": "book-only",
+    "related": [
+      "bitcoin-cli",
+      "JSON-RPC"
+    ]
+  },
+  {
+    "term": "getrawtransaction / decoderawtransaction",
+    "definition": "getrawtransaction <txid> returns a transaction serialized as hex (requires txindex for arbitrary transactions); decoderawtransaction <hex> decodes it into JSON showing vin, vout, scripts, addresses, and output types.",
+    "chapter": 3,
+    "coverage": "book-only",
+    "related": [
+      "txindex option",
+      "Transaction ID (txid)"
+    ]
+  },
+  {
+    "term": "getblockhash / getblock",
+    "definition": "getblockhash <height> returns a block's header hash; getblock <hash> returns the block's JSON including confirmations (depth), height, merkleroot, time, mediantime, nonce, bits, difficulty, chainwork, and the tx list.",
+    "chapter": 3,
+    "coverage": "book-only",
+    "related": [
+      "Block height",
+      "Confirmations (block depth)",
+      "mediantime"
+    ]
+  },
+  {
+    "term": "Confirmations (block depth)",
+    "definition": "In getblock output, the number of blocks built on top of a block, indicating how hard its transactions are to change; distinct from height (blocks before it).",
+    "chapter": 3,
+    "coverage": "book-only",
+    "related": [
+      "Block height",
+      "Confirmation"
+    ]
+  },
+  {
+    "term": "mediantime",
+    "definition": "The median timestamp of the 11 blocks preceding a block, a time measurement harder for miners to manipulate than the block's own time field.",
+    "chapter": 3,
+    "coverage": "book-only",
+    "related": [
+      "getblockhash / getblock",
+      "Block"
+    ]
+  },
+  {
+    "term": "Transaction malleability",
+    "definition": "The ability to modify a transaction before it is confirmed in a way that changes its txid; hence a txid is not authoritative until confirmed. Segwit (2017) prevents third parties from changing txids.",
+    "chapter": 3,
+    "coverage": "book-only",
+    "related": [
+      "Transaction ID (txid)",
+      "Segregated witness (segwit)"
+    ]
+  },
+  {
+    "term": "Blockchain reorganization (reorg)",
+    "definition": "Replacement of one or more recent blocks by a competing chain with more proof of work; can change a confirmed transaction's status; rare after several confirmations.",
+    "chapter": 3,
+    "coverage": "book-only",
+    "related": [
+      "Best blockchain (most total PoW)",
+      "Confirmation"
+    ]
+  },
+  {
+    "term": "Wrapper library",
+    "definition": "A language library that wraps Bitcoin Core's JSON-RPC API for convenience, e.g., python-bitcoinlib (not part of Bitcoin Core).",
+    "chapter": 3,
+    "coverage": "book-only",
+    "related": [
+      "JSON-RPC",
+      "Alternative implementations"
+    ]
+  },
+  {
+    "term": "Alternative implementations",
+    "definition": "Other clients and libraries by language: bcoin, Bitcore, BitcoinJS (JavaScript); bitcoinj (Java); python-bitcoinlib, pycoin (Python); btcd (Go); rust-bitcoin (Rust); bitcoin-s (Scala); NBitcoin (C#).",
+    "chapter": 3,
+    "coverage": "book-only",
+    "related": [
+      "Reference implementation",
+      "Wrapper library"
+    ]
+  },
+  {
+    "term": "Raspberry Pi node",
+    "definition": "The book's example that thousands of people run full nodes even on a $35 Raspberry Pi, despite the >500 GB initial download and ~400 MB/day growth (2023 figures).",
+    "chapter": 3,
+    "coverage": "book-only",
+    "related": [
+      "Full node",
+      "prune option"
+    ]
+  },
+  {
+    "term": "Blockstream Satellite",
+    "definition": "A free satellite data feed that can deliver blockchain data to nodes with limited or metered internet connections.",
+    "chapter": 3,
+    "coverage": "book-only",
+    "related": [
+      "Full node"
+    ]
+  },
+  {
+    "term": "Public key cryptography (asymmetric cryptography)",
+    "definition": "Cryptography with a key pair: a private key that signs and a public key that verifies, built on functions easy in one direction and infeasible in reverse. In Bitcoin it provides digital signatures, not encryption.",
+    "chapter": 4,
+    "coverage": "book-only",
+    "related": [
+      "Private key",
+      "Public key",
+      "Digital signature",
+      "Elliptic curve cryptography (ECC)"
+    ]
+  },
+  {
+    "term": "Private key",
+    "definition": "A secret number picked at random (256 bits, 64 hex digits, in the range 0 to n-1 where n is the curve order); controls all funds of its public key; must be kept secret and backed up because a lost key means lost funds.",
+    "chapter": 4,
+    "coverage": "book-only",
+    "related": [
+      "Public key",
+      "Entropy / CSPRNG",
+      "WIF (Wallet Import Format)"
+    ]
+  },
+  {
+    "term": "Public key",
+    "definition": "A point K = (x, y) on the secp256k1 curve computed as K = k x G from the private key; used to receive funds and verify signatures; cannot be reversed to the private key.",
+    "chapter": 4,
+    "coverage": "book-only",
+    "related": [
+      "Private key",
+      "Generator point (G)",
+      "Compressed public key"
+    ]
+  },
+  {
+    "term": "Entropy / CSPRNG",
+    "definition": "Entropy is the secure randomness needed to pick a private key; software uses a cryptographically secure pseudorandom number generator (never a simple language RNG) to produce 256 bits.",
+    "chapter": 4,
+    "coverage": "book-only",
+    "related": [
+      "Private key",
+      "Seed"
+    ]
+  },
+  {
+    "term": "Elliptic curve cryptography (ECC)",
+    "definition": "Asymmetric cryptography based on the discrete logarithm problem over points of an elliptic curve; Bitcoin uses elliptic-curve addition and multiplication over the secp256k1 curve.",
+    "chapter": 4,
+    "coverage": "book-only",
+    "related": [
+      "secp256k1",
+      "Discrete logarithm problem",
+      "Public key"
+    ]
+  },
+  {
+    "term": "secp256k1",
+    "definition": "The specific elliptic curve and constants Bitcoin uses, defined by y^2 = x^3 + 7 over the finite field of prime order p; standardized (the book cites NIST); most implementations use the libsecp256k1 library.",
+    "chapter": 4,
+    "coverage": "book-only",
+    "related": [
+      "Elliptic curve cryptography (ECC)",
+      "Generator point (G)",
+      "Finite field (F_p)"
+    ]
+  },
+  {
+    "term": "Finite field (F_p)",
+    "definition": "Arithmetic modulo a very large prime p; because secp256k1 is defined over F_p rather than the reals, the curve looks like scattered points, but the geometric rules are the same.",
+    "chapter": 4,
+    "coverage": "book-only",
+    "related": [
+      "secp256k1"
+    ]
+  },
+  {
+    "term": "Generator point (G)",
+    "definition": "The fixed base point of secp256k1, identical for all Bitcoin users, that is multiplied by the private key to produce the public key (K = k x G).",
+    "chapter": 4,
+    "coverage": "book-only",
+    "related": [
+      "Public key",
+      "Elliptic curve multiplication"
+    ]
+  },
+  {
+    "term": "Elliptic curve multiplication",
+    "definition": "Adding a point to itself k times (kP); a trap-door/one-way function: easy to compute K from k, infeasible to compute k from K.",
+    "chapter": 4,
+    "coverage": "book-only",
+    "related": [
+      "Generator point (G)",
+      "Trap door (one-way) function",
+      "Discrete logarithm problem"
+    ]
+  },
+  {
+    "term": "Point at infinity",
+    "definition": "The identity element ('zero') of elliptic-curve addition; the result when the line through two points is vertical.",
+    "chapter": 4,
+    "coverage": "book-only",
+    "related": [
+      "Elliptic curve cryptography (ECC)"
+    ]
+  },
+  {
+    "term": "Discrete logarithm problem",
+    "definition": "Finding k given K = kG; as hard as brute-force search, which is why a public key does not reveal its private key.",
+    "chapter": 4,
+    "coverage": "book-only",
+    "related": [
+      "Elliptic curve multiplication",
+      "Trap door (one-way) function"
+    ]
+  },
+  {
+    "term": "Trap door (one-way) function",
+    "definition": "A function easy to compute forward and infeasible to invert (e.g., elliptic-curve multiplication); the basis for unforgeable digital signatures.",
+    "chapter": 4,
+    "coverage": "book-only",
+    "related": [
+      "Elliptic curve multiplication",
+      "Hash function"
+    ]
+  },
+  {
+    "term": "Output script",
+    "definition": "The field in a transaction output that sets the conditions for spending it (acts like a public key); e.g., P2PKH's OP_DUP OP_HASH160 <hash> OP_EQUALVERIFY OP_CHECKSIG. Called 'locking script' or scriptPubKey elsewhere.",
+    "chapter": 4,
+    "coverage": "book-only",
+    "related": [
+      "Input script",
+      "P2PKH (pay to public key hash)",
+      "Opcode"
+    ]
+  },
+  {
+    "term": "Input script",
+    "definition": "The field in a transaction input that satisfies the output script being spent (acts like a signature), e.g., <signature> <public key> for P2PKH. Called 'unlocking script' or scriptSig elsewhere.",
+    "chapter": 4,
+    "coverage": "book-only",
+    "related": [
+      "Output script",
+      "Digital signature"
+    ]
+  },
+  {
+    "term": "Stack-based script evaluation",
+    "definition": "Scripts are evaluated by pushing data items onto a stack and letting opcodes consume the top items; the input script runs first, then the output script; the script passes if a nonzero item remains on top.",
+    "chapter": 4,
+    "coverage": "book-only",
+    "related": [
+      "Opcode",
+      "OP_CHECKSIG",
+      "Output script"
+    ]
+  },
+  {
+    "term": "Opcode",
+    "definition": "An operation code in Bitcoin Script that consumes and produces stack items, e.g., OP_DUP (duplicate), OP_HASH160 (hash), OP_EQUALVERIFY (compare or fail), OP_CHECKSIG (verify signature), OP_EQUAL.",
+    "chapter": 4,
+    "coverage": "book-only",
+    "related": [
+      "Stack-based script evaluation",
+      "OP_CHECKSIG"
+    ]
+  },
+  {
+    "term": "OP_CHECKSIG",
+    "definition": "Opcode that pops a public key and a signature, verifies the signature is valid for that key and commits to the transaction, and pushes 1 on success or 0 on failure.",
+    "chapter": 4,
+    "coverage": "book-only",
+    "related": [
+      "Opcode",
+      "Digital signature"
+    ]
+  },
+  {
+    "term": "P2PK (pay to public key)",
+    "definition": "The original output type: <public key> OP_CHECKSIG, spent with an input script containing only a signature; used with Bitcoin 0.1's IP-address payments; never widely used.",
+    "chapter": 4,
+    "coverage": "book-only",
+    "related": [
+      "IP-address payment",
+      "P2PKH (pay to public key hash)"
+    ]
+  },
+  {
+    "term": "IP-address payment",
+    "definition": "Bitcoin 0.1 feature: the spender entered the receiver's IP address, the nodes connected, and the receiver's wallet supplied a fresh public key; removed because receivers had to be online and reachable (firewalls, NAT).",
+    "chapter": 4,
+    "coverage": "book-only",
+    "related": [
+      "P2PK (pay to public key)"
+    ]
+  },
+  {
+    "term": "Commitment",
+    "definition": "The output of a secure hash function used as a promise to its input: only that input produces that output, so a party can commit to data (e.g., a public key or script) and reveal it later.",
+    "chapter": 4,
+    "coverage": "book-only",
+    "related": [
+      "Hash function",
+      "HASH160",
+      "P2PKH (pay to public key hash)"
+    ]
+  },
+  {
+    "term": "SHA256",
+    "definition": "The 256-bit (32-byte) secure hash function most commonly used in Bitcoin, for commitments, checksums (double SHA256), proof of work, and key derivation.",
+    "chapter": 4,
+    "coverage": "book-only",
+    "related": [
+      "Hash function",
+      "HASH160",
+      "RIPEMD-160"
+    ]
+  },
+  {
+    "term": "RIPEMD-160",
+    "definition": "A 160-bit (20-byte) hash function, slightly less secure than SHA256, applied after SHA256 in legacy commitments to shorten them.",
+    "chapter": 4,
+    "coverage": "book-only",
+    "related": [
+      "HASH160",
+      "SHA256"
+    ]
+  },
+  {
+    "term": "HASH160",
+    "definition": "RIPEMD160(SHA256(x)): the 20-byte double hash used for P2PKH public-key commitments, P2SH redeem-script commitments, and P2WPKH witness programs.",
+    "chapter": 4,
+    "coverage": "book-only",
+    "related": [
+      "SHA256",
+      "RIPEMD-160",
+      "P2PKH (pay to public key hash)",
+      "P2SH (pay to script hash)"
+    ]
+  },
+  {
+    "term": "P2PKH (pay to public key hash)",
+    "definition": "Legacy output type paying a 20-byte HASH160 commitment to a public key: output script OP_DUP OP_HASH160 <hash> OP_EQUALVERIFY OP_CHECKSIG, spent with <sig> <pubkey>; base58check addresses start with '1'.",
+    "chapter": 4,
+    "coverage": "book-only",
+    "related": [
+      "HASH160",
+      "Base58check",
+      "Legacy addresses"
+    ]
+  },
+  {
+    "term": "Base58",
+    "definition": "An encoding alphabet like base64 but without the easily confused characters 0 (zero), O (capital o), l (lower L), I (capital i) and the symbols + and /; 58 symbols total.",
+    "chapter": 4,
+    "coverage": "book-only",
+    "related": [
+      "Base58check",
+      "Address"
+    ]
+  },
+  {
+    "term": "Base58check",
+    "definition": "Base58 encoding of a version byte + payload + 4-byte checksum (first 4 bytes of SHA256(SHA256(version||payload))); wallets reject mistyped strings, preventing funds sent to wrong addresses. Used for legacy addresses, WIF keys, xpub/xprv.",
+    "chapter": 4,
+    "coverage": "book-only",
+    "related": [
+      "Base58",
+      "Version byte (version prefix)",
+      "Checksum",
+      "Legacy addresses"
+    ]
+  },
+  {
+    "term": "Version byte (version prefix)",
+    "definition": "The byte prepended before base58check encoding that identifies the data type and determines the leading character: 0x00 P2PKH ('1'), 0x05 P2SH ('3'), 0x6F testnet P2PKH ('m'/'n'), 0xC4 testnet P2SH ('2'), 0x80 WIF private key ('5', 'K', 'L'), 0x0488B21E xpub.",
+    "chapter": 4,
+    "coverage": "book-only",
+    "related": [
+      "Base58check",
+      "WIF (Wallet Import Format)",
+      "Extended public key (xpub)"
+    ]
+  },
+  {
+    "term": "Checksum",
+    "definition": "Redundant data appended to detect transcription errors: 4 bytes of double SHA256 in base58check; 6 characters of a BCH code in bech32/bech32m (which can also locate errors).",
+    "chapter": 4,
+    "coverage": "book-only",
+    "related": [
+      "Base58check",
+      "Bech32"
+    ]
+  },
+  {
+    "term": "Uncompressed public key",
+    "definition": "The original 65-byte public key encoding: prefix 04 followed by the 32-byte x and 32-byte y coordinates (130 hex characters).",
+    "chapter": 4,
+    "coverage": "book-only",
+    "related": [
+      "Compressed public key",
+      "Public key"
+    ]
+  },
+  {
+    "term": "Compressed public key",
+    "definition": "A 33-byte public key encoding storing only x plus a prefix indicating y's parity (02 if y is even, 03 if odd); backward compatible, now the default, and required for newer features. It hashes to a different address than the uncompressed form of the same key.",
+    "chapter": 4,
+    "coverage": "book-only",
+    "related": [
+      "Uncompressed public key",
+      "WIF-compressed"
+    ]
+  },
+  {
+    "term": "P2SH (pay to script hash)",
+    "definition": "Output type introduced by BIP16 in 2012: the output script OP_HASH160 <20-byte hash> OP_EQUAL commits to a redeem script; the spender later supplies the redeem script plus signatures. Addresses start with '3'. Not necessarily multisig.",
+    "chapter": 4,
+    "coverage": "book-only",
+    "related": [
+      "Redeem script",
+      "Multisignature (multisig)",
+      "Legacy addresses",
+      "P2SH collision attack"
+    ]
+  },
+  {
+    "term": "Redeem script",
+    "definition": "The full script (e.g., a 2-of-2 multisig) whose HASH160 is committed in a P2SH output; revealed in the input script at spend time and then executed.",
+    "chapter": 4,
+    "coverage": "book-only",
+    "related": [
+      "P2SH (pay to script hash)",
+      "Multisignature (multisig)"
+    ]
+  },
+  {
+    "term": "Multisignature (multisig)",
+    "definition": "A script requiring more than one signature to spend (e.g., desktop wallet plus hardware signer); the most common use of P2SH, though P2SH can wrap other scripts.",
+    "chapter": 4,
+    "coverage": "book-only",
+    "related": [
+      "P2SH (pay to script hash)",
+      "Redeem script"
+    ]
+  },
+  {
+    "term": "Legacy addresses",
+    "definition": "P2PKH ('1...') and P2SH ('3...') addresses, the only two script templates encoded with base58check; now less common, supplanted by bech32.",
+    "chapter": 4,
+    "coverage": "book-only",
+    "related": [
+      "P2PKH (pay to public key hash)",
+      "P2SH (pay to script hash)",
+      "Bech32"
+    ]
+  },
+  {
+    "term": "P2SH collision attack",
+    "definition": "When an attacker can influence part of the input to a 160-bit hash (e.g., choosing their key last in a multisig), collision resistance drops to 2^80, which is within reach of large-scale hashing; newer address types give at least 128 bits, so new wallets should prefer them.",
+    "chapter": 4,
+    "coverage": "book-only",
+    "related": [
+      "HASH160",
+      "P2SH (pay to script hash)",
+      "P2WSH"
+    ]
+  },
+  {
+    "term": "Segregated witness (segwit)",
+    "definition": "The 2017 protocol upgrade that prevents transaction IDs from being changed without the spender's consent, adds block capacity, and introduced new output types (P2WPKH, P2WSH) with bech32 addresses.",
+    "chapter": 4,
+    "coverage": "book-only",
+    "related": [
+      "Bech32",
+      "P2WPKH",
+      "P2WSH",
+      "Transaction malleability"
+    ]
+  },
+  {
+    "term": "Bech32",
+    "definition": "Segwit address format (BIP173): human-readable part + '1' + data in a 32-character single-case alphabet + 6-character BCH checksum; detects any error of up to 4 characters, can locate errors, encodes efficiently in QR codes, and lets wallets pay future segwit versions. 'bech' = BCH.",
+    "chapter": 4,
+    "coverage": "book-only",
+    "related": [
+      "Bech32m",
+      "Human-readable part (HRP)",
+      "Witness version",
+      "Checksum"
+    ]
+  },
+  {
+    "term": "Bech32m",
+    "definition": "Bech32 with one checksum constant changed (BIP350) to fix the insertion/deletion weakness (the 'q' before a final 'p' bug); used for segwit v1 (taproot) and later; differs from bech32 only in the last six characters.",
+    "chapter": 4,
+    "coverage": "book-only",
+    "related": [
+      "Bech32",
+      "Taproot (P2TR)"
+    ]
+  },
+  {
+    "term": "Human-readable part (HRP)",
+    "definition": "The prefix of a bech32/bech32m address identifying the network: 'bc' for Bitcoin mainnet, 'tb' for testnet; followed by the separator '1'.",
+    "chapter": 4,
+    "coverage": "book-only",
+    "related": [
+      "Bech32",
+      "Separator '1'"
+    ]
+  },
+  {
+    "term": "Separator '1'",
+    "definition": "The character between the HRP and data part of a bech32 address; chosen as a digit so double-click selection works, and '1' because it is not otherwise in the alphabet (avoids confusion with 'l').",
+    "chapter": 4,
+    "coverage": "book-only",
+    "related": [
+      "Human-readable part (HRP)",
+      "Bech32"
+    ]
+  },
+  {
+    "term": "Witness version",
+    "definition": "The first data character of a bech32(m) address, encoding the segwit version 0-16: 'q' = version 0 (bech32, bc1q...), 'p' = version 1 taproot (bech32m, bc1p...).",
+    "chapter": 4,
+    "coverage": "book-only",
+    "related": [
+      "Witness program",
+      "Taproot (P2TR)",
+      "Bech32"
+    ]
+  },
+  {
+    "term": "Witness program",
+    "definition": "The payload of a segwit output (2 to 40 bytes): for version 0 it must be 20 bytes (P2WPKH, HASH160 of a pubkey) or 32 bytes (P2WSH, SHA256 of a script); for version 1 it is a 32-byte x-only public key.",
+    "chapter": 4,
+    "coverage": "book-only",
+    "related": [
+      "Witness version",
+      "P2WPKH",
+      "P2WSH",
+      "Taproot (P2TR)"
+    ]
+  },
+  {
+    "term": "P2WPKH",
+    "definition": "Pay to witness public key hash: segwit v0 output OP_0 <20-byte HASH160(pubkey)>; bech32 address of 42 characters starting bc1q.",
+    "chapter": 4,
+    "coverage": "book-only",
+    "related": [
+      "Witness program",
+      "Segregated witness (segwit)"
+    ]
+  },
+  {
+    "term": "P2WSH",
+    "definition": "Pay to witness script hash: segwit v0 output OP_0 <32-byte SHA256(script)>; uses SHA256 only (no RIPEMD-160), giving 256-bit commitments that avoid the P2SH collision weakness; 62-character bc1q address.",
+    "chapter": 4,
+    "coverage": "book-only",
+    "related": [
+      "Witness program",
+      "P2SH collision attack"
+    ]
+  },
+  {
+    "term": "Taproot (P2TR)",
+    "definition": "Segwit version 1 output OP_1 <32-byte point>, where the witness program is a public key that usually commits to additional data; addresses use bech32m and start with bc1p.",
+    "chapter": 4,
+    "coverage": "book-only",
+    "related": [
+      "Bech32m",
+      "Witness version"
+    ]
+  },
+  {
+    "term": "WIF (Wallet Import Format)",
+    "definition": "Base58check encoding of a private key with version byte 0x80, producing strings starting with '5'; used to import/export single keys between wallets and in QR codes.",
+    "chapter": 4,
+    "coverage": "book-only",
+    "related": [
+      "WIF-compressed",
+      "Private key",
+      "Version byte (version prefix)"
+    ]
+  },
+  {
+    "term": "WIF-compressed",
+    "definition": "WIF with a 0x01 suffix appended before encoding, producing strings starting with 'K' or 'L'; signals that only compressed public keys should be derived. 'Compressed private key' is a misnomer: the key is not compressed and the encoding is one byte longer.",
+    "chapter": 4,
+    "coverage": "book-only",
+    "related": [
+      "WIF (Wallet Import Format)",
+      "Compressed public key"
+    ]
+  },
+  {
+    "term": "Vanity address",
+    "definition": "A valid address containing a chosen human-readable pattern (e.g., 1Kids...), found by brute-force trial of random keys; no more or less secure than other addresses; each extra character multiplies the search by 58; largely abandoned because deterministic wallets can't import them and reuse hurts privacy.",
+    "chapter": 4,
+    "coverage": "book-only",
+    "related": [
+      "Address reuse",
+      "Deterministic wallet",
+      "Vanity pool"
+    ]
+  },
+  {
+    "term": "Vanity pool",
+    "definition": "A service where people with fast hardware search for vanity address patterns for a fee.",
+    "chapter": 4,
+    "coverage": "book-only",
+    "related": [
+      "Vanity address"
+    ]
+  },
+  {
+    "term": "Paper wallet",
+    "definition": "Private keys (often with addresses) printed on paper; the book calls them obsolete and dangerous (back-doored generators have stolen funds) and says to use recovery codes and hardware signing devices instead.",
+    "chapter": 4,
+    "coverage": "book-only",
+    "related": [
+      "Recovery code",
+      "Hardware signing device"
+    ]
+  },
+  {
+    "term": "Wallet database",
+    "definition": "What people commonly call 'the wallet': the store of keys (public and/or private) and metadata; it contains keys, not bitcoins, which are records on the blockchain.",
+    "chapter": 5,
+    "coverage": "book-only",
+    "related": [
+      "Wallet",
+      "Private key",
+      "Label"
+    ]
+  },
+  {
+    "term": "Nondeterministic (Type-0) wallet",
+    "definition": "Early wallet design generating each key independently at random; required a new backup every time keys were generated, or funds received to un-backed-up keys were lost.",
+    "chapter": 5,
+    "coverage": "book-only",
+    "related": [
+      "Deterministic wallet",
+      "HD wallet (BIP32)"
+    ]
+  },
+  {
+    "term": "Deterministic wallet",
+    "definition": "A wallet that derives all keys from a single random seed using a repeatable algorithm (e.g., hashing seed+index), so one backup of the seed covers every key ever generated.",
+    "chapter": 5,
+    "coverage": "book-only",
+    "related": [
+      "Seed",
+      "HD wallet (BIP32)",
+      "Recovery code"
+    ]
+  },
+  {
+    "term": "Seed",
+    "definition": "A random value (128-512 bits; 512 bits from BIP39) from which a deterministic wallet derives all keys; whoever has the seed can derive every private key.",
+    "chapter": 5,
+    "coverage": "book-only",
+    "related": [
+      "Recovery code",
+      "Deterministic wallet",
+      "Master private key / master chain code"
+    ]
+  },
+  {
+    "term": "Key tweak",
+    "definition": "A value added to a public key (t x G) and correspondingly to the private key (k + t) so that a child key pair can be derived; because K + tG == (k + t)G, child public keys can be derived from public information alone.",
+    "chapter": 5,
+    "coverage": "book-only",
+    "related": [
+      "Public child key derivation",
+      "Extended public key (xpub)"
+    ]
+  },
+  {
+    "term": "Public child key derivation",
+    "definition": "Deriving child public keys from a parent public key without any private key, using deterministic tweaks; enables wallet frontends that hand out addresses while private keys stay on a signer.",
+    "chapter": 5,
+    "coverage": "book-only",
+    "related": [
+      "Key tweak",
+      "Extended public key (xpub)",
+      "Hardened derivation"
+    ]
+  },
+  {
+    "term": "HD wallet (BIP32)",
+    "definition": "Hierarchical deterministic wallet: a tree of keys derived from one seed in which any key can be the parent of a sequence of children, with no depth limit; used by every modern wallet by default. Defined in BIP32.",
+    "chapter": 5,
+    "coverage": "book-only",
+    "related": [
+      "BIP32",
+      "Child key derivation (CKD)",
+      "Extended key",
+      "Derivation path"
+    ]
+  },
+  {
+    "term": "BIP32",
+    "definition": "The standard defining hierarchical deterministic key derivation: master key and chain code from a seed via HMAC-SHA512, normal and hardened child derivation, extended keys (xprv/xpub).",
+    "chapter": 5,
+    "coverage": "book-only",
+    "related": [
+      "HD wallet (BIP32)",
+      "BIP39",
+      "BIP44"
+    ]
+  },
+  {
+    "term": "BIP39",
+    "definition": "The most popular recovery-code standard (proposed by the Trezor company): 128-256 bits of entropy plus a checksum, split into 11-bit groups mapped to a 2,048-word list (12-24 words); the words plus an optional passphrase are stretched with PBKDF2 into a 512-bit seed.",
+    "chapter": 5,
+    "coverage": "book-only",
+    "related": [
+      "Recovery code",
+      "PBKDF2 key stretching",
+      "Passphrase (BIP39)",
+      "Word list (2,048 words)"
+    ]
+  },
+  {
+    "term": "Word list (2,048 words)",
+    "definition": "BIP39's dictionary of 2,048 words (2^11), one per 11-bit segment of entropy+checksum; may be localized, but backup and recovery software must use the same list.",
+    "chapter": 5,
+    "coverage": "book-only",
+    "related": [
+      "BIP39"
+    ]
+  },
+  {
+    "term": "Electrum v2 recovery code",
+    "definition": "The Electrum wallet's word-based code: no dependency on a global word list, includes a version number, supports an optional passphrase (called a 'seed extension'), same key-stretching as BIP39.",
+    "chapter": 5,
+    "coverage": "book-only",
+    "related": [
+      "Recovery code",
+      "BIP39",
+      "Aezeed"
+    ]
+  },
+  {
+    "term": "Aezeed",
+    "definition": "The LND wallet's recovery code: two version numbers, a wallet birthday (creation date, so restores need not scan the whole chain), an authenticated passphrase (wrong passphrase gives an error), and stronger scrypt stretching (32,768 rounds).",
+    "chapter": 5,
+    "coverage": "book-only",
+    "related": [
+      "Recovery code",
+      "Wallet birthday",
+      "Passphrase (BIP39)"
+    ]
+  },
+  {
+    "term": "Wallet birthday",
+    "definition": "The wallet's creation date embedded in an Aezeed recovery code so that restoration can skip scanning blocks from before the wallet existed.",
+    "chapter": 5,
+    "coverage": "book-only",
+    "related": [
+      "Aezeed"
+    ]
+  },
+  {
+    "term": "Muun recovery code",
+    "definition": "A nonword code used by the Muun wallet that, together with an emergency-kit PDF, decrypts the wallet's private keys rather than encoding a seed; supports Lightning, descriptors, and miniscript.",
+    "chapter": 5,
+    "coverage": "book-only",
+    "related": [
+      "Recovery code"
+    ]
+  },
+  {
+    "term": "SLIP39",
+    "definition": "A BIP39 successor that splits one seed into multiple recovery codes with a threshold (e.g., any 3 of 5 recover the seed); optional passphrase, global word list, no versioning.",
+    "chapter": 5,
+    "coverage": "book-only",
+    "related": [
+      "Recovery code",
+      "Codex32"
+    ]
+  },
+  {
+    "term": "Codex32",
+    "definition": "A newer proposal similar to SLIP39 whose recovery-code shares (up to 31, with a threshold) can be created and verified by hand with paper tools or by software.",
+    "chapter": 5,
+    "coverage": "book-only",
+    "related": [
+      "SLIP39"
+    ]
+  },
+  {
+    "term": "Passphrase (BIP39)",
+    "definition": "An optional user-chosen string appended to the salt ('mnemonic' + passphrase) when stretching the recovery code; every passphrase yields a different, valid seed ('no wrong passphrase'), giving a second factor and plausible deniability but no error detection and a risk of permanent loss.",
+    "chapter": 5,
+    "coverage": "book-only",
+    "related": [
+      "BIP39",
+      "Plausible deniability / duress wallet",
+      "PBKDF2 key stretching"
+    ]
+  },
+  {
+    "term": "Plausible deniability / duress wallet",
+    "definition": "Because any BIP39 passphrase opens a valid wallet, a user can keep a decoy wallet with a small balance behind one passphrase while the main funds sit behind another; the downside is an attacker can never be sure everything was revealed.",
+    "chapter": 5,
+    "coverage": "book-only",
+    "related": [
+      "Passphrase (BIP39)"
+    ]
+  },
+  {
+    "term": "Brainwallet",
+    "definition": "Keys derived from words chosen by the user; insecure because humans are poor sources of randomness; not to be confused with wallet-generated recovery codes.",
+    "chapter": 5,
+    "coverage": "book-only",
+    "related": [
+      "Recovery code",
+      "Entropy / CSPRNG"
+    ]
+  },
+  {
+    "term": "PBKDF2 key stretching",
+    "definition": "The key-stretching function BIP39 uses: 2,048 rounds of HMAC-SHA512 over the recovery words with the salt 'mnemonic'+passphrase, producing a 512-bit seed; slows brute force modestly and mainly helps when an attacker knows part of the code.",
+    "chapter": 5,
+    "coverage": "book-only",
+    "related": [
+      "BIP39",
+      "Salt",
+      "Seed"
+    ]
+  },
+  {
+    "term": "Salt",
+    "definition": "The second input to a key-stretching function that defeats precomputed lookup tables; in BIP39 it is the constant string 'mnemonic' concatenated with the optional passphrase.",
+    "chapter": 5,
+    "coverage": "book-only",
+    "related": [
+      "PBKDF2 key stretching",
+      "Passphrase (BIP39)"
+    ]
+  },
+  {
+    "term": "Security strength (128 bits)",
+    "definition": "A Bitcoin public key offers about 128 bits of security (roughly 2^128 elliptic-curve operations to break), which is why 128 bits of seed entropy (12 words) is considered sufficient; more only helps if part of the code leaks.",
+    "chapter": 5,
+    "coverage": "book-only",
+    "related": [
+      "BIP39",
+      "Entropy / CSPRNG"
+    ]
+  },
+  {
+    "term": "Label",
+    "definition": "User-entered description attached to an address or transaction (e.g., 'Paid Bob for podcast'); stored only in the local wallet database, not on the blockchain; not deterministic, so not restorable from a recovery code. BIP329 proposes an export format.",
+    "chapter": 5,
+    "coverage": "book-only",
+    "related": [
+      "Wallet database",
+      "BIP329",
+      "Nonkey data backup"
+    ]
+  },
+  {
+    "term": "BIP329",
+    "definition": "Proposed standard format for exporting wallet labels so they can be backed up and used in other applications.",
+    "chapter": 5,
+    "coverage": "book-only",
+    "related": [
+      "Label"
+    ]
+  },
+  {
+    "term": "Nonkey data backup",
+    "definition": "Backing up wallet data beyond keys (labels, exchange rates, Lightning channel state); one approach is frequent automatic backups of the whole database encrypted with a seed-derived key, which can safely sit on untrusted storage.",
+    "chapter": 5,
+    "coverage": "book-only",
+    "related": [
+      "Label",
+      "Static channel backup",
+      "Seed"
+    ]
+  },
+  {
+    "term": "Lightning Network (LN)",
+    "definition": "An offchain payment protocol increasingly supported by wallets; its channel state is nonkey data that a recovery code cannot restore.",
+    "chapter": 5,
+    "coverage": "book-only",
+    "related": [
+      "Offchain",
+      "Static channel backup"
+    ]
+  },
+  {
+    "term": "Static channel backup",
+    "definition": "Lightning's mechanism for recovering funds after data loss; it cannot guarantee results, and a counterparty that detects your data loss may be able to steal funds.",
+    "chapter": 5,
+    "coverage": "book-only",
+    "related": [
+      "Lightning Network (LN)",
+      "Nonkey data backup"
+    ]
+  },
+  {
+    "term": "Derivation path",
+    "definition": "The sequence of child indices from the master key that identifies a key, written with slashes: m/0 (first child private key), M/0 (first child public key), m/0'/0, m/44'/0'/0'/0/2. Read right to left for ancestry.",
+    "chapter": 5,
+    "coverage": "book-only",
+    "related": [
+      "HD wallet (BIP32)",
+      "BIP44",
+      "Hardened derivation"
+    ]
+  },
+  {
+    "term": "Implicit paths",
+    "definition": "Standardized derivation paths defined by BIPs (BIP44 m/44'/0'/0' for P2PKH, BIP49 nested P2WPKH, BIP84 m/84'/0'/0' for P2WPKH, BIP86 m/86'/0'/0' for P2TR) so users need not record paths; inflexible because wallets must scan every supported path and can't restore user-specific data.",
+    "chapter": 5,
+    "coverage": "book-only",
+    "related": [
+      "Explicit paths / output script descriptors",
+      "BIP44",
+      "BIP49 / BIP84 / BIP86"
+    ]
+  },
+  {
+    "term": "Explicit paths / output script descriptors",
+    "definition": "Backing up path and script information alongside the recovery code, almost always as output script descriptors (BIPs 380-386, 389), e.g., sh(multi(2,key1,key2)) or pkh([fingerprint/44'/0'/0']xpub.../1/*); exact and extensible (can hold cosigners' keys) but more to back up.",
+    "chapter": 5,
+    "coverage": "book-only",
+    "related": [
+      "Implicit paths",
+      "Multisignature (multisig)"
+    ]
+  },
+  {
+    "term": "BIP49 / BIP84 / BIP86",
+    "definition": "Implicit-path standards by purpose number: 49' for nested (P2SH-wrapped) P2WPKH, 84' for native segwit P2WPKH, 86' for single-key taproot P2TR; BIP44 (44') covers legacy P2PKH.",
+    "chapter": 5,
+    "coverage": "book-only",
+    "related": [
+      "Implicit paths",
+      "BIP44"
+    ]
+  },
+  {
+    "term": "Master private key / master chain code",
+    "definition": "The two 256-bit halves of HMAC-SHA512(root seed): the master private key m (whose public key is M = m x G) and the master chain code c, the roots of the HD tree.",
+    "chapter": 5,
+    "coverage": "book-only",
+    "related": [
+      "Seed",
+      "Chain code",
+      "BIP32"
+    ]
+  },
+  {
+    "term": "Chain code",
+    "definition": "256 bits of extra entropy carried with each HD key and fed into child derivation so that knowing a child key and index is not enough to derive its siblings; the root chain code comes from the seed.",
+    "chapter": 5,
+    "coverage": "book-only",
+    "related": [
+      "Child key derivation (CKD)",
+      "Extended key"
+    ]
+  },
+  {
+    "term": "Child key derivation (CKD)",
+    "definition": "The BIP32 function combining a parent key, chain code, and 32-bit index via HMAC-SHA512 into 512 bits: the left 256 bits tweak the key to make the child key, the right 256 bits become the child chain code.",
+    "chapter": 5,
+    "coverage": "book-only",
+    "related": [
+      "Chain code",
+      "Index (normal vs hardened)",
+      "Hardened derivation"
+    ]
+  },
+  {
+    "term": "Index (normal vs hardened)",
+    "definition": "The 32-bit child number: 0 to 2^31-1 (0x00000000-0x7FFFFFFF) selects normal derivation; 2^31 to 2^32-1 (0x80000000-0xFFFFFFFF) selects hardened derivation, displayed as i' or ih meaning 2^31 + i.",
+    "chapter": 5,
+    "coverage": "book-only",
+    "related": [
+      "Child key derivation (CKD)",
+      "Hardened derivation",
+      "Derivation path"
+    ]
+  },
+  {
+    "term": "Extended key",
+    "definition": "A key plus its chain code ('extensible' key): the root of a branch from which children can be derived; encoded with base58check as xprv or xpub.",
+    "chapter": 5,
+    "coverage": "book-only",
+    "related": [
+      "Extended private key (xprv)",
+      "Extended public key (xpub)",
+      "Chain code"
+    ]
+  },
+  {
+    "term": "Extended private key (xprv)",
+    "definition": "Private key + chain code; can derive child private keys (and from them public keys) for a whole branch; base58check prefix 'xprv'.",
+    "chapter": 5,
+    "coverage": "book-only",
+    "related": [
+      "Extended key",
+      "Extended public key (xpub)"
+    ]
+  },
+  {
+    "term": "Extended public key (xpub)",
+    "definition": "Public key + chain code; can derive the branch's child public keys and addresses but not spend; base58check prefix 'xpub' (version 0x0488B21E); ideal for web servers, watch-only wallets, and cold-storage receive addresses.",
+    "chapter": 5,
+    "coverage": "book-only",
+    "related": [
+      "Extended key",
+      "Public child key derivation",
+      "Gap limit",
+      "Hardened derivation"
+    ]
+  },
+  {
+    "term": "Gap limit",
+    "definition": "The maximum number of consecutive unused addresses a wallet will generate and scan past before assuming there are no later payments; when exhausted, a wallet must refuse new addresses, generate beyond the gap (risking missed funds on restore), or reuse addresses (hurting privacy).",
+    "chapter": 5,
+    "coverage": "book-only",
+    "related": [
+      "Extended public key (xpub)",
+      "Address reuse"
+    ]
+  },
+  {
+    "term": "Hardened derivation",
+    "definition": "Child derivation that feeds the parent private key (not the public key) into HMAC-SHA512, breaking the link between parent public key and child chain code so a leaked child private key plus chain code cannot expose the parent or siblings; best practice makes all level-1 children of the master hardened.",
+    "chapter": 5,
+    "coverage": "book-only",
+    "related": [
+      "Child key derivation (CKD)",
+      "Extended public key (xpub)",
+      "Index (normal vs hardened)"
+    ]
+  },
+  {
+    "term": "BIP43",
+    "definition": "Convention that the first hardened index under the master key declares the tree's purpose (m/i'/...), so different structures are namespaced.",
+    "chapter": 5,
+    "coverage": "book-only",
+    "related": [
+      "BIP44",
+      "Derivation path"
+    ]
+  },
+  {
+    "term": "BIP44",
+    "definition": "Multi-account HD structure with purpose 44': m / purpose' / coin_type' / account' / change / address_index. coin_type 0' = Bitcoin, 1' = Bitcoin testnet; change 0 = receiving, 1 = change addresses (normal derivation so xpubs can be exported).",
+    "chapter": 5,
+    "coverage": "book-only",
+    "related": [
+      "BIP43",
+      "Derivation path",
+      "Implicit paths"
+    ]
+  },
+  {
+    "term": "Cold storage",
+    "definition": "Keeping private keys (e.g., an xprv or hardware signing device) offline while an xpub online generates receive addresses; spending requires bringing the transaction to the offline signer.",
+    "chapter": 5,
+    "coverage": "book-only",
+    "related": [
+      "Extended public key (xpub)",
+      "Hardware signing device"
+    ]
+  },
+  {
+    "term": "BTCPay Server",
+    "definition": "Widely used open-source merchant payment processor that generates per-order addresses from an xpub; mitigates gap-limit problems with very large gap limits and invoice rate limiting.",
+    "chapter": 5,
+    "coverage": "book-only",
+    "related": [
+      "Extended public key (xpub)",
+      "Gap limit"
+    ]
+  }
+]
