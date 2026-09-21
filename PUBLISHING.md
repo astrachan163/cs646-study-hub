@@ -31,6 +31,88 @@ at once. Every box says which folder the terminal must be in.
 
 ---
 
+## Fast path (for an operator who already has `git`, `gh` and `node` installed and `gh` logged in as `astrachan163`)
+
+Exactly these commands, in this order, one at a time, in the macOS Terminal. Expected results are
+in the comments. The detailed sections below explain every step for a first-time reader.
+
+```bash
+# 0. Confirm the identity (must print "Logged in to github.com account astrachan163")
+gh auth status
+```
+
+```bash
+# 1. Put the delivered repository in place and enter it.
+#    The Project store is visible on Andrew's Mac at the path below (from docs/study-playbook.md);
+#    adjust the source path if the store lives elsewhere.
+mkdir -p ~/Projects && cp -R "/Users/andrewstrachan/Library/Application Support/Cursor/AgentStores/cursor_agent_stores/bc-8da73848-359a-43c4-adda-67db640463db/files/internal/study-hub-repo" ~/Projects/cs646-study-hub && cd ~/Projects/cs646-study-hub
+```
+
+```bash
+# 2. Sanity check: branch "main", a clean tree ("nothing to commit"), and the commit history present.
+git branch --show-current && git status && git log --oneline | cat
+```
+
+```bash
+# 2b. Only if step 2 says "not a git repository" (the copy lost the hidden .git folder):
+#     recreate the history from the files (one commit) and continue.
+git init -b main && git add -A && git commit -m "Import CS 646 Study Hub"
+```
+
+```bash
+# 3. Create the public repository under astrachan163 and push main with its history.
+#    Expected: "Created repository astrachan163/cs646-study-hub on GitHub" ... "main -> main".
+gh repo create astrachan163/cs646-study-hub --public --source=. --remote=origin --push --description "Study guides, flashcards and practice quizzes for UAB CS 646 (Fall 2026)"
+```
+
+```bash
+# 3b. Only if step 3 says the name already exists: connect and push instead.
+git remote add origin https://github.com/astrachan163/cs646-study-hub.git && git push -u origin main
+```
+
+```bash
+# 4. Switch GitHub Pages on with "GitHub Actions" as the source.
+#    Expected JSON containing "build_type": "workflow". If it answers 409 (already exists), run step 4b.
+gh api -X POST repos/astrachan163/cs646-study-hub/pages -f build_type=workflow
+```
+
+```bash
+# 4b. Only on 409: change the existing Pages configuration to the workflow source.
+gh api -X PUT repos/astrachan163/cs646-study-hub/pages -f build_type=workflow
+```
+
+```bash
+# 5. Verify Pages is configured (expected: "workflow" and the site URL on two lines).
+gh api repos/astrachan163/cs646-study-hub/pages --jq '.build_type, .html_url'
+```
+
+```bash
+# 6. The push in step 3 started a run before Pages was enabled, so trigger a fresh one.
+#    Expected: "Created workflow_dispatch event".
+gh workflow run "Validate, test and deploy" --ref main
+```
+
+```bash
+# 7. Watch it (about two minutes; ends with "completed with 'success'"). Pick the newest run if asked.
+gh run watch --exit-status
+```
+
+```bash
+# 8. Confirm the live site answers 200 (Pages can take up to a minute after the run; repeat if 404).
+curl -s -o /dev/null -w "%{http_code}\n" https://astrachan163.github.io/cs646-study-hub/
+```
+
+```bash
+# 9. Point the repository's homepage link at the live site.
+gh repo edit astrachan163/cs646-study-hub --homepage https://astrachan163.github.io/cs646-study-hub/
+```
+
+Then open **https://astrachan163.github.io/cs646-study-hub/** in a browser and run the checklist in
+[section 7](#7-confirm-the-live-site). If anything fails, the matching row in
+[Troubleshooting](#9-troubleshooting) names the cause.
+
+---
+
 ## 1. Install the tools
 
 Open the **Terminal** app (press Command+Space, type `Terminal`, press Return). A window with a
