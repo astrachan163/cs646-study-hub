@@ -27,6 +27,7 @@ function nextAssessment(courses: Course[], units: UnitIndex[], now: number): Upc
   }
   for (const course of courses) {
     for (const item of course.schedule) {
+      if (item.at === null) continue
       if (item.unit && units.some((u) => u.meta.id === item.unit)) continue
       candidates.push({
         title: item.title,
@@ -152,12 +153,13 @@ export function HomePage() {
               </thead>
               <tbody>
                 {[...course.schedule]
-                  .sort((a, b) => Date.parse(a.at) - Date.parse(b.at))
+                  // Dated items in order; undated ("to be announced") items last.
+                  .sort((a, b) => (a.at === null ? Infinity : Date.parse(a.at)) - (b.at === null ? Infinity : Date.parse(b.at)))
                   .map((item) => {
-                    const past = Date.parse(item.at) < now
+                    const past = item.at !== null && Date.parse(item.at) < now
                     return (
-                      <tr key={`${item.title}-${item.at}`} style={past ? { opacity: 0.55 } : undefined}>
-                        <td>{formatDateTime(item.at, course.timezone)}</td>
+                      <tr key={`${item.title}-${item.at ?? 'tba'}`} style={past ? { opacity: 0.55 } : undefined}>
+                        <td>{item.at === null ? <span className="muted">date to be announced</span> : formatDateTime(item.at, course.timezone)}</td>
                         <td>{item.unit ? <a href={routes.unit(item.unit)}>{item.title}</a> : item.title}</td>
                         <td>{item.type}</td>
                         <td>{item.points ?? '—'}</td>

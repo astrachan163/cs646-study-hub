@@ -196,4 +196,9 @@ describe('validateCourse', () => {
     expect(issues.some((i) => i.where === '"id"')).toBe(true)
     expect(issues.some((i) => i.message.includes('date-time'))).toBe(true)
   })
+
+  it('accepts "at": null for assessments whose date is not announced yet', () => {
+    const tba = { ...course, schedule: [{ title: 'Quiz 2', type: 'quiz', points: 20, at: null, unit: null }] }
+    expect(validateCourse('cs646-fall-2026', tba, [])).toEqual([])
+  })
 })

@@ -23,7 +23,7 @@
     "term": "Peer-to-peer (P2P) network",
     "definition": "A distributed network with no central server or point of control in which every full node (peer) connects to several others to propagate transactions and blocks.",
     "chapter": 1,
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "related": [
       "Full node",
       "Gossiping",
@@ -34,7 +34,7 @@
     "term": "Decentralization",
     "definition": "Design property that Bitcoin has no central authority, server, or issuer; mining decentralizes the currency-issuance and clearing functions of a central bank.",
     "chapter": 1,
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "related": [
       "Peer-to-peer (P2P) network",
       "Consensus rules",
@@ -45,7 +45,7 @@
     "term": "Blockchain",
     "definition": "The public transaction journal: a chain of validated blocks, each committing to its predecessor, back to the genesis block. It is the authoritative record of all confirmed transactions.",
     "chapter": 1,
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "related": [
       "Block",
       "Genesis block",
@@ -79,7 +79,7 @@
     "term": "Mining",
     "definition": "Repeatedly performing the proof-of-work computation over a candidate block of recent transactions; on average one miner succeeds every 10 minutes and is rewarded with new bitcoins plus transaction fees.",
     "chapter": 1,
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "related": [
       "Proof of work (PoW)",
       "Block reward / block subsidy",
@@ -91,7 +91,7 @@
     "term": "Miner",
     "definition": "Any network participant who builds candidate blocks and searches for a valid proof of work; miners may operate alone or in pools.",
     "chapter": 1,
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "related": [
       "Mining",
       "Mining pool"
@@ -111,7 +111,7 @@
     "term": "Block interval (10 minutes)",
     "definition": "The average time between blocks targeted by the protocol; individual intervals vary, the difficulty adjustment keeps the average near 10 minutes.",
     "chapter": 1,
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "related": [
       "Difficulty (adjustment)",
       "Confirmation"
@@ -164,7 +164,7 @@
     "term": "Double-spend problem",
     "definition": "The risk that the same unit of digital money is spent twice. Physical cash avoids it trivially; earlier digital currencies used a central clearinghouse; Bitcoin solves it with proof-of-work consensus on a single transaction history.",
     "chapter": 1,
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "related": [
       "Proof of work (PoW)",
       "Central clearinghouse",
@@ -175,7 +175,7 @@
     "term": "Central clearinghouse",
     "definition": "A trusted central authority that settles all transactions and holds a global view of the currency, as used by banks and pre-Bitcoin digital currencies; a single point of attack that Bitcoin removes.",
     "chapter": 1,
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "related": [
       "Double-spend problem",
       "Decentralization"
@@ -185,7 +185,7 @@
     "term": "Digital signature",
     "definition": "A cryptographic value produced with a private key over a message (transaction) that anyone can verify with the corresponding public key; proves ownership/authorization without revealing the private key.",
     "chapter": 1,
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "related": [
       "Private key",
       "Public key",
@@ -196,7 +196,7 @@
     "term": "Satoshi Nakamoto",
     "definition": "Pseudonymous author of the 2008 paper 'Bitcoin: A Peer-to-Peer Electronic Cash System' and of the 2009 reference implementation; withdrew from public view in April 2011; identity unknown; exerts no control over Bitcoin.",
     "chapter": 1,
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "related": [
       "Whitepaper",
       "Bitcoin Core"
@@ -206,7 +206,7 @@
     "term": "Whitepaper",
     "definition": "Nakamoto's 2008 paper describing Bitcoin: electronic coin as a chain of digital signatures, a P2P timestamp server, hash-based proof of work, longest-chain rule, incentives, SPV, and privacy via fresh key pairs. Reproduced as Appendix A of the book.",
     "chapter": 1,
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "related": [
       "Satoshi Nakamoto",
       "Timestamp server (whitepaper)",
@@ -217,7 +217,7 @@
     "term": "Hashcash",
     "definition": "Adam Back's proof-of-work scheme that Nakamoto combined with digital signatures to build Bitcoin.",
     "chapter": 1,
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "related": [
       "Proof of work (PoW)",
       "Satoshi Nakamoto"
@@ -237,7 +237,7 @@
     "term": "Wallet",
     "definition": "The most common user interface to Bitcoin (like a browser is to HTTP): software that manages keys, builds and signs transactions, and tracks balances. The 'wallet database' holds keys, not coins.",
     "chapter": 1,
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "related": [
       "Wallet database",
       "Noncustodial wallet",
@@ -248,7 +248,7 @@
     "term": "Bitcoin Core",
     "definition": "The reference implementation of the Bitcoin protocol, derived from Satoshi's original client; includes a wallet, validation engine, block construction tools, and P2P networking.",
     "chapter": 1,
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "related": [
       "Reference implementation",
       "Full node",
@@ -301,7 +301,7 @@
     "term": "Full node",
     "definition": "A program that validates the entire history of Bitcoin transactions against every consensus rule; may store and serve data to others; the peers of the P2P network; offers complete autonomy at substantial resource cost.",
     "chapter": 1,
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "related": [
       "Full verification node",
       "Lightweight client (SPV client)",
@@ -312,7 +312,7 @@
     "term": "Lightweight client (SPV client)",
     "definition": "A simplified-payment-verification client that connects to full nodes for transaction data, stores its wallet locally, partially validates what it receives, and builds its own transactions; its security depends on the integrity of its peers.",
     "chapter": 1,
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "related": [
       "Full node",
       "Simplified payment verification (SPV)",
@@ -343,7 +343,7 @@
     "term": "Custodial vs noncustodial",
     "definition": "Custodial: a third party controls the private keys (an account with a custodian). Noncustodial: the user controls the keys and bears backup responsibility. 'Your keys, your coins. Not your keys, not your coins.'",
     "chapter": 1,
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "related": [
       "Private key",
       "Recovery code",
@@ -396,7 +396,7 @@
     "term": "Address",
     "definition": "A string derived from a key (or script) that directs payments to a wallet; generated independently by the wallet and never registered with any service; safe to share, but reuse links payments and harms privacy.",
     "chapter": 1,
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "related": [
       "Invoice",
       "Address reuse",
@@ -408,7 +408,7 @@
     "term": "Address reuse",
     "definition": "Receiving multiple payments to the same address; lets observers link those payments and see amounts; the book recommends a fresh address per payment request.",
     "chapter": 1,
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "related": [
       "Address",
       "Privacy",
@@ -488,7 +488,7 @@
     "term": "Satoshi (sat)",
     "definition": "The smallest unit of bitcoin recorded on the blockchain: 0.00000001 BTC (1 BTC = 100,000,000 sats). Serialized transactions encode values as integers of this base unit.",
     "chapter": 1,
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "related": [
       "Millibitcoin (mBTC)",
       "Bitcoin (capital B) vs bitcoin (small b)"
@@ -507,7 +507,7 @@
     "term": "Transaction fee",
     "definition": "The implied difference between a transaction's total inputs and total outputs, collected by the miner who includes the transaction; a higher fee rate generally means faster confirmation.",
     "chapter": 1,
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "related": [
       "Fee rate",
       "Input",
@@ -519,7 +519,7 @@
     "term": "Confirmation",
     "definition": "Inclusion of a transaction in a block on the blockchain (one confirmation); each subsequent block adds another. 'Unconfirmed' means propagated but not yet in a block. Bitcoin's equivalent of clearing.",
     "chapter": 1,
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "related": [
       "Block",
       "Clearing",
@@ -539,7 +539,7 @@
     "term": "Privacy",
     "definition": "Bitcoin itself requires no personal information, but addresses are public: reuse, block-explorer lookups, remote-server wallets, and exchange KYC can all link activity to a person. Best practice: new address per payment.",
     "chapter": 1,
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "related": [
       "Address reuse",
       "KYC (know your customer)",
@@ -550,7 +550,7 @@
     "term": "Blockchain explorer",
     "definition": "A web application that acts as a search engine for the blockchain (addresses, transactions, blocks), e.g., Blockstream Explorer, Mempool.Space, BlockCypher; looking up your own transactions reveals your interest to the operator.",
     "chapter": 2,
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "related": [
       "Privacy",
       "Block height",
@@ -571,7 +571,7 @@
     "term": "Transaction",
     "definition": "A signed data structure by which the owner of some bitcoins authorizes transferring that value to a new owner; each new owner can spend by creating another transaction, forming a chain of ownership.",
     "chapter": 2,
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "related": [
       "Input",
       "Output",
@@ -583,7 +583,7 @@
     "term": "Input",
     "definition": "A reference to a previous transaction output being spent (its txid plus output index) together with the proof of ownership (signature/input script). Inputs do not store their value; it is looked up from the referenced output.",
     "chapter": 2,
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "related": [
       "Output",
       "UTXO (unspent transaction output)",
@@ -595,7 +595,7 @@
     "term": "Output",
     "definition": "A component of a transaction that receives funds: a value plus an output script that encumbers the value with spending conditions (e.g., a signature from the recipient's key).",
     "chapter": 2,
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "related": [
       "Input",
       "UTXO (unspent transaction output)",
@@ -607,7 +607,7 @@
     "term": "UTXO (unspent transaction output)",
     "definition": "A transaction output that has not yet been spent by any input; the set of all UTXOs is what a full node tracks and what wallets select from when building payments.",
     "chapter": 2,
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "related": [
       "Output",
       "Input",
@@ -618,7 +618,7 @@
     "term": "Double-entry bookkeeping analogy",
     "definition": "The book's description of transactions as ledger lines with inputs (debits/spending) on one side and outputs (credits/receiving) on the other, with outputs summing to slightly less than inputs (the fee).",
     "chapter": 2,
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "related": [
       "Input",
       "Output",
@@ -629,7 +629,7 @@
     "term": "Transaction chain",
     "definition": "The linkage created when the output of one transaction becomes the input of the next (e.g., Joe -> Alice -> Bob -> Gopesh), tracing ownership back through history.",
     "chapter": 2,
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "related": [
       "Input",
       "Output",
@@ -640,7 +640,7 @@
     "term": "Transaction ID (txid)",
     "definition": "The 32-byte identifier of a transaction used by inputs to reference the transaction whose output they spend (e.g., 'Tx1:0' = output 0 of Tx1). Not authoritative until confirmed because of malleability.",
     "chapter": 2,
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "related": [
       "Input",
       "Transaction malleability"
@@ -650,7 +650,7 @@
     "term": "Change output / change address",
     "definition": "An output that returns excess input value to the spender because inputs cannot be partially spent; at the protocol level identical to a payment output; for privacy it usually pays a fresh address from the spender's wallet.",
     "chapter": 2,
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "related": [
       "Output",
       "Changeless transaction",
@@ -690,7 +690,7 @@
     "term": "Consolidation transaction",
     "definition": "A transaction spending several inputs into a single output, like exchanging a pile of coins for one large note; used to clean up many small amounts.",
     "chapter": 2,
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "related": [
       "Simple payment",
       "Payment batching"
@@ -700,7 +700,7 @@
     "term": "Payment batching",
     "definition": "A single transaction paying many recipients through multiple outputs, e.g., payroll.",
     "chapter": 2,
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "related": [
       "Simple payment",
       "Consolidation transaction"
@@ -710,7 +710,7 @@
     "term": "Encumbrance (output script)",
     "definition": "The condition placed on an output's value by its script, e.g., 'paid to whoever can present a signature from the key matching Bob's address'; the recipient's wallet satisfies it when spending.",
     "chapter": 2,
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "related": [
       "Output",
       "Output script",
@@ -731,7 +731,7 @@
     "term": "Full verification node",
     "definition": "The book's fuller name for a full node: a peer with both the software logic and the data to fully verify new transactions and blocks; nodes are the dots and connections the edges in the network graph.",
     "chapter": 2,
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "related": [
       "Full node",
       "Gossiping"
@@ -741,7 +741,7 @@
     "term": "Gossiping",
     "definition": "The propagation technique in which any node that receives a valid, previously unseen transaction (or block) forwards it to all its connected peers, reaching most of the network within seconds.",
     "chapter": 2,
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "related": [
       "Peer-to-peer (P2P) network",
       "Full verification node"
@@ -751,7 +751,7 @@
     "term": "Block",
     "definition": "A bundle of transactions plus a small header that commits to the previous block and must satisfy proof of work; enormous computation to produce, trivial to verify.",
     "chapter": 2,
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "related": [
       "Blockchain",
       "Candidate block",
@@ -773,7 +773,7 @@
     "term": "Hash function",
     "definition": "A function that scrambles input data into a fixed-size output: the same input always yields the same output, but the output for a new or slightly changed input is unpredictable, and finding another input with the same output is impractical.",
     "chapter": 2,
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "related": [
       "SHA256",
       "Commitment",
@@ -784,7 +784,7 @@
     "term": "Block reward / block subsidy",
     "definition": "New bitcoins created in each block, paid together with the block's transaction fees to the miner's own address via a special transaction; the subsidy follows a fixed, diminishing schedule.",
     "chapter": 2,
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "related": [
       "Mining",
       "Coinbase transaction",
@@ -795,7 +795,7 @@
     "term": "Coinbase transaction",
     "definition": "The special first transaction of a block, created by the miner, that pays the block reward plus fees to an address of the miner's choosing (the book describes it in ch02 without naming it; the whitepaper calls it the first transaction that 'starts a new coin').",
     "chapter": 2,
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "related": [
       "Block reward / block subsidy",
       "Mining"
@@ -805,7 +805,7 @@
     "term": "Mining pool",
     "definition": "A group of miners whose candidate blocks assign the reward to a pool address; the pool shares rewards with members in proportion to the work they contributed.",
     "chapter": 2,
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "related": [
       "Miner",
       "Block reward / block subsidy"
@@ -836,7 +836,7 @@
     "term": "Longest chain (whitepaper)",
     "definition": "Nakamoto's rule that nodes consider the longest proof-of-work chain correct and keep extending it; it embodies the majority of CPU power ('one-CPU-one-vote').",
     "chapter": 2,
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "related": [
       "Best blockchain (most total PoW)",
       "Proof of work (PoW)"
@@ -846,7 +846,7 @@
     "term": "Six confirmations",
     "definition": "The conventional depth after which a transaction is considered very hard to change, because an attacker would need to redo six blocks plus one more.",
     "chapter": 2,
-    "coverage": "book-only",
+    "coverage": "skipped-slide",
     "related": [
       "Confirmation",
       "Best blockchain (most total PoW)"
@@ -866,7 +866,7 @@
     "term": "Block height",
     "definition": "A block's position in the chain, i.e., how many blocks precede it (the genesis block is height 0).",
     "chapter": 2,
-    "coverage": "book-only",
+    "coverage": "skipped-slide",
     "related": [
       "Genesis block",
       "Confirmations (block depth)"
@@ -876,7 +876,7 @@
     "term": "Simplified payment verification (SPV)",
     "definition": "Lightweight verification that a transaction is in the blockchain by checking block headers and inclusion (Merkle branch) plus the number of blocks mined after it, without validating the whole history.",
     "chapter": 2,
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "related": [
       "Lightweight client (SPV client)",
       "Full node"
@@ -907,7 +907,7 @@
     "term": "Merkle tree / Merkle root (whitepaper)",
     "definition": "A tree of hashes over a block's transactions whose root is committed in the block header, allowing old transactions to be pruned and SPV clients to verify inclusion with a short branch.",
     "chapter": 2,
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "related": [
       "Block",
       "Simplified payment verification (SPV)"
@@ -1152,7 +1152,7 @@
     "term": "Transaction malleability",
     "definition": "The ability to modify a transaction before it is confirmed in a way that changes its txid; hence a txid is not authoritative until confirmed. Segwit (2017) prevents third parties from changing txids.",
     "chapter": 3,
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "related": [
       "Transaction ID (txid)",
       "Segregated witness (segwit)"
@@ -1211,7 +1211,7 @@
     "term": "Public key cryptography (asymmetric cryptography)",
     "definition": "Cryptography with a key pair: a private key that signs and a public key that verifies, built on functions easy in one direction and infeasible in reverse. In Bitcoin it provides digital signatures, not encryption.",
     "chapter": 4,
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "related": [
       "Private key",
       "Public key",
@@ -1223,7 +1223,7 @@
     "term": "Private key",
     "definition": "A secret number picked at random (256 bits, 64 hex digits, in the range 0 to n-1 where n is the curve order); controls all funds of its public key; must be kept secret and backed up because a lost key means lost funds.",
     "chapter": 4,
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "related": [
       "Public key",
       "Entropy / CSPRNG",
@@ -1234,7 +1234,7 @@
     "term": "Public key",
     "definition": "A point K = (x, y) on the secp256k1 curve computed as K = k x G from the private key; used to receive funds and verify signatures; cannot be reversed to the private key.",
     "chapter": 4,
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "related": [
       "Private key",
       "Generator point (G)",
@@ -1255,7 +1255,7 @@
     "term": "Elliptic curve cryptography (ECC)",
     "definition": "Asymmetric cryptography based on the discrete logarithm problem over points of an elliptic curve; Bitcoin uses elliptic-curve addition and multiplication over the secp256k1 curve.",
     "chapter": 4,
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "related": [
       "secp256k1",
       "Discrete logarithm problem",
@@ -1266,7 +1266,7 @@
     "term": "secp256k1",
     "definition": "The specific elliptic curve and constants Bitcoin uses, defined by y^2 = x^3 + 7 over the finite field of prime order p; standardized (the book cites NIST); most implementations use the libsecp256k1 library.",
     "chapter": 4,
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "related": [
       "Elliptic curve cryptography (ECC)",
       "Generator point (G)",
@@ -1277,7 +1277,7 @@
     "term": "Finite field (F_p)",
     "definition": "Arithmetic modulo a very large prime p; because secp256k1 is defined over F_p rather than the reals, the curve looks like scattered points, but the geometric rules are the same.",
     "chapter": 4,
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "related": [
       "secp256k1"
     ]
@@ -1286,7 +1286,7 @@
     "term": "Generator point (G)",
     "definition": "The fixed base point of secp256k1, identical for all Bitcoin users, that is multiplied by the private key to produce the public key (K = k x G).",
     "chapter": 4,
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "related": [
       "Public key",
       "Elliptic curve multiplication"
@@ -1296,7 +1296,7 @@
     "term": "Elliptic curve multiplication",
     "definition": "Adding a point to itself k times (kP); a trap-door/one-way function: easy to compute K from k, infeasible to compute k from K.",
     "chapter": 4,
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "related": [
       "Generator point (G)",
       "Trap door (one-way) function",
@@ -1316,7 +1316,7 @@
     "term": "Discrete logarithm problem",
     "definition": "Finding k given K = kG; as hard as brute-force search, which is why a public key does not reveal its private key.",
     "chapter": 4,
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "related": [
       "Elliptic curve multiplication",
       "Trap door (one-way) function"
@@ -1326,7 +1326,7 @@
     "term": "Trap door (one-way) function",
     "definition": "A function easy to compute forward and infeasible to invert (e.g., elliptic-curve multiplication); the basis for unforgeable digital signatures.",
     "chapter": 4,
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "related": [
       "Elliptic curve multiplication",
       "Hash function"
@@ -1336,7 +1336,7 @@
     "term": "Output script",
     "definition": "The field in a transaction output that sets the conditions for spending it (acts like a public key); e.g., P2PKH's OP_DUP OP_HASH160 <hash> OP_EQUALVERIFY OP_CHECKSIG. Called 'locking script' or scriptPubKey elsewhere.",
     "chapter": 4,
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "related": [
       "Input script",
       "P2PKH (pay to public key hash)",
@@ -1347,7 +1347,7 @@
     "term": "Input script",
     "definition": "The field in a transaction input that satisfies the output script being spent (acts like a signature), e.g., <signature> <public key> for P2PKH. Called 'unlocking script' or scriptSig elsewhere.",
     "chapter": 4,
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "related": [
       "Output script",
       "Digital signature"
@@ -1407,7 +1407,7 @@
     "term": "Commitment",
     "definition": "The output of a secure hash function used as a promise to its input: only that input produces that output, so a party can commit to data (e.g., a public key or script) and reveal it later.",
     "chapter": 4,
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "related": [
       "Hash function",
       "HASH160",
@@ -1418,7 +1418,7 @@
     "term": "SHA256",
     "definition": "The 256-bit (32-byte) secure hash function most commonly used in Bitcoin, for commitments, checksums (double SHA256), proof of work, and key derivation.",
     "chapter": 4,
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "related": [
       "Hash function",
       "HASH160",
@@ -1439,7 +1439,7 @@
     "term": "HASH160",
     "definition": "RIPEMD160(SHA256(x)): the 20-byte double hash used for P2PKH public-key commitments, P2SH redeem-script commitments, and P2WPKH witness programs.",
     "chapter": 4,
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "related": [
       "SHA256",
       "RIPEMD-160",
@@ -1451,7 +1451,7 @@
     "term": "P2PKH (pay to public key hash)",
     "definition": "Legacy output type paying a 20-byte HASH160 commitment to a public key: output script OP_DUP OP_HASH160 <hash> OP_EQUALVERIFY OP_CHECKSIG, spent with <sig> <pubkey>; base58check addresses start with '1'.",
     "chapter": 4,
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "related": [
       "HASH160",
       "Base58check",
@@ -1547,7 +1547,7 @@
     "term": "Multisignature (multisig)",
     "definition": "A script requiring more than one signature to spend (e.g., desktop wallet plus hardware signer); the most common use of P2SH, though P2SH can wrap other scripts.",
     "chapter": 4,
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "related": [
       "P2SH (pay to script hash)",
       "Redeem script"
@@ -1568,7 +1568,7 @@
     "term": "P2SH collision attack",
     "definition": "When an attacker can influence part of the input to a 160-bit hash (e.g., choosing their key last in a multisig), collision resistance drops to 2^80, which is within reach of large-scale hashing; newer address types give at least 128 bits, so new wallets should prefer them.",
     "chapter": 4,
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "related": [
       "HASH160",
       "P2SH (pay to script hash)",
@@ -1579,7 +1579,7 @@
     "term": "Segregated witness (segwit)",
     "definition": "The 2017 protocol upgrade that prevents transaction IDs from being changed without the spender's consent, adds block capacity, and introduced new output types (P2WPKH, P2WSH) with bech32 addresses.",
     "chapter": 4,
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "related": [
       "Bech32",
       "P2WPKH",
@@ -1656,7 +1656,7 @@
     "term": "P2WPKH",
     "definition": "Pay to witness public key hash: segwit v0 output OP_0 <20-byte HASH160(pubkey)>; bech32 address of 42 characters starting bc1q.",
     "chapter": 4,
-    "coverage": "book-only",
+    "coverage": "skipped-slide",
     "related": [
       "Witness program",
       "Segregated witness (segwit)"
@@ -1748,7 +1748,7 @@
     "term": "Nondeterministic (Type-0) wallet",
     "definition": "Early wallet design generating each key independently at random; required a new backup every time keys were generated, or funds received to un-backed-up keys were lost.",
     "chapter": 5,
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "related": [
       "Deterministic wallet",
       "HD wallet (BIP32)"
@@ -1955,7 +1955,7 @@
     "term": "Security strength (128 bits)",
     "definition": "A Bitcoin public key offers about 128 bits of security (roughly 2^128 elliptic-curve operations to break), which is why 128 bits of seed entropy (12 words) is considered sufficient; more only helps if part of the code leaks.",
     "chapter": 5,
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "related": [
       "BIP39",
       "Entropy / CSPRNG"

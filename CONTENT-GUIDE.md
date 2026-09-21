@@ -227,8 +227,9 @@ headings; the page's "Jump to" list is built from them.
 
 ### 3.7 `content/courses/cs646-fall-2026.json` (course calendar)
 
-Each entry in `schedule` drives the countdown on the home page. When a unit exists for an
-assessment, put its id in `unit`; otherwise `null`.
+Each entry in `schedule` drives the countdown and the calendar on the home page. When a unit exists
+for an assessment, put its id in `unit`; otherwise `null`. When the date is not announced yet, put
+`null` in `at`; the calendar then shows "date to be announced" and the countdown skips it.
 
 ```json
 {"title": "Quiz 2: Mastering Bitcoin Chapters 06-10", "type": "quiz", "points": 20,

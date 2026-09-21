@@ -386,7 +386,7 @@ export function validateCourse(fileId: string, course: unknown, unitIds: string[
       if (!isNonEmptyString(item.title)) push(issues, 'error', file, where, '"title" must be non-empty text.', 'Name the assessment.')
       if (!isNonEmptyString(item.type)) push(issues, 'error', file, where, '"type" must be text such as "quiz", "exam" or "project".', 'Set the type.')
       if (!(item.points === null || typeof item.points === 'number')) push(issues, 'error', file, where, '"points" must be a number or null.', 'Set the points or null if unknown.')
-      if (!isValidDate(item.at)) push(issues, 'error', file, where, '"at" must be a date-time like "2026-09-29T17:00:00-05:00".', 'Use YYYY-MM-DDTHH:MM:SS plus the time-zone offset.')
+      if (!(item.at === null || isValidDate(item.at))) push(issues, 'error', file, where, '"at" must be a date-time like "2026-09-29T17:00:00-05:00", or null when the date is not announced yet.', 'Use YYYY-MM-DDTHH:MM:SS plus the time-zone offset, or null.')
       if (!(item.unit === null || typeof item.unit === 'string')) push(issues, 'error', file, where, '"unit" must be a unit id or null.', 'Set "unit": null until a study unit exists.')
       else if (typeof item.unit === 'string' && !unitIds.includes(item.unit)) push(issues, 'warning', file, where, `"unit" "${item.unit}" has no folder under content/units/.`, 'Create the unit folder or set "unit": null.')
     })

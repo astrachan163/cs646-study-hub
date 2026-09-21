@@ -18,7 +18,7 @@
       "lecture": null
     },
     "coverage": "book-only",
-    "likelihood": "high",
+    "likelihood": "medium",
     "difficulty": "easy",
     "tags": [
       "terminology",
@@ -41,9 +41,9 @@
     "explanation": "The book says the currency is \"entirely virtual\": no physical coins or even individual digital coins; the coins are implied in transactions that transfer value from spender to receiver. Wallets hold keys, not coins, and there is no central ledger keeper.",
     "source": {
       "book": "ch01 > Introduction",
-      "lecture": null
+      "lecture": "W4 s5 +note (only transactions recorded, no balance shown); W4 s29 +note (UTXO: Bitcoin shows transactions, not how much you have)"
     },
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "likelihood": "high",
     "difficulty": "easy",
     "tags": [
@@ -67,9 +67,9 @@
     "explanation": "Users control keys that prove ownership; \"possession of the key that can sign a transaction is the only prerequisite to spending bitcoin, putting the control entirely in the hands of each user.\" There are no accounts to register, miners do not approve individual spends, and the recipient's private key is never needed by the spender.",
     "source": {
       "book": "ch01 > Introduction",
-      "lecture": null
+      "lecture": "W4 s6 Q2-Q3 +note (how to claim/spend); W4 s9 +note (owner proves control by signing with Ks)"
     },
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "likelihood": "high",
     "difficulty": "easy",
     "tags": [
@@ -93,9 +93,9 @@
     "explanation": "The four innovations are: the P2P network/protocol, the blockchain (public journal), consensus rules for independent validation and issuance, and the proof-of-work consensus mechanism. Bitcoin's Script is deliberately not Turing-complete, and smart contracts are not on the list.",
     "source": {
       "book": "ch01 > Introduction",
-      "lecture": null
+      "lecture": "W1 s16 +note (six ways to define Bitcoin: asset, digital cash, digital gold, anonymous payment system, blockchain, distributed consensus protocol)"
     },
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "likelihood": "high",
     "difficulty": "medium",
     "tags": [
@@ -119,9 +119,9 @@
     "explanation": "The book repeats several times that, on average, one miner succeeds every 10 minutes; the difficulty adjusts to keep that average regardless of how much computing power is competing.",
     "source": {
       "book": "ch01 > Introduction",
-      "lecture": null
+      "lecture": "W4 s10-12 +note ('Bitcoin has a system clock: 1 block/10 mins'); W4 s26 +note"
     },
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "likelihood": "high",
     "difficulty": "easy",
     "tags": [
@@ -148,7 +148,7 @@
       "lecture": null
     },
     "coverage": "book-only",
-    "likelihood": "high",
+    "likelihood": "medium",
     "difficulty": "medium",
     "tags": [
       "difficulty",
@@ -171,9 +171,9 @@
     "explanation": "The protocol periodically decreases the number of new bitcoins created, \"limiting the total number of bitcoins that will ever be created to a fixed total just below 21 million coins.\"",
     "source": {
       "book": "ch01 > Introduction",
-      "lecture": null
+      "lecture": "W4 s6 Q5 +note (Minting: how, who, how much each year?) - the book supplies the answer (21M cap, halving)"
     },
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "likelihood": "high",
     "difficulty": "easy",
     "tags": [
@@ -197,9 +197,9 @@
     "explanation": "\"The number of bitcoins in circulation closely follows an easily predictable curve where half of the remaining coins are added to circulation every four years.\" Roughly 99% of all bitcoins will have been issued by about 2035.",
     "source": {
       "book": "ch01 > Introduction",
-      "lecture": null
+      "lecture": "W4 s6 Q5 +note (how much to mint each year?); W1 s14 +note (money supply growth vs inflation)"
     },
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "likelihood": "medium",
     "difficulty": "medium",
     "tags": [
@@ -217,9 +217,9 @@
     "explanation": "False. Because of the diminishing rate of issuance toward a fixed cap, the book says that \"over the long term, the Bitcoin currency is deflationary.\"",
     "source": {
       "book": "ch01 > Introduction",
-      "lecture": null
+      "lecture": "W1 s14 +note ('Most governments prefer inflation'); W3 s48 (Chaumian minting 'does NOT contribute to inflation/deflation')"
     },
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "likelihood": "medium",
     "difficulty": "medium",
     "tags": [
@@ -237,9 +237,9 @@
     "explanation": "False. Blocks arrive every 10 minutes on average; individual intervals vary widely (the book's own example has one block about 5 minutes and the next about 19 minutes later). The adjustment only holds the average near 10 minutes.",
     "source": {
       "book": "ch01 > Introduction; ch02 > Bitcoin Mining",
-      "lecture": null
+      "lecture": "W4 s10 +note (10-minute clock is an average batch cycle)"
     },
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "likelihood": "medium",
     "difficulty": "easy",
     "tags": [
@@ -263,9 +263,9 @@
     "explanation": "The book defines it as trusting that digital money \"can only be spent once.\" Physical cash avoids it because a note can't be in two places; digital money historically needed a central clearinghouse; Bitcoin solves it with proof-of-work consensus.",
     "source": {
       "book": "ch01 > Digital Currencies Before Bitcoin; History of Bitcoin",
-      "lecture": null
+      "lecture": "W4 s6 Q4 +note ('any single occurrence of double spending reduces all trust to 0 instantly'); W3 s15-18 +note (double-spending techniques)"
     },
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "likelihood": "high",
     "difficulty": "easy",
     "tags": [
@@ -289,9 +289,9 @@
     "explanation": "The book explains that counterfeiting and double-spend issues in electronic money were \"handled by clearing all electronic transactions through central authorities that have a global view of the currency in circulation.\" Those centralized systems were easy to attack or litigate out of existence, motivating a decentralized design.",
     "source": {
       "book": "ch01 > Digital Currencies Before Bitcoin",
-      "lecture": null
+      "lecture": "W3 s17 +note (database of spent coins: the bank revokes spent coins in real time); W3 s50 (drawbacks: requires banks)"
     },
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "likelihood": "high",
     "difficulty": "medium",
     "tags": [
@@ -315,9 +315,9 @@
     "explanation": "The paper was published in 2008 under the alias Satoshi Nakamoto. The network itself started in 2009, and Nakamoto withdrew from public view in April 2011, so those years are the natural distractors.",
     "source": {
       "book": "ch01 > History of Bitcoin",
-      "lecture": null
+      "lecture": "W1 s2 +note (2008 Satoshi Nakamoto whitepaper); W4 s57 (Oct 31, 2008); caution: W4 s2 title reads 'The Bitcoin paper, May 24, 2009' (PDF revision date)"
     },
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "likelihood": "high",
     "difficulty": "easy",
     "tags": [
@@ -342,9 +342,9 @@
     "explanation": "\"Nakamoto combined several prior inventions such as digital signatures and Hashcash to create a completely decentralized electronic cash system.\" Hashcash is Adam Back's proof-of-work scheme; proof of stake and smart contracts came later in other systems.",
     "source": {
       "book": "ch01 > History of Bitcoin",
-      "lecture": null
+      "lecture": "W1 s2 +note ('Bitcoin.pdf paper refers to Hashcash'); W4 s7 +note (public key digital signature)"
     },
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "likelihood": "medium",
     "difficulty": "medium",
     "tags": [
@@ -369,9 +369,9 @@
     "explanation": "\"A key innovation was to use a distributed computation system (called a 'proof-of-work' algorithm) to conduct a global lottery every 10 minutes on average, allowing the decentralized network to arrive at consensus about the state of transactions. This elegantly solves the issue of double-spend.\" There is no leader and no identity registration.",
     "source": {
       "book": "ch01 > History of Bitcoin",
-      "lecture": null
+      "lecture": "W4 s10-11 +note (consensus committee validates the last 10 minutes, added irreversibly); W4 s6 Q4"
     },
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "likelihood": "high",
     "difficulty": "medium",
     "tags": [
@@ -399,7 +399,7 @@
       "lecture": null
     },
     "coverage": "book-only",
-    "likelihood": "medium",
+    "likelihood": "low",
     "difficulty": "easy",
     "tags": [
       "history",
@@ -425,7 +425,7 @@
       "lecture": null
     },
     "coverage": "book-only",
-    "likelihood": "high",
+    "likelihood": "medium",
     "difficulty": "medium",
     "tags": [
       "byzantine-generals",
@@ -451,7 +451,7 @@
       "lecture": null
     },
     "coverage": "book-only",
-    "likelihood": "high",
+    "likelihood": "medium",
     "difficulty": "easy",
     "tags": [
       "wallets",
@@ -474,9 +474,9 @@
     "explanation": "The book introduces Bitcoin Core as \"a reference implementation of the Bitcoin protocol that includes a wallet ... derived from the original implementation written by Satoshi Nakamoto.\" Chapter 3 expands on it.",
     "source": {
       "book": "ch01 > Getting Started; ch03",
-      "lecture": null
+      "lecture": "W4 s13 +note (Install Bitcoin Core; '768 GB' ledger) - note the lecture called it 'the software to mine bitcoin'"
     },
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "likelihood": "high",
     "difficulty": "easy",
     "tags": [
@@ -503,7 +503,7 @@
       "lecture": null
     },
     "coverage": "book-only",
-    "likelihood": "medium",
+    "likelihood": "low",
     "difficulty": "easy",
     "tags": [
       "wallets",
@@ -529,7 +529,7 @@
       "lecture": null
     },
     "coverage": "book-only",
-    "likelihood": "high",
+    "likelihood": "medium",
     "difficulty": "medium",
     "tags": [
       "wallets",
@@ -552,9 +552,9 @@
     "explanation": "\"A full node is a program that validates the entire history of Bitcoin transactions,\" offering complete autonomy at a substantial resource cost. A lightweight or simplified-payment-verification (SPV) client \"connects to a full node or other remote server,\" stores the wallet locally, partially validates, and creates its own transactions.",
     "source": {
       "book": "ch01 > Full node versus Lightweight",
-      "lecture": null
+      "lecture": "W4 s37-40 +note (full node functions; 'full nodes are small percentage'); W4 s40 (SPV - Simplified Payment Verification)"
     },
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "likelihood": "high",
     "difficulty": "medium",
     "tags": [
@@ -579,9 +579,9 @@
     "explanation": "\"Full nodes are the peers: each peer individually validates every confirmed transaction ... Lightweight wallets and other software are clients: each client depends on one or more peers.\" A client's security \"ultimately relies on the integrity of its peers.\"",
     "source": {
       "book": "ch01 > Full node versus Lightweight (TIP)",
-      "lecture": null
+      "lecture": "W4 s35-36 +note (each node performs the role of a relay station; flat topology)"
     },
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "likelihood": "medium",
     "difficulty": "medium",
     "tags": [
@@ -606,10 +606,10 @@
     "explanation": "Access to bitcoins is controlled by private keys; if you alone control them you control your bitcoins, otherwise \"your bitcoins are managed by a third-party who ultimately controls your funds on your behalf.\" This separates wallets (you control keys) from custodial accounts.",
     "source": {
       "book": "ch01 > Who controls the keys",
-      "lecture": null
+      "lecture": "W4 s9 +note ('Alice is the only party with the secret key so she should be the only one that can open it')"
     },
-    "coverage": "book-only",
-    "likelihood": "high",
+    "coverage": "lecture+book",
+    "likelihood": "medium",
     "difficulty": "easy",
     "tags": [
       "custodial",
@@ -630,7 +630,7 @@
       "lecture": null
     },
     "coverage": "book-only",
-    "likelihood": "high",
+    "likelihood": "medium",
     "difficulty": "easy",
     "tags": [
       "custodial",
@@ -682,7 +682,7 @@
       "lecture": null
     },
     "coverage": "book-only",
-    "likelihood": "medium",
+    "likelihood": "low",
     "difficulty": "medium",
     "tags": [
       "recovery-code",
@@ -709,7 +709,7 @@
       "lecture": null
     },
     "coverage": "book-only",
-    "likelihood": "medium",
+    "likelihood": "low",
     "difficulty": "medium",
     "tags": [
       "recovery-code",
@@ -733,9 +733,9 @@
     "explanation": "\"Her Bitcoin addresses are not known to the Bitcoin network or 'registered' with any part of the Bitcoin system ... The addresses are generated independently by her wallet without reference or registration with any service.\"",
     "source": {
       "book": "ch01 > Bitcoin Addresses",
-      "lecture": null
+      "lecture": "W4 s5 +note ('User accounts are created on the fly when receiving a payment (= a random number!)'); W4 s9 +note (Account # = Hash(Kp))"
     },
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "likelihood": "high",
     "difficulty": "medium",
     "tags": [
@@ -753,9 +753,9 @@
     "explanation": "False. \"Unlike a bank account number, nobody who learns one of your Bitcoin addresses can withdraw money from your wallet--you must initiate all spends.\" Sharing an address is safe; only the private key can spend.",
     "source": {
       "book": "ch01 > Bitcoin Addresses (TIP)",
-      "lecture": null
+      "lecture": "W4 s9 +note (only the holder of Ks can spend; anyone can verify with Kp)"
     },
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "likelihood": "high",
     "difficulty": "easy",
     "tags": [
@@ -780,9 +780,9 @@
     "explanation": "\"If you give two people the same address, they will be able to see how many bitcoins the other person sent you ... To protect your privacy, you should generate a new invoice with a new address each time you request a payment.\" Addresses never expire and reuse costs no fee; the concern is purely privacy.",
     "source": {
       "book": "ch01 > Bitcoin Addresses (TIP)",
-      "lecture": null
+      "lecture": "W4 s5 +note (anonymous: no user name; accounts created on the fly per payment); W4 s9 (generate a random key pair when receiving payment)"
     },
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "likelihood": "high",
     "difficulty": "medium",
     "tags": [
@@ -810,7 +810,7 @@
       "lecture": null
     },
     "coverage": "book-only",
-    "likelihood": "high",
+    "likelihood": "medium",
     "difficulty": "medium",
     "tags": [
       "irreversibility",
@@ -836,7 +836,7 @@
       "lecture": null
     },
     "coverage": "book-only",
-    "likelihood": "medium",
+    "likelihood": "low",
     "difficulty": "easy",
     "tags": [
       "price",
@@ -859,10 +859,10 @@
     "explanation": "0.001 BTC is 1 millibitcoin (mBTC), which equals 100,000 satoshis, so a satoshi is 1/100,000,000 of a bitcoin. Chapter 2 adds that serialized transactions encode value as an integer number of this smallest onchain unit.",
     "source": {
       "book": "ch01 > Sending and Receiving Bitcoin; ch02 > Buying from an Online Store (NOTE)",
-      "lecture": null
+      "lecture": "W4 s25 (slide only: '1 BTC = 100,000,000 Satoshi'); W4 s28 (Value field: amount in satoshis)"
     },
-    "coverage": "book-only",
-    "likelihood": "medium",
+    "coverage": "lecture+book",
+    "likelihood": "high",
     "difficulty": "easy",
     "tags": [
       "units",
@@ -885,9 +885,9 @@
     "explanation": "\"'Unconfirmed' means that the transaction has been propagated to the network but has not yet been recorded in the Bitcoin transaction journal, known as the blockchain. To be confirmed, a transaction must be included in a block and added to the blockchain.\" Recipients never approve incoming payments.",
     "source": {
       "book": "ch01 > Sending and Receiving Bitcoin (Confirmations sidebar)",
-      "lecture": null
+      "lecture": "W4 s10 +note (batch of last 10 minutes 'stamped as validated and added, irreversibly'); W4 s17 +note (When: set when tied to the blockchain)"
     },
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "likelihood": "high",
     "difficulty": "medium",
     "tags": [
@@ -914,7 +914,7 @@
       "lecture": null
     },
     "coverage": "book-only",
-    "likelihood": "medium",
+    "likelihood": "low",
     "difficulty": "easy",
     "tags": [
       "confirmation",
@@ -938,10 +938,10 @@
     "explanation": "The abstract: \"As long as a majority of CPU power is controlled by nodes that are not cooperating to attack the network, they'll generate the longest chain and outpace attackers.\" No identities or trusted parties are required; nodes can leave and rejoin at will.",
     "source": {
       "book": "Whitepaper > Abstract",
-      "lecture": null
+      "lecture": "W4 s57 (whitepaper assigned as reading); W4 s10-12 +note (miners as consensus committee)"
     },
-    "coverage": "book-only",
-    "likelihood": "high",
+    "coverage": "lecture+book",
+    "likelihood": "medium",
     "difficulty": "medium",
     "tags": [
       "whitepaper",
@@ -965,9 +965,9 @@
     "explanation": "Section 2: \"We define an electronic coin as a chain of digital signatures. Each owner transfers the coin to the next by digitally signing a hash of the previous transaction and the public key of the next owner and adding these to the end of the coin.\"",
     "source": {
       "book": "Whitepaper > 2. Transactions",
-      "lecture": null
+      "lecture": "W4 s57 (whitepaper assigned); W4 s17-18 +note (input = hash of previous TX + signature + public key)"
     },
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "likelihood": "high",
     "difficulty": "medium",
     "tags": [
@@ -986,9 +986,9 @@
     "explanation": "These three trust questions frame why cryptography (digital signatures) and a decentralized consensus mechanism were needed to make digital cash viable.",
     "source": {
       "book": "ch01 > Digital Currencies Before Bitcoin",
-      "lecture": null
+      "lecture": "W4 s6 +note (questions to be addressed incl. double spending)"
     },
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "likelihood": "medium",
     "difficulty": "medium",
     "tags": [
@@ -1006,14 +1006,151 @@
     "explanation": "The point a grader looks for: no central authority; issuance and clearing are done by miners under rules validated independently by all peers.",
     "source": {
       "book": "ch01 > Introduction",
-      "lecture": null
+      "lecture": "W4 s4-5 +note (combined public ledger replaces the trusted 'village elders'); W4 s36 (no centralized server)"
     },
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "likelihood": "medium",
     "difficulty": "medium",
     "tags": [
       "decentralization",
       "mining"
+    ]
+  },
+  {
+    "id": "mb-ch01-q41",
+    "chapter": 1,
+    "section": "Introduction > What Is Bitcoin (lecture framing)",
+    "type": "mcq",
+    "prompt": "Dr. Zheng's week-1 slide \"What is Bitcoin?\" listed several ways to describe Bitcoin. Which of the following was NOT on that list?",
+    "choices": [
+      "An asset for investment and \"digital gold\".",
+      "A central-bank digital currency issued by the Federal Reserve.",
+      "A digital cash and an \"anonymous\" payment system.",
+      "A blockchain and a distributed consensus protocol."
+    ],
+    "answer": 1,
+    "explanation": "W1 s16 lists: an asset for investment, a digital cash, \"digital gold\", an \"anonymous\" payment system for \"black markets\", a blockchain, and a distributed consensus protocol. The instructor's framing (notes W1 s16): like touching an elephant, it can be defined many ways. A central-bank-issued currency is the opposite of Bitcoin's decentralized design (the book: no central authority; eCash 2.0 / Tourbillon in W3 is the CBDC idea).",
+    "source": {
+      "book": "ch01 > Introduction (four innovations)",
+      "lecture": "W1 s16 +note ('Like touching an elephant ... cover all the different aspects that make bitcoin what it is')"
+    },
+    "coverage": "lecture+book",
+    "likelihood": "high",
+    "difficulty": "easy",
+    "tags": [
+      "what-is-bitcoin",
+      "lecture-framing"
+    ]
+  },
+  {
+    "id": "mb-ch01-q42",
+    "chapter": 1,
+    "section": "Introduction > Bitcoin as a combined public ledger (lecture model)",
+    "type": "mcq",
+    "prompt": "In the lecture's \"combined public ledger\" model, what does the Bitcoin ledger record, and what does it NOT show?",
+    "choices": [
+      "It records only transactions (moves from one account to another); no balances and no user names are stored.",
+      "It records each user's name and running balance, like a bank statement.",
+      "It records balances only; individual transactions are discarded after 10 minutes.",
+      "It records encrypted account files that only the owner can decrypt."
+    ],
+    "answer": 0,
+    "explanation": "W4 s5: \"Only transactions are recorded! No balance is shown\"; accounts are anonymous numbers \"created on the fly when receiving a payment\". Notes W4 s5: \"Bitcoin has no total balance, name, or account tied to the transaction = anonymous.\" This is the book's UTXO model (ch02): wallets compute balances from unspent outputs.",
+    "source": {
+      "book": "ch02 > Getting the Right Inputs (UTXOs); ch01 > Bitcoin Addresses",
+      "lecture": "W4 s5 +note; W4 s29 +note ('Bitcoin doesn't tell you how much you have, but the transactions')"
+    },
+    "coverage": "lecture+book",
+    "likelihood": "high",
+    "difficulty": "easy",
+    "tags": [
+      "public-ledger",
+      "utxo",
+      "anonymity",
+      "lecture-framing"
+    ]
+  },
+  {
+    "id": "mb-ch01-q43",
+    "chapter": 1,
+    "section": "Introduction > Minting (lecture question 5, book answer)",
+    "type": "mcq",
+    "prompt": "The lecture posed the question \"How to mint money? Who mints money? How much to mint each year?\" What is Bitcoin's answer, per the book?",
+    "choices": [
+      "Miners mint new bitcoins as the block reward when they create valid blocks; the amount per block follows a fixed schedule that halves about every four years toward a cap just under 21 million.",
+      "A foundation mints coins each January based on the previous year's inflation rate.",
+      "Full nodes vote every 2,016 blocks on how many coins to create.",
+      "New coins are minted whenever a user opens a new wallet."
+    ],
+    "answer": 0,
+    "explanation": "W4 s6 Q5 raises minting; W4 s12 (notes): miners are \"rewarded in form of new bitcoin created as part of the block of transactions.\" The book (ch01/ch02) gives the schedule: mining creates new bitcoins in each block on a fixed, diminishing issuance schedule; half of the remaining coins are added every four years; total just below 21 million.",
+    "source": {
+      "book": "ch01 > Introduction (issuance); ch02 > Bitcoin Mining",
+      "lecture": "W4 s6 Q5 +note; W4 s12 +note (miners rewarded with new bitcoin)"
+    },
+    "coverage": "lecture+book",
+    "likelihood": "high",
+    "difficulty": "medium",
+    "tags": [
+      "minting",
+      "issuance",
+      "block-reward",
+      "halving"
+    ]
+  },
+  {
+    "id": "mb-ch01-q44",
+    "chapter": 1,
+    "section": "Introduction > Digital Currencies Before Bitcoin (Chaumian e-cash, week 3)",
+    "type": "mcq",
+    "prompt": "Week 3 covered Chaum's untraceable e-cash. Which drawback of Chaumian e-cash listed by the instructor does Bitcoin's design remove?",
+    "choices": [
+      "Its coins could be spent an unlimited number of times without detection.",
+      "It requires banks (accounts with banks and trust in banks), and the bank must keep track of all spent coins.",
+      "It exposed every payer's identity to the merchant.",
+      "It could only represent whole-dollar amounts."
+    ],
+    "answer": 1,
+    "explanation": "W3 s50 \"Drawbacks of Chaumian e-Cash\": not transferable (more like a check), requires banks and accounts with banks, needs trust in banks, banks must track all spent coins. The book (ch01 sidebar) makes the same point about pre-Bitcoin digital currencies: centralized clearing made them a single point of attack; Bitcoin removes the trusted bank. Chaum's scheme did detect double spending (W3 s43) and preserved anonymity (W3 s44).",
+    "source": {
+      "book": "ch01 > Digital Currencies Before Bitcoin",
+      "lecture": "W3 s50 (note: 'Drawbacks'); W3 s48 (advantages); W3 s3 +note ('most important milestone')"
+    },
+    "coverage": "lecture+book",
+    "likelihood": "medium",
+    "difficulty": "medium",
+    "tags": [
+      "chaum",
+      "ecash",
+      "history",
+      "centralization"
+    ]
+  },
+  {
+    "id": "mb-ch01-q45",
+    "chapter": 1,
+    "section": "Introduction > Double-spend problem (lecture techniques)",
+    "type": "mcq",
+    "prompt": "The instructor listed three techniques to defend against double-spending in Chaumian e-cash. Which one is the online, real-time approach that most resembles the \"central clearinghouse\" the book describes for pre-Bitcoin digital money?",
+    "choices": [
+      "A database of spent coins kept by the bank, which revokes coins the moment they are spent.",
+      "Cut and choose, which forces the customer to build coins in the correct format.",
+      "Embedding the customer's identity in the coin so double spending reveals the cheater.",
+      "Proof of work, which makes double spending computationally expensive."
+    ],
+    "answer": 0,
+    "explanation": "W3 s17: \"Database of spent coins: effective for online payments: the bank revokes spent coins, real time\"; \"Cut and Choose: force the customer to create coins with the correct format\"; \"Embed user IDs: ... double spending causes the identity of the cheating party to be revealed.\" Proof of work is Bitcoin's (not Chaum's) solution. The book: earlier digital currencies cleared all transactions through a central authority with a global view.",
+    "source": {
+      "book": "ch01 > Digital Currencies Before Bitcoin; History of Bitcoin",
+      "lecture": "W3 s16-18 +note; W3 s15 'Important Questions' (double spending)"
+    },
+    "coverage": "lecture+book",
+    "likelihood": "medium",
+    "difficulty": "medium",
+    "tags": [
+      "double-spend",
+      "chaum",
+      "clearinghouse"
     ]
   },
   {
@@ -1032,9 +1169,9 @@
     "explanation": "\"The Bitcoin system consists of users with wallets containing keys, transactions that are propagated across the network, and miners who produce (through competitive computation) the consensus blockchain, which is the authoritative journal of all transactions.\"",
     "source": {
       "book": "ch02 > Bitcoin Overview",
-      "lecture": null
+      "lecture": "W4 s12 +note (ecosystem: wallets, miners/server farms, nodes, blockchain)"
     },
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "likelihood": "high",
     "difficulty": "easy",
     "tags": [
@@ -1061,7 +1198,7 @@
       "lecture": null
     },
     "coverage": "book-only",
-    "likelihood": "medium",
+    "likelihood": "low",
     "difficulty": "medium",
     "tags": [
       "invoice",
@@ -1085,9 +1222,9 @@
     "explanation": "\"A transaction tells the network that the owner of certain bitcoins has authorized the transfer of that value to another owner. The new owner can now spend the bitcoin by creating another transaction ... in a chain of ownership.\"",
     "source": {
       "book": "ch02 > Bitcoin Transactions",
-      "lecture": null
+      "lecture": "W4 s3 +note (transaction defined); W4 s17 +note (from, to, amount, integrity, time)"
     },
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "likelihood": "high",
     "difficulty": "easy",
     "tags": [
@@ -1111,9 +1248,9 @@
     "explanation": "\"Each transaction contains one or more inputs, which spend funds. On the other side of the transaction, there are one or more outputs, which receive funds.\"",
     "source": {
       "book": "ch02 > Transaction Inputs and Outputs",
-      "lecture": null
+      "lecture": "W4 s25 (slide only: 'Double vs. Triple entry bookkeeping')"
     },
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "likelihood": "high",
     "difficulty": "easy",
     "tags": [
@@ -1138,9 +1275,9 @@
     "explanation": "\"The inputs and outputs do not necessarily add up to the same amount. Instead, outputs add up to slightly less than inputs and the difference represents an implied transaction fee, which is a small payment collected by the miner.\" Later the book repeats: \"The fee is not explicitly stated in the transaction.\"",
     "source": {
       "book": "ch02 > Transaction Inputs and Outputs; Creating the Outputs",
-      "lecture": null
+      "lecture": "W4 s23-24 +note ('The top is always larger than the bottom (input is higher than output)'; 'The difference is collected by miner as a transaction fee')"
     },
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "likelihood": "high",
     "difficulty": "medium",
     "tags": [
@@ -1164,9 +1301,9 @@
     "explanation": "\"The transaction also contains proof of ownership for each amount of bitcoins (inputs) whose value is being spent, in the form of a digital signature from the owner, which can be independently validated by anyone.\" In Bitcoin terms, spending is signing.",
     "source": {
       "book": "ch02 > Transaction Inputs and Outputs",
-      "lecture": null
+      "lecture": "W4 s17-18 +note (input carries Alice's signature + public key; miner validates the signature)"
     },
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "likelihood": "high",
     "difficulty": "easy",
     "tags": [
@@ -1190,9 +1327,9 @@
     "explanation": "\"In an actual transaction, the reference is the 32-byte transaction identifier (txid) for the transaction where Alice received the money from Joe. The ':0' indicates the position of the output where Alice received the money; in this case, the first position (position 0).\"",
     "source": {
       "book": "ch02 > Transaction Chains",
-      "lecture": null
+      "lecture": "W4 s17-18 +note (input = 'Hash of unspent TX'); W4 s29 +note (TXID together with its index uniquely determines the UTXO)"
     },
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "likelihood": "high",
     "difficulty": "medium",
     "tags": [
@@ -1211,10 +1348,10 @@
     "explanation": "False. \"Actual Bitcoin transactions don't explicitly include the value of their input. To determine the value of an input, software needs to use the input's reference to find the previous transaction output being spent.\"",
     "source": {
       "book": "ch02 > Transaction Chains",
-      "lecture": null
+      "lecture": "W4 s27-28 (slide: input fields are TXID + index, no value field)"
     },
-    "coverage": "book-only",
-    "likelihood": "high",
+    "coverage": "lecture+book",
+    "likelihood": "medium",
     "difficulty": "medium",
     "tags": [
       "inputs",
@@ -1237,9 +1374,9 @@
     "explanation": "\"Transaction inputs, like currency notes, cannot be partly spent.\" Paying for a $5 item with a $20 bill returns $15 change; likewise a 20-bitcoin input paying 5 bitcoins produces a 15-bitcoin change output (minus fee).",
     "source": {
       "book": "ch02 > Making Change",
-      "lecture": null
+      "lecture": "W4 s20-21 +note ('Bitcoin requires you to spend the entire transaction at one time ... the leftover becomes an additional transaction back to yourself')"
     },
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "likelihood": "high",
     "difficulty": "easy",
     "tags": [
@@ -1263,10 +1400,10 @@
     "explanation": "\"At the level of the Bitcoin protocol, there is no difference between a change output (and the address it pays, called a change address) and a payment output.\" Ideally both use never-before-seen addresses so third parties cannot tell them apart.",
     "source": {
       "book": "ch02 > Making Change",
-      "lecture": null
+      "lecture": "W4 s21-23 +note ('Alice pays herself as an additional recipient'; change shown as just another output)"
     },
-    "coverage": "book-only",
-    "likelihood": "high",
+    "coverage": "lecture+book",
+    "likelihood": "medium",
     "difficulty": "medium",
     "tags": [
       "change",
@@ -1284,9 +1421,9 @@
     "explanation": "True. \"The change address does not have to be the same address as that of the input and, for privacy reasons, is often a new address from the owner's wallet.\"",
     "source": {
       "book": "ch02 > Making Change",
-      "lecture": null
+      "lecture": "W4 s21-23 (change paid to 'Hash of Alice's public key3/4' - a new key each time)"
     },
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "likelihood": "medium",
     "difficulty": "easy",
     "tags": [
@@ -1313,7 +1450,7 @@
       "lecture": null
     },
     "coverage": "book-only",
-    "likelihood": "medium",
+    "likelihood": "low",
     "difficulty": "medium",
     "tags": [
       "change",
@@ -1336,9 +1473,9 @@
     "explanation": "\"Different wallets use different strategies when choosing which inputs to use in a payment, called coin selection.\" A wallet may aggregate small inputs or use one large one, like a person choosing between large bills and loose change.",
     "source": {
       "book": "ch02 > Coin Selection",
-      "lecture": null
+      "lecture": "W4 s19 +note ('Wallets will construct the transaction'); W4 s24 +note (choice of m inputs)"
     },
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "likelihood": "medium",
     "difficulty": "easy",
     "tags": [
@@ -1362,9 +1499,9 @@
     "explanation": "\"A very common form of transaction is a simple payment. This type of transaction has one input and two outputs.\" Consolidation and batching are the other named forms.",
     "source": {
       "book": "ch02 > Common Transaction Forms",
-      "lecture": null
+      "lecture": "W4 s24 +note ('Know what big input/output vs small input/output mean')"
     },
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "likelihood": "high",
     "difficulty": "easy",
     "tags": [
@@ -1387,10 +1524,10 @@
     "explanation": "\"A consolidation transaction ... spends several inputs into a single output ... the real-world equivalent of exchanging a pile of coins and currency notes for a single larger note.\" Paying many recipients is payment batching, the opposite shape.",
     "source": {
       "book": "ch02 > Common Transaction Forms",
-      "lecture": null
+      "lecture": "W4 s24 +note (many inputs -> few outputs); W4 s44 (skipped case study: 'Consolidate')"
     },
-    "coverage": "book-only",
-    "likelihood": "medium",
+    "coverage": "lecture+book",
+    "likelihood": "high",
     "difficulty": "medium",
     "tags": [
       "transaction-forms",
@@ -1413,9 +1550,9 @@
     "explanation": "\"Payment batching ... pays to multiple outputs representing multiple recipients ... sometimes used by commercial entities to distribute funds, such as when processing payroll payments to multiple employees.\"",
     "source": {
       "book": "ch02 > Common Transaction Forms",
-      "lecture": null
+      "lecture": "W4 s20-24 +note (one TX paying Bob and Charlie; n outputs)"
     },
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "likelihood": "medium",
     "difficulty": "easy",
     "tags": [
@@ -1436,7 +1573,7 @@
       "lecture": null
     },
     "coverage": "book-only",
-    "likelihood": "medium",
+    "likelihood": "low",
     "difficulty": "medium",
     "tags": [
       "offline",
@@ -1460,9 +1597,9 @@
     "explanation": "\"A Bitcoin wallet application that runs on a full node actually contains a copy of every confirmed transaction's unspent outputs, called unspent transaction outputs (UTXOs).\" Wallets pick UTXOs they control as inputs for new payments.",
     "source": {
       "book": "ch02 > Getting the Right Inputs",
-      "lecture": null
+      "lecture": "W4 s24 +note (UTXO = unspent coin); W4 s29 +note ('Miners have the database of currently unspent coins')"
     },
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "likelihood": "high",
     "difficulty": "easy",
     "tags": [
@@ -1486,9 +1623,9 @@
     "explanation": "The book: \"A transaction output is created with a script that says something like, 'This output is paid to whoever can present a signature from the key corresponding to Bob's public address.' ... Alice will therefore encumber the output value with a demand for a signature from Bob.\"",
     "source": {
       "book": "ch02 > Creating the Outputs",
-      "lecture": null
+      "lecture": "W4 s17-18 +note ('To' = hash of receiver's public key); W4 s27-30 (scriptPubKey)"
     },
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "likelihood": "high",
     "difficulty": "medium",
     "tags": [
@@ -1513,10 +1650,10 @@
     "explanation": "\"Because the transaction contains all the information necessary for it to be processed, it does not matter how or where it is transmitted to the Bitcoin network.\" Alice's wallet \"can send the new transaction to any Bitcoin node over any type of connection\" and need not connect to Bob's wallet.",
     "source": {
       "book": "ch02 > Transmitting the transaction; How it propagates",
-      "lecture": null
+      "lecture": "W4 s35-36 +note (each node is a relay station; no central authority)"
     },
-    "coverage": "book-only",
-    "likelihood": "high",
+    "coverage": "lecture+book",
+    "likelihood": "medium",
     "difficulty": "medium",
     "tags": [
       "propagation",
@@ -1539,9 +1676,9 @@
     "explanation": "\"Any Bitcoin node that receives a valid transaction it has not seen before will forward it to all other nodes to which it is connected, a propagation technique known as gossiping. Thus, the transaction rapidly propagates out across the peer-to-peer network, reaching a large percentage of the nodes within a few seconds.\"",
     "source": {
       "book": "ch02 > How it propagates",
-      "lecture": null
+      "lecture": "W4 s36 +note ('Gossip Protocol for P2P decentralization'); W4 s42 +note (4th P2P function: gossip)"
     },
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "likelihood": "high",
     "difficulty": "easy",
     "tags": [
@@ -1565,9 +1702,9 @@
     "explanation": "\"It does not become part of the blockchain until it is included in a block by a process called mining and that block has been validated by full nodes.\" Signing, receipt by Bob, and propagation all happen before that.",
     "source": {
       "book": "ch02 > Bitcoin Mining",
-      "lecture": null
+      "lecture": "W4 s10-11 +note (validated by the consensus committee, then added irreversibly)"
     },
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "likelihood": "high",
     "difficulty": "medium",
     "tags": [
@@ -1594,7 +1731,7 @@
       "lecture": null
     },
     "coverage": "book-only",
-    "likelihood": "high",
+    "likelihood": "medium",
     "difficulty": "medium",
     "tags": [
       "proof-of-work",
@@ -1617,9 +1754,9 @@
     "explanation": "\"The mining process serves two purposes in Bitcoin\": the incentive to follow consensus rules (allowing users to trust that transactions in blocks are valid) and the creation of new bitcoins \"almost like a central bank printing new money\" but on a limited, diminishing schedule.",
     "source": {
       "book": "ch02 > Bitcoin Mining",
-      "lecture": null
+      "lecture": "W4 s12 +note (miners = consensus committee, 'rewarded in form of new bitcoin created as part of the block')"
     },
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "likelihood": "high",
     "difficulty": "medium",
     "tags": [
@@ -1644,9 +1781,9 @@
     "explanation": "\"A successful miner will collect a reward in the form of new bitcoins and transaction fees. However, the reward will only be collected if the miner has only included valid transactions, with the Bitcoin protocol's rules for consensus determining what is valid.\"",
     "source": {
       "book": "ch02 > Bitcoin Mining",
-      "lecture": null
+      "lecture": "W4 s12 +note (reward = new bitcoin); W4 s23 +note (fee = 'tip' for the miner)"
     },
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "likelihood": "high",
     "difficulty": "medium",
     "tags": [
@@ -1674,7 +1811,7 @@
       "lecture": null
     },
     "coverage": "book-only",
-    "likelihood": "high",
+    "likelihood": "medium",
     "difficulty": "medium",
     "tags": [
       "candidate-block",
@@ -1698,10 +1835,10 @@
     "explanation": "\"Transactions are added to the new block, prioritized by the highest fee rate transactions first and a few other criteria.\"",
     "source": {
       "book": "ch02 > Bitcoin Mining",
-      "lecture": null
+      "lecture": "W4 s23 +note ('If the tip is 0, the transaction will never be picked up by the miner')"
     },
-    "coverage": "book-only",
-    "likelihood": "medium",
+    "coverage": "lecture+book",
+    "likelihood": "high",
     "difficulty": "medium",
     "tags": [
       "fees",
@@ -1725,9 +1862,9 @@
     "explanation": "\"Each miner includes a special transaction in their candidate blocks, one that pays their own Bitcoin address the block reward plus the sum of transaction fees ... Miners who participate in a mining pool ... assign the reward to a pool address. From there, a share of the reward is distributed to members of the pool miners in proportion to the amount of work they contributed.\"",
     "source": {
       "book": "ch02 > Bitcoin Mining",
-      "lecture": null
+      "lecture": "W4 s39 +note ('Almost all are now pool miners'); W4 s12 +note (reward as new bitcoin in the block)"
     },
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "likelihood": "medium",
     "difficulty": "medium",
     "tags": [
@@ -1752,9 +1889,9 @@
     "explanation": "\"The block containing Alice's transaction is counted as one confirmation of that transaction ... Each block mined on top of the one containing Alice's transaction counts as an additional confirmation.\" Propagation to nodes does not count.",
     "source": {
       "book": "ch02 > Bitcoin Mining",
-      "lecture": null
+      "lecture": "W4 s10-11 +note (one block per 10 minutes; added irreversibly); W4 s51 (skipped: 'without waiting for 6 confirmations')"
     },
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "likelihood": "high",
     "difficulty": "easy",
     "tags": [
@@ -1777,9 +1914,9 @@
     "explanation": "\"By convention, any block with more than six confirmations is considered very hard to change, because it would require an immense amount of computation to recalculate six blocks (plus one new block).\"",
     "source": {
       "book": "ch02 > Bitcoin Mining",
-      "lecture": null
+      "lecture": "W4 s51 (skipped case study mentions '6 confirmations'); W4 s10 +note (irreversible once added)"
     },
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "likelihood": "high",
     "difficulty": "easy",
     "tags": [
@@ -1806,7 +1943,7 @@
       "lecture": null
     },
     "coverage": "book-only",
-    "likelihood": "high",
+    "likelihood": "medium",
     "difficulty": "medium",
     "tags": [
       "best-chain",
@@ -1833,7 +1970,7 @@
       "lecture": null
     },
     "coverage": "book-only",
-    "likelihood": "medium",
+    "likelihood": "low",
     "difficulty": "hard",
     "tags": [
       "incentives",
@@ -1883,9 +2020,9 @@
     "explanation": "Whitepaper section 5: \"Nodes accept the block only if all transactions in it are valid and not already spent. Nodes express their acceptance of the block by working on creating the next block in the chain, using the hash of the accepted block as the previous hash.\"",
     "source": {
       "book": "Whitepaper > 5. Network",
-      "lecture": null
+      "lecture": "W4 s18 +note (accept only if inputs are unspent and signatures valid - 'most important two events')"
     },
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "likelihood": "high",
     "difficulty": "medium",
     "tags": [
@@ -1910,10 +2047,10 @@
     "explanation": "Whitepaper section 4: if majority were one-IP-address-one-vote it could be subverted by allocating many IPs; \"Proof-of-work is essentially one-CPU-one-vote. The majority decision is represented by the longest chain, which has the greatest proof-of-work effort invested in it.\"",
     "source": {
       "book": "Whitepaper > 4. Proof-of-Work",
-      "lecture": null
+      "lecture": "W4 s57 (whitepaper assigned); W4 s10 +note (consensus committee)"
     },
-    "coverage": "book-only",
-    "likelihood": "high",
+    "coverage": "lecture+book",
+    "likelihood": "medium",
     "difficulty": "medium",
     "tags": [
       "whitepaper",
@@ -1937,9 +2074,9 @@
     "explanation": "Whitepaper section 6: \"By convention, the first transaction in a block is a special transaction that starts a new coin owned by the creator of the block. This adds an incentive for nodes to support the network, and provides a way to initially distribute coins into circulation, since there is no central authority to issue them.\"",
     "source": {
       "book": "Whitepaper > 6. Incentive",
-      "lecture": null
+      "lecture": "W4 s12 +note (miners rewarded with new bitcoin created as part of the block)"
     },
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "likelihood": "medium",
     "difficulty": "medium",
     "tags": [
@@ -1958,9 +2095,9 @@
     "explanation": "True. \"Once a predetermined number of coins have entered circulation, the incentive can transition entirely to transaction fees and be completely inflation free.\"",
     "source": {
       "book": "Whitepaper > 6. Incentive",
-      "lecture": null
+      "lecture": "W4 s23 +note ('to pay miners, or you could generate a new bitcoin inside of each block')"
     },
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "likelihood": "medium",
     "difficulty": "medium",
     "tags": [
@@ -1985,9 +2122,9 @@
     "explanation": "Fee = inputs - outputs = 100,000 - (75,000 + 20,000) = 5,000 satoshis. Calculation-style questions are out of scope per the instructor, so this is included only to illustrate the implied-fee rule.",
     "source": {
       "book": "ch02 > Transaction Chains",
-      "lecture": null
+      "lecture": "W4 s23 +note (fee example: 1 BTC left as fee) - calculation, out of scope"
     },
-    "coverage": "book-only",
+    "coverage": "lecture-only",
     "likelihood": "low",
     "difficulty": "easy",
     "tags": [
@@ -2005,10 +2142,10 @@
     "explanation": "Graders look for: no explicit fee field; fee = inputs minus outputs; claimed by the miner.",
     "source": {
       "book": "ch02 > Transaction Inputs and Outputs; Creating the Outputs",
-      "lecture": null
+      "lecture": "W4 s23-24 +note (fee = inputs minus outputs, collected by miner)"
     },
-    "coverage": "book-only",
-    "likelihood": "medium",
+    "coverage": "lecture+book",
+    "likelihood": "high",
     "difficulty": "medium",
     "tags": [
       "fees"
@@ -2024,14 +2161,392 @@
     "explanation": "Key points: confirmations accumulate per block; reversal requires re-mining the chain; honest mining is more profitable; six-confirmation convention.",
     "source": {
       "book": "ch02 > Bitcoin Mining",
-      "lecture": null
+      "lecture": "W4 s10-11 +note (irreversibility); W4 s51 (6 confirmations, skipped)"
     },
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "likelihood": "medium",
     "difficulty": "medium",
     "tags": [
       "confirmation",
       "security"
+    ]
+  },
+  {
+    "id": "mb-ch02-q41",
+    "chapter": 2,
+    "section": "How Bitcoin Works > Transaction validation (lecture 'two most important events')",
+    "type": "mcq",
+    "prompt": "According to the lecture, what are the two things a miner (or Bob) must verify before accepting Alice's transaction that spends TX100?",
+    "choices": [
+      "(1) TX100 is in the database of unspent transactions (it has not been spent), and (2) Alice's signature is valid.",
+      "(1) Alice's account balance is positive, and (2) Bob has registered his address.",
+      "(1) The transaction fee is at least 1 BTC, and (2) the block is less than 10 minutes old.",
+      "(1) Alice's wallet is online, and (2) Bob's wallet acknowledges receipt."
+    ],
+    "answer": 0,
+    "explanation": "W4 s18: \"Bob accepts if (1) TX100 is in a database of unspent TXs (2) Alice's signature is valid.\" Notes W4 s18: \"miner has to validate the transaction is unspent and Alice's signature is valid as well (most important two events).\" The book: full nodes verify the transaction spends valid UTXOs and that signatures are valid (ch02 Bob's view; ch04).",
+    "source": {
+      "book": "ch02 > Bob's view; Spending the Transaction; ch04 > Public Key Cryptography",
+      "lecture": "W4 s18-23 +note (E2: 'most important two events')"
+    },
+    "coverage": "lecture+book",
+    "likelihood": "high",
+    "difficulty": "easy",
+    "tags": [
+      "validation",
+      "utxo",
+      "signatures",
+      "teacher-emphasis"
+    ]
+  },
+  {
+    "id": "mb-ch02-q42",
+    "chapter": 2,
+    "section": "How Bitcoin Works > Transaction fee as a 'tip' (lecture)",
+    "type": "mcq",
+    "prompt": "According to the lecture, what happens to a transaction whose fee (\"tip\" to the miner) is zero?",
+    "choices": [
+      "It is confirmed after a mandatory 24-hour delay.",
+      "It will never be picked up by a miner and included in a block.",
+      "The recipient must pay the fee instead.",
+      "The network automatically deducts a default fee from the outputs."
+    ],
+    "answer": 1,
+    "explanation": "Notes W4 s23: \"Transaction fee created as a 'tip' for the miner ... If the tip is 0, the transaction will never be picked up by the miner.\" The book (ch02) says wallets add a fee so the transaction is processed \"in a timely fashion\" and miners prioritize by fee rate; the flat 'never' is the instructor's wording.",
+    "source": {
+      "book": "ch02 > Creating the Outputs; Bitcoin Mining (fee-rate prioritization)",
+      "lecture": "W4 s23 +note (B16)"
+    },
+    "coverage": "lecture-only",
+    "likelihood": "high",
+    "difficulty": "easy",
+    "tags": [
+      "fees",
+      "mining",
+      "teacher-emphasis"
+    ]
+  },
+  {
+    "id": "mb-ch02-q43",
+    "chapter": 2,
+    "section": "How Bitcoin Works > m inputs, n outputs (lecture)",
+    "type": "mcq",
+    "prompt": "The instructor said to \"know what big input/output vs small input/output mean\" for an m-input, n-output transaction. Which pairing is correct?",
+    "choices": [
+      "Many inputs means the transaction is invalid; a transaction may have only one input.",
+      "Many outputs means the fee is negative; the miner pays the sender.",
+      "Many inputs with few outputs gathers many small coins into larger ones (consolidation); few inputs with many outputs distributes one coin to many recipients (batching/payroll).",
+      "Many inputs means the payer is anonymous; many outputs means the payer is identified."
+    ],
+    "answer": 2,
+    "explanation": "W4 s24: \"Regular transaction: m Inputs, n Outputs\"; notes: \"n & m are generally not the same ... Know what big input/output vs small input/output mean.\" The book's Common Transaction Forms: consolidation (several inputs -> one output) and payment batching (one input -> many outputs), plus the 1-in/2-out simple payment.",
+    "source": {
+      "book": "ch02 > Common Transaction Forms",
+      "lecture": "W4 s24 +note (E3: 'Know what big input/output vs small input/output mean')"
+    },
+    "coverage": "lecture+book",
+    "likelihood": "high",
+    "difficulty": "medium",
+    "tags": [
+      "transaction-forms",
+      "consolidation",
+      "batching",
+      "teacher-emphasis"
+    ]
+  },
+  {
+    "id": "mb-ch02-q44",
+    "chapter": 2,
+    "section": "How Bitcoin Works > Units (lecture slide 25 / TX format)",
+    "type": "mcq",
+    "prompt": "How many satoshis are in one bitcoin, and in what unit does the transaction's value field store amounts?",
+    "choices": [
+      "1,000,000 satoshis per bitcoin; the value field stores whole bitcoins.",
+      "100,000,000 satoshis per bitcoin; the 8-byte value field stores the amount in satoshis.",
+      "100,000 satoshis per bitcoin; the value field stores millibitcoins.",
+      "1,000 satoshis per bitcoin; the value field stores US dollars."
+    ],
+    "answer": 1,
+    "explanation": "W4 s25: \"1 BTC = 100,000,000 Satoshi\"; W4 s28: Value, 8 bytes, \"Amount of bitcoin in satoshis\". The book (ch01/ch02): 0.001 BTC = 100,000 satoshis; serialized transactions encode value as an integer number of the smallest unit (satoshi).",
+    "source": {
+      "book": "ch01 > Sending and Receiving Bitcoin; ch02 > Transaction Chains (TIP)",
+      "lecture": "W4 s25 (slide only); W4 s28 (Value field)"
+    },
+    "coverage": "lecture+book",
+    "likelihood": "high",
+    "difficulty": "easy",
+    "tags": [
+      "units",
+      "satoshi",
+      "transaction-format"
+    ]
+  },
+  {
+    "id": "mb-ch02-q45",
+    "chapter": 2,
+    "section": "How Bitcoin Works > Blocks and the Merkle tree (lecture model)",
+    "type": "mcq",
+    "prompt": "In the lecture's block model, how are the transactions of the last 10 minutes tied into the block header?",
+    "choices": [
+      "Each transaction's full text is copied into the header.",
+      "Only the largest transaction is hashed into the header.",
+      "They are hashed pairwise in a Merkle hash tree until a single root hash remains, and that root is stored in the header; the header is then chained to the previous block by a one-way hash.",
+      "The header stores the miner's signature over the transactions instead of a hash."
+    ],
+    "answer": 2,
+    "explanation": "Notes W4 s11: \"Merkle Hash Tree - 'header' is created by pairwise hashing of all transactions hashed together continuously until you have the single hash value ... The new block created stores this hash value and extends the chain by one block.\" W4 s26: \"Blockchain (1-way hash chain) ... Merkle Hash tree\". The book covers the merkle root in ch03's getblock output and the whitepaper section 7; details come in later chapters.",
+    "source": {
+      "book": "Whitepaper > 7. Reclaiming Disk Space; ch03 > Exploring Blocks (merkleroot field)",
+      "lecture": "W4 s11, s26 +note"
+    },
+    "coverage": "lecture+book",
+    "likelihood": "medium",
+    "difficulty": "medium",
+    "tags": [
+      "merkle-tree",
+      "block-header",
+      "blockchain"
+    ]
+  },
+  {
+    "id": "mb-ch02-q46",
+    "chapter": 2,
+    "section": "How Bitcoin Works > Transaction identifier (lecture)",
+    "type": "mcq",
+    "prompt": "How is a transaction's identifier (TXID) computed, according to the lecture, and is it stored inside the transaction?",
+    "choices": [
+      "TXID is a sequential number assigned by the miner and stored in the version field.",
+      "TXID is the sender's public key, stored in the first input.",
+      "TXID = double SHA256 of the transaction (a 32-byte hash); it is NOT included in the transaction itself.",
+      "TXID is a random 16-byte UUID chosen by the wallet and stored in the lock_time field."
+    ],
+    "answer": 2,
+    "explanation": "W4 s33: \"TXID = Double_SHA256(Transaction)\", 256-bit; notes: \"sequence of 32 bytes that serves as the ID; calculated\". W4 s31 annotates the decoded example \"TXID (NOT included in TX!)\". The book (ch02) calls it the 32-byte transaction identifier used by inputs; ch03 warns it is not authoritative before confirmation.",
+    "source": {
+      "book": "ch02 > Transaction Chains (32-byte txid); ch03 > Exploring and Decoding Transactions",
+      "lecture": "W4 s17 +note ('identified by its hash value'); W4 s31 (slide only); W4 s33 +note (B20)"
+    },
+    "coverage": "lecture-only",
+    "likelihood": "high",
+    "difficulty": "medium",
+    "tags": [
+      "txid",
+      "double-sha256",
+      "transaction-format"
+    ]
+  },
+  {
+    "id": "mb-ch02-q47",
+    "chapter": 2,
+    "section": "How Bitcoin Works > Transaction format limits (lecture)",
+    "type": "mcq",
+    "prompt": "According to the lecture's \"Format of Regular TX\" slides, what is the maximum size of a regular transaction?",
+    "choices": [
+      "1,000 bytes.",
+      "10,000 bytes.",
+      "1 MB (the same as a block).",
+      "There is no size limit on a transaction."
+    ],
+    "answer": 1,
+    "explanation": "W4 s27-28 are titled \"Format of Regular TX (max. 10,000 bytes)\" and notes W4 s27 record \"Limit of transaction size is 10000 bytes.\" This figure is not in Mastering Bitcoin ch. 1-5 (the book discusses transaction size/weight later), so answer with the instructor's number if asked.",
+    "source": {
+      "book": "not in ch01-05 (transaction serialization is ch06)",
+      "lecture": "W4 s27-28 +note (B17)"
+    },
+    "coverage": "lecture-only",
+    "likelihood": "medium",
+    "difficulty": "easy",
+    "tags": [
+      "transaction-format",
+      "limits",
+      "teacher-emphasis"
+    ]
+  },
+  {
+    "id": "mb-ch02-q48",
+    "chapter": 2,
+    "section": "How Bitcoin Works > Transaction format fields (lecture)",
+    "type": "mcq",
+    "prompt": "Which list gives the main fields of a regular transaction in the order shown on the lecture's format slide?",
+    "choices": [
+      "Sender name; receiver name; amount; date; bank routing number.",
+      "Block height; nonce; difficulty; merkle root; timestamp.",
+      "Version; input count; array of inputs (TXID of the UTXO, index n, ScriptSig length, ScriptSig, sequence); output count; array of outputs (value, scriptPubKey length, scriptPubKey); lock_time.",
+      "Public key; private key; balance; signature; checksum."
+    ],
+    "answer": 2,
+    "explanation": "W4 s27-28 list exactly these fields with byte sizes (version 4; TXID 32; n 4; value 8 in satoshis; sequence 4; lock_time 4). The second distractor is a block header, not a transaction; the third mixes in a private key, which is never in a transaction. The book shows the same structure in decoded form (vin/vout/locktime) in ch03.",
+    "source": {
+      "book": "ch03 > Exploring and Decoding Transactions (decoded vin/vout)",
+      "lecture": "W4 s27-28 +note"
+    },
+    "coverage": "lecture-only",
+    "likelihood": "medium",
+    "difficulty": "medium",
+    "tags": [
+      "transaction-format"
+    ]
+  },
+  {
+    "id": "mb-ch02-q49",
+    "chapter": 2,
+    "section": "How Bitcoin Works > Scope of signature (lecture SIGHASH)",
+    "type": "mcq",
+    "prompt": "The lecture described four SIGHASH types that set which parts of a transaction a signature covers. Which is the default, and what did the instructor stress?",
+    "choices": [
+      "SIGHASH_ALL is the default (signs all fields except the signature scripts); the instructor stressed that which type is used matters less than the signature being valid.",
+      "SIGHASH_NONE is the default; the instructor stressed that signatures must cover the block header.",
+      "SIGHASH_SINGLE is the default; the instructor stressed that only miners may choose the type.",
+      "SIGHASH_ANYONECANPAY is the default; the instructor stressed that it makes transactions reversible."
+    ],
+    "answer": 0,
+    "explanation": "W4 s32: SIGHASH_ALL (default, 0x01), SIGHASH_NONE, SIGHASH_SINGLE, SIGHASH_ANYONECANPAY, with the 4-byte hash type appended before signing and moved into the scriptSig after. Notes W4 s32: \"4 Ways to sign for different purposes ... doesn't matter which, but just that it is valid.\" Not covered in book ch. 1-5 (signatures are ch08).",
+    "source": {
+      "book": "not in ch01-05 (signature hash types are ch08)",
+      "lecture": "W4 s32 +note (B19)"
+    },
+    "coverage": "lecture-only",
+    "likelihood": "medium",
+    "difficulty": "hard",
+    "tags": [
+      "sighash",
+      "signatures"
+    ]
+  },
+  {
+    "id": "mb-ch02-q50",
+    "chapter": 2,
+    "section": "How Bitcoin Works > Timestamping (lecture)",
+    "type": "mcq",
+    "prompt": "According to the lecture, how does a Bitcoin transaction get its \"when\"?",
+    "choices": [
+      "The sender's wallet writes the exact second of creation into a timestamp field.",
+      "The recipient's wallet stamps it on receipt.",
+      "Implicitly: it is timestamped by the block that ties it into the blockchain (the sequential block created about every 10 minutes), not by a precise clock time inside the transaction.",
+      "A central time server assigns it when the transaction is broadcast."
+    ],
+    "answer": 2,
+    "explanation": "W4 s17: \"When: Set when being 'tied' to the blockchain\"; notes W4 s17: \"Timestamp: Implicitly included by the sequential block number created every 10 minutes (no precise moment).\" The book: a transaction is confirmed when included in a block; block time/mediantime fields belong to the block (ch03), and the whitepaper describes the chain as a distributed timestamp server.",
+    "source": {
+      "book": "ch01 > Confirmations; ch03 > Exploring Blocks (time, mediantime); Whitepaper > 3. Timestamp Server",
+      "lecture": "W4 s17 +note"
+    },
+    "coverage": "lecture+book",
+    "likelihood": "medium",
+    "difficulty": "medium",
+    "tags": [
+      "timestamp",
+      "blocks",
+      "confirmation"
+    ]
+  },
+  {
+    "id": "mb-ch02-q51",
+    "chapter": 2,
+    "section": "How Bitcoin Works > Consensus committee (lecture model of mining)",
+    "type": "mcq",
+    "prompt": "In the lecture's high-level summary, a \"consensus committee\" checks the last 10 minutes of transactions before they are stamped and added irreversibly to the ledger. Who is this committee in Bitcoin?",
+    "choices": [
+      "A board elected by wallet owners each year.",
+      "The Bitcoin Core developers.",
+      "The miners (server farms), who validate transactions, bundle them into a block, and are rewarded with new bitcoin.",
+      "The three largest exchanges."
+    ],
+    "answer": 2,
+    "explanation": "Notes W4 s10: transactions of the last 10 minutes are checked by \"a committee called a 'consensus committee'\"; notes W4 s12: \"Miners - group of servers collectively acting as the 'Consensus Committee' that inspects all individual transactions for correctness; not done for free - rewarded in form of new bitcoin.\" The book (ch02): mining includes transactions in blocks; full nodes validate.",
+    "source": {
+      "book": "ch02 > Bitcoin Mining; ch01 > Introduction (mining)",
+      "lecture": "W4 s10-12 +note (B11)"
+    },
+    "coverage": "lecture+book",
+    "likelihood": "high",
+    "difficulty": "easy",
+    "tags": [
+      "mining",
+      "consensus",
+      "lecture-framing"
+    ]
+  },
+  {
+    "id": "mb-ch02-q52",
+    "chapter": 2,
+    "section": "How Bitcoin Works > Peer-to-peer network properties (lecture)",
+    "type": "mcq",
+    "prompt": "Which set of properties did the lecture attribute to the Bitcoin peer-to-peer network?",
+    "choices": [
+      "No centralized server, flat topology, global, nodes can join and leave at will, hard to shut down.",
+      "A central coordinator, hierarchical topology, national scope, fixed membership, easy to shut down.",
+      "A single master node, star topology, regional scope, licensed nodes only.",
+      "Client-server architecture, tree topology, US-only, permanent membership."
+    ],
+    "answer": 0,
+    "explanation": "W4 s36 \"Bitcoin is Built on P2P\": no centralized server; peer to peer; flat topology; global; nodes can join and leave as they wish (# varies constantly); hard to shutdown! Notes: hard to shut down \"unless countries work together\". The book (ch01/ch02): distributed, peer-to-peer, no central server or point of control.",
+    "source": {
+      "book": "ch01 > Introduction (P2P, no central point of control); ch02 > How it propagates",
+      "lecture": "W4 s15-16, s36 +note (B21)"
+    },
+    "coverage": "lecture+book",
+    "likelihood": "high",
+    "difficulty": "easy",
+    "tags": [
+      "p2p",
+      "network",
+      "decentralization"
+    ]
+  },
+  {
+    "id": "mb-ch02-q53",
+    "chapter": 2,
+    "section": "How Bitcoin Works > Peer-to-peer functions (lecture)",
+    "type": "mcq",
+    "prompt": "Which four functions of a peer-to-peer node did the lecture list?",
+    "choices": [
+      "Minting coins, setting prices, issuing accounts, and clearing checks.",
+      "Encrypting transactions, storing passwords, verifying identities, and charging fees.",
+      "Electing a leader, voting on blocks, banning miners, and refunding fees.",
+      "Discovery of peers, connecting to peers, exchange of inventory (transactions/blocks each node has seen), and gossip-protocol communication."
+    ],
+    "answer": 3,
+    "explanation": "W4 s42 \"Major Peer-to-Peer Functions\": discovery of peers; connecting to peers; exchange of inventory; using a gossip protocol. Notes W4 s42 add that inventory exchange matters because \"each node only sees part of the network (nodes see different transactions)\". The book ch. 1-5 mentions gossiping (ch02); the full network chapter is ch10.",
+    "source": {
+      "book": "ch02 > How it propagates (gossiping); network detail is ch10",
+      "lecture": "W4 s42 +note (B23)"
+    },
+    "coverage": "lecture-only",
+    "likelihood": "medium",
+    "difficulty": "easy",
+    "tags": [
+      "p2p",
+      "gossiping",
+      "network"
+    ]
+  },
+  {
+    "id": "mb-ch02-q54",
+    "chapter": 2,
+    "section": "How Bitcoin Works > Case study: $3B Silk Road seizure (skipped slides)",
+    "type": "mcq",
+    "prompt": "In the week-4 case study (slides the instructor jumped past), \"Individual X\" first sent all past UTXOs to himself in one transaction and then, in the very next block, sent almost all of it to a new address controlled by the Feds. Which two chapter-2 concepts does this illustrate?",
+    "choices": [
+      "A coinbase transaction followed by a difficulty adjustment.",
+      "A consolidation transaction (many inputs into one output) followed by spending an output that had only one confirmation.",
+      "Payment batching followed by a hard fork.",
+      "A changeless transaction followed by a chain reorganization."
+    ],
+    "answer": 1,
+    "explanation": "W4 s44 (\"Consolidate\", block 655282), W4 s45 (\"Transfer to Feds, in the next block, in 5 min.!\"), W4 s51 (\"Immediately transferred 69369.166 BTC to a new address ... without waiting for 6 confirmations!\"). The book: consolidation transactions spend several inputs into a single output; each block on top adds a confirmation and six is the convention. No class note exists for s43-55, so this is low priority.",
+    "source": {
+      "book": "ch02 > Common Transaction Forms (consolidation); Bitcoin Mining (confirmations)",
+      "lecture": "W4 s43-55 (skipped: no class notes; instructor closed with 'Explore the blockchain')"
+    },
+    "coverage": "skipped-slide",
+    "likelihood": "low",
+    "difficulty": "medium",
+    "tags": [
+      "case-study",
+      "consolidation",
+      "confirmation",
+      "skipped"
     ]
   },
   {
@@ -2050,9 +2565,9 @@
     "explanation": "\"Software which provides that function is called a full verification node because it verifies every confirmed Bitcoin transaction against every rule in the system. Full verification nodes, full nodes for short, may also provide tools and data.\" Lightweight clients only partially validate.",
     "source": {
       "book": "ch03 > opening",
-      "lecture": null
+      "lecture": "W4 s37 +note (full node: wallet, mine, local blockchain copy, routing)"
     },
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "likelihood": "high",
     "difficulty": "easy",
     "tags": [
@@ -2079,7 +2594,7 @@
       "lecture": null
     },
     "coverage": "book-only",
-    "likelihood": "high",
+    "likelihood": "medium",
     "difficulty": "medium",
     "tags": [
       "full-node",
@@ -2106,7 +2621,7 @@
       "lecture": null
     },
     "coverage": "book-only",
-    "likelihood": "medium",
+    "likelihood": "low",
     "difficulty": "medium",
     "tags": [
       "full-node",
@@ -2133,7 +2648,7 @@
       "lecture": null
     },
     "coverage": "book-only",
-    "likelihood": "high",
+    "likelihood": "medium",
     "difficulty": "easy",
     "tags": [
       "open-source",
@@ -2153,7 +2668,7 @@
       "lecture": null
     },
     "coverage": "book-only",
-    "likelihood": "medium",
+    "likelihood": "low",
     "difficulty": "medium",
     "tags": [
       "history",
@@ -2179,7 +2694,7 @@
       "lecture": null
     },
     "coverage": "book-only",
-    "likelihood": "medium",
+    "likelihood": "low",
     "difficulty": "easy",
     "tags": [
       "bitcoin-core",
@@ -2202,9 +2717,9 @@
     "explanation": "\"Bitcoin Core is the reference implementation of the Bitcoin system, meaning that it provides a reference for how each part of the technology should be implemented. Bitcoin Core implements all aspects of Bitcoin, including wallets, a transaction and block validation engine, tools for block construction, and all modern parts of Bitcoin peer-to-peer communication.\"",
     "source": {
       "book": "ch03 > From Bitcoin to Bitcoin Core",
-      "lecture": null
+      "lecture": "W4 s13 +note (Bitcoin Core install link; 'the software to mine bitcoin')"
     },
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "likelihood": "high",
     "difficulty": "medium",
     "tags": [
@@ -2231,7 +2746,7 @@
       "lecture": null
     },
     "coverage": "book-only",
-    "likelihood": "high",
+    "likelihood": "medium",
     "difficulty": "easy",
     "tags": [
       "bips"
@@ -2256,7 +2771,7 @@
       "lecture": null
     },
     "coverage": "book-only",
-    "likelihood": "medium",
+    "likelihood": "low",
     "difficulty": "easy",
     "tags": [
       "git",
@@ -2357,10 +2872,10 @@
     "explanation": "The book's reasons are independence from third-party validation, privacy, developer API access, building applications that must validate per consensus rules, and supporting the network. Nodes that merely validate earn nothing; only miners collect fees.",
     "source": {
       "book": "ch03 > Running a Bitcoin Core Node",
-      "lecture": null
+      "lecture": "W4 s36 +note ('network requires an incentive for running'); W4 s15-16 (16K nodes; Bitnodes)"
     },
-    "coverage": "book-only",
-    "likelihood": "high",
+    "coverage": "lecture+book",
+    "likelihood": "medium",
     "difficulty": "medium",
     "tags": [
       "full-node",
@@ -2383,9 +2898,9 @@
     "explanation": "\"Running a node, however, requires downloading and processing over 500 GB of data initially and about 400 MB of Bitcoin transactions per day. These figures are for 2023 and will likely increase over time.\" Ten days offline means roughly 4 GB to catch up.",
     "source": {
       "book": "ch03 > Running a Bitcoin Core Node",
-      "lecture": null
+      "lecture": "W4 s13 +note ('current size is 768 GB for the total bitcoin blockchain ledger') - numeric"
     },
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "likelihood": "low",
     "difficulty": "medium",
     "tags": [
@@ -2407,7 +2922,7 @@
       "lecture": null
     },
     "coverage": "book-only",
-    "likelihood": "medium",
+    "likelihood": "low",
     "difficulty": "medium",
     "tags": [
       "prune",
@@ -2427,7 +2942,7 @@
       "lecture": null
     },
     "coverage": "book-only",
-    "likelihood": "medium",
+    "likelihood": "low",
     "difficulty": "easy",
     "tags": [
       "initial-block-download",
@@ -2453,7 +2968,7 @@
       "lecture": null
     },
     "coverage": "book-only",
-    "likelihood": "medium",
+    "likelihood": "low",
     "difficulty": "easy",
     "tags": [
       "configuration",
@@ -2479,7 +2994,7 @@
       "lecture": null
     },
     "coverage": "book-only",
-    "likelihood": "high",
+    "likelihood": "medium",
     "difficulty": "medium",
     "tags": [
       "txindex",
@@ -2505,7 +3020,7 @@
       "lecture": null
     },
     "coverage": "book-only",
-    "likelihood": "medium",
+    "likelihood": "low",
     "difficulty": "easy",
     "tags": [
       "prune",
@@ -2528,9 +3043,9 @@
     "explanation": "\"dbcache: The size of the UTXO cache. The default is 450 mebibytes (MiB). Increase this size on high-end hardware to read and write from your disk less often, or reduce the size on low-end hardware to save memory.\"",
     "source": {
       "book": "ch03 > Configuring the Bitcoin Core Node",
-      "lecture": null
+      "lecture": "W4 s29 +note ('Miners have the database of currently unspent coins') - the UTXO set the dbcache caches"
     },
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "likelihood": "medium",
     "difficulty": "medium",
     "tags": [
@@ -2558,7 +3073,7 @@
       "lecture": null
     },
     "coverage": "book-only",
-    "likelihood": "medium",
+    "likelihood": "low",
     "difficulty": "medium",
     "tags": [
       "blocksonly",
@@ -2585,7 +3100,7 @@
       "lecture": null
     },
     "coverage": "book-only",
-    "likelihood": "medium",
+    "likelihood": "low",
     "difficulty": "easy",
     "tags": [
       "bitcoind",
@@ -2611,7 +3126,7 @@
       "lecture": null
     },
     "coverage": "book-only",
-    "likelihood": "high",
+    "likelihood": "medium",
     "difficulty": "medium",
     "tags": [
       "initial-block-download",
@@ -2638,7 +3153,7 @@
       "lecture": null
     },
     "coverage": "book-only",
-    "likelihood": "high",
+    "likelihood": "medium",
     "difficulty": "easy",
     "tags": [
       "json-rpc",
@@ -2664,7 +3179,7 @@
       "lecture": null
     },
     "coverage": "book-only",
-    "likelihood": "medium",
+    "likelihood": "low",
     "difficulty": "easy",
     "tags": [
       "bitcoin-cli",
@@ -2690,7 +3205,7 @@
       "lecture": null
     },
     "coverage": "book-only",
-    "likelihood": "medium",
+    "likelihood": "low",
     "difficulty": "medium",
     "tags": [
       "getblockhash",
@@ -2716,7 +3231,7 @@
       "lecture": null
     },
     "coverage": "book-only",
-    "likelihood": "medium",
+    "likelihood": "low",
     "difficulty": "medium",
     "tags": [
       "rpc",
@@ -2739,10 +3254,10 @@
     "explanation": "\"The command getrawtransaction returns a serialized transaction in hexadecimal notation. To decode that, we use the decoderawtransaction command, passing the hex data as a parameter.\"",
     "source": {
       "book": "ch03 > Exploring and Decoding Transactions",
-      "lecture": null
+      "lecture": "W4 s30-31 (slide only: raw TX hex and decoded JSON examples); W4 s49-50 (skipped explorer JSON)"
     },
-    "coverage": "book-only",
-    "likelihood": "high",
+    "coverage": "lecture+book",
+    "likelihood": "medium",
     "difficulty": "medium",
     "tags": [
       "getrawtransaction",
@@ -2765,9 +3280,9 @@
     "explanation": "\"A transaction ID (txid) is not authoritative. Absence of a txid in the blockchain does not mean the transaction was not processed. This is known as 'transaction malleability,' because transactions can be modified prior to confirmation in a block, changing their txids.\"",
     "source": {
       "book": "ch03 > Exploring and Decoding Transactions (TIP)",
-      "lecture": null
+      "lecture": "W2 s82 +note (ECDSA twin signature (r, -s mod n) is 'one of the root causes of Bitcoin transaction malleability')"
     },
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "likelihood": "high",
     "difficulty": "hard",
     "tags": [
@@ -2791,9 +3306,9 @@
     "explanation": "\"After a transaction is included in a block, its txid cannot change unless there is a blockchain reorganization where that block is removed from the best blockchain. Reorganizations are rare after a transaction has several confirmations.\"",
     "source": {
       "book": "ch03 > Exploring and Decoding Transactions (TIP)",
-      "lecture": null
+      "lecture": "W4 s10 +note (once added, changing it is impossible); W4 s51 (6 confirmations)"
     },
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "likelihood": "medium",
     "difficulty": "hard",
     "tags": [
@@ -2818,9 +3333,9 @@
     "explanation": "\"In this case we see that the transaction used one input and generated two outputs. The input to this transaction was the output from a previously confirmed transaction (shown as the input txid). The two outputs correspond to the payment to Bob and the change back to Alice.\"",
     "source": {
       "book": "ch03 > Exploring and Decoding Transactions",
-      "lecture": null
+      "lecture": "W4 s31 (slide only: 2-input/2-output decoded TX; 'TXID (NOT included in TX!)')"
     },
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "likelihood": "medium",
     "difficulty": "medium",
     "tags": [
@@ -2848,7 +3363,7 @@
       "lecture": null
     },
     "coverage": "book-only",
-    "likelihood": "medium",
+    "likelihood": "low",
     "difficulty": "medium",
     "tags": [
       "getblock",
@@ -2872,9 +3387,9 @@
     "explanation": "\"The confirmations entry tells us the depth of this block--how many blocks have been built on top of it, indicating the difficulty of changing any of the transactions in this block. The height tells us how many blocks preceded this block.\" The transaction count is nTx.",
     "source": {
       "book": "ch03 > Exploring Blocks",
-      "lecture": null
+      "lecture": "W4 s17 +note (time = sequential block number); W4 s44-45 (skipped: block 655282 -> 655283 'in the next block')"
     },
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "likelihood": "high",
     "difficulty": "medium",
     "tags": [
@@ -2928,7 +3443,7 @@
       "lecture": null
     },
     "coverage": "book-only",
-    "likelihood": "medium",
+    "likelihood": "low",
     "difficulty": "medium",
     "tags": [
       "json-rpc",
@@ -2955,7 +3470,7 @@
       "lecture": null
     },
     "coverage": "book-only",
-    "likelihood": "medium",
+    "likelihood": "low",
     "difficulty": "medium",
     "tags": [
       "authentication",
@@ -3014,9 +3529,9 @@
     "explanation": "Key points: self-verification against all rules, no trust in third parties, privacy.",
     "source": {
       "book": "ch03 > opening; Running a Bitcoin Core Node",
-      "lecture": null
+      "lecture": "W4 s37 +note (full node functions); W4 s29 (miners' UTXO database)"
     },
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "likelihood": "medium",
     "difficulty": "medium",
     "tags": [
@@ -3034,14 +3549,93 @@
     "explanation": "Height is fixed; confirmations increase with every new block.",
     "source": {
       "book": "ch03 > Exploring Blocks",
-      "lecture": null
+      "lecture": "W4 s10-11 +note (blocks every 10 minutes); W4 s51 (6 confirmations)"
     },
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "likelihood": "medium",
     "difficulty": "easy",
     "tags": [
       "block-height",
       "confirmations"
+    ]
+  },
+  {
+    "id": "mb-ch03-q41",
+    "chapter": 3,
+    "section": "Bitcoin Core > Full node functions (lecture)",
+    "type": "mcq",
+    "prompt": "According to the lecture, which functions can a full node perform?",
+    "choices": [
+      "Issuing new bitcoin, setting the exchange rate, and approving new users.",
+      "Only relaying transactions; full nodes never store the blockchain.",
+      "Wallet, mining, storing and updating a full copy of the blockchain, and network routing for other nodes.",
+      "Encrypting the blockchain and decrypting it for paying customers."
+    ],
+    "answer": 2,
+    "explanation": "Notes W4 s37: \"A node can do all these functions where it can store in a wallet, mine transactions, update/store local blockchain copy, and routing for other nodes. Typically, nodes will do parts of what a full node will do; full nodes are small percentage overall.\" Notes W4 s38: most miners do not store wallets. The book ch. 1-5 defines a full node by full validation of the entire history; the four-function model is developed in ch10.",
+    "source": {
+      "book": "ch01 > Full node versus Lightweight; ch03 > opening",
+      "lecture": "W4 s37-38 +note (B22)"
+    },
+    "coverage": "lecture-only",
+    "likelihood": "medium",
+    "difficulty": "easy",
+    "tags": [
+      "full-node",
+      "node-types"
+    ]
+  },
+  {
+    "id": "mb-ch03-q42",
+    "chapter": 3,
+    "section": "Bitcoin Core > Pooled mining (lecture)",
+    "type": "mcq",
+    "prompt": "Why, according to the lecture, do almost all miners now mine in pools, and what server supports pooled mining?",
+    "choices": [
+      "Pools are required by the protocol; a Bitcoin Core RPC server coordinates them.",
+      "Pools let miners skip transaction validation; an SPV server coordinates them.",
+      "The mining difficulty is so high that solo mining rarely succeeds; a Stratum server coordinates the pool.",
+      "Pools double the block reward; a Merkle server coordinates them."
+    ],
+    "answer": 2,
+    "explanation": "Notes W4 s39: \"Typically, miners form a pool since the difficulty of mining is so high now. Almost all are now pool miners.\" W4 s39 title: \"Stratum server: supports pooled mining\". The book (ch02): pool miners assign the reward to a pool address and share it in proportion to work contributed.",
+    "source": {
+      "book": "ch02 > Bitcoin Mining (mining pools)",
+      "lecture": "W4 s39 +note (B22)"
+    },
+    "coverage": "lecture+book",
+    "likelihood": "medium",
+    "difficulty": "easy",
+    "tags": [
+      "mining-pool",
+      "stratum",
+      "node-types"
+    ]
+  },
+  {
+    "id": "mb-ch03-q43",
+    "chapter": 3,
+    "section": "Bitcoin Core > Exploring the blockchain (lecture close)",
+    "type": "mcq",
+    "prompt": "The instructor ended week 4 by pointing students to blockchain explorers. Which statement about explorers is consistent with both the lecture and the book?",
+    "choices": [
+      "Explorers are part of Bitcoin Core and require running a full node.",
+      "Explorers can reverse transactions on request.",
+      "Explorers show each user's name next to their balance.",
+      "Sites such as Blockchair, Blockchain.com, BlockCypher, Blockstream Explorer, and Mempool.Space let you look up addresses, transactions, and blocks; they are third-party web apps, not part of the protocol."
+    ],
+    "answer": 3,
+    "explanation": "W4 s56 \"Exploring Transactions\": Blockchair, Blockchain(.com), Blockcypher; notes: \"To end: Explore the blockchain, transactions, etc.\" W4 s13 also shows blockchair.com. The book (ch02) lists Blockstream Explorer, Mempool.Space, and BlockCypher and warns that looking up your own transactions reveals your interest to the operator; ch03 shows doing the same lookups with your own node via RPC.",
+    "source": {
+      "book": "ch02 > Bitcoin Overview (blockchain explorers); ch03 > Bitcoin Core API",
+      "lecture": "W4 s56 +note (E11); W4 s13"
+    },
+    "coverage": "lecture+book",
+    "likelihood": "medium",
+    "difficulty": "easy",
+    "tags": [
+      "block-explorer",
+      "tools"
     ]
   },
   {
@@ -3060,9 +3654,9 @@
     "explanation": "\"It's not used to 'encrypt' (make secret) the transactions. Rather, a useful property of asymmetric cryptography is the ability to generate digital signatures ... anyone can verify every signature on every transaction, while ensuring that only the owners of private keys can produce valid signatures.\"",
     "source": {
       "book": "ch04 > Public Key Cryptography (sidebar)",
-      "lecture": null
+      "lecture": "W2 s18-20 +note ('bitcoin does not directly encrypt messages'); W2 s24-25 +note ('Encryption is not used directly in bitcoin/blockchain but does use the public key digital signature')"
     },
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "likelihood": "high",
     "difficulty": "medium",
     "tags": [
@@ -3087,9 +3681,9 @@
     "explanation": "\"The public key is used to receive funds, and the private key is used to sign transactions to spend the funds.\" Signatures can be validated against the public key without revealing the private key.",
     "source": {
       "book": "ch04 > Public Key Cryptography",
-      "lecture": null
+      "lecture": "W4 s7 +note (sign with secret key Ks, verify with public key Kp); W4 s9 +note (receive to Hash(Kp), spend by signing)"
     },
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "likelihood": "high",
     "difficulty": "easy",
     "tags": [
@@ -3113,9 +3707,9 @@
     "explanation": "\"A private key is simply a number, picked at random.\" The TIP notes you could generate one by tossing a coin 256 times. It is not chosen by the user, not issued by anyone, and not derived from the address (derivation runs the other way).",
     "source": {
       "book": "ch04 > Private Keys",
-      "lecture": null
+      "lecture": "W2 s80 +note (select d at random, compute Q = dG); W4 s9 +note ('Generate a random pair of public/secret keys')"
     },
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "likelihood": "high",
     "difficulty": "easy",
     "tags": [
@@ -3139,9 +3733,9 @@
     "explanation": "\"The private key must remain secret at all times because revealing it to third parties is equivalent to giving them control over the bitcoins secured by that key. The private key must also be backed up ... because if it's lost, it cannot be recovered and the funds secured by it are forever lost too.\"",
     "source": {
       "book": "ch04 > Private Keys",
-      "lecture": null
+      "lecture": "W4 s9 +note ('Alice is the only party with the secret key'); W4 s6 Q1-Q3"
     },
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "likelihood": "high",
     "difficulty": "easy",
     "tags": [
@@ -3169,7 +3763,7 @@
       "lecture": null
     },
     "coverage": "book-only",
-    "likelihood": "high",
+    "likelihood": "medium",
     "difficulty": "medium",
     "tags": [
       "entropy",
@@ -3193,9 +3787,9 @@
     "explanation": "\"Bitcoin uses a specific elliptic curve and set of mathematical constants, as defined in a standard called secp256k1 ... defined by the following function ... y^2 = (x^3 + 7) over F_p.\" RSA is not an elliptic-curve system at all.",
     "source": {
       "book": "ch04 > Elliptic Curve Cryptography Explained",
-      "lecture": null
+      "lecture": "W2 s79 +note ('in Bitcoin, we use secp256k1 ... a Koblitz curve'; y^2 = x^3 + 7 mod p; same p formula as the book)"
     },
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "likelihood": "high",
     "difficulty": "easy",
     "tags": [
@@ -3219,10 +3813,10 @@
     "explanation": "\"Elliptic curve cryptography (ECC) is a type of asymmetric or public key cryptography based on the discrete logarithm problem as expressed by addition and multiplication on the points of an elliptic curve.\" Factoring underlies RSA, not ECC.",
     "source": {
       "book": "ch04 > Elliptic Curve Cryptography Explained",
-      "lecture": null
+      "lecture": "W2 s41-42 +note (discrete logarithm infeasible); W2 s62 (why EC: 160-bit EC ~ 1024-bit traditional)"
     },
-    "coverage": "book-only",
-    "likelihood": "medium",
+    "coverage": "lecture+book",
+    "likelihood": "high",
     "difficulty": "medium",
     "tags": [
       "ecc",
@@ -3245,9 +3839,9 @@
     "explanation": "\"The public key is calculated from the private key using elliptic curve multiplication, which is irreversible: K = k x G, where k is the private key, G is a constant point called the generator point, and K is the resulting public key.\" Hashing comes later, when making an address.",
     "source": {
       "book": "ch04 > Public Keys",
-      "lecture": null
+      "lecture": "W2 s80 +note (Q = d*G with base point G) - lecture writes d/Q where the book writes k/K"
     },
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "likelihood": "high",
     "difficulty": "medium",
     "tags": [
@@ -3272,9 +3866,9 @@
     "explanation": "\"Elliptic curve multiplication is a type of function that cryptographers call a 'trap door' function: it is easy to do in one direction (multiplication) and impossible to do in the reverse direction (division) ... no one can reverse the function and calculate the private key from the public key.\"",
     "source": {
       "book": "ch04 > Public Keys",
-      "lecture": null
+      "lecture": "W2 s5 +note (one-wayness: 'theoretically you can but practically you cannot reverse'); W2 s41-42 +note (discrete log)"
     },
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "likelihood": "high",
     "difficulty": "medium",
     "tags": [
@@ -3293,9 +3887,9 @@
     "explanation": "False. \"A private key can be converted into a public key, but a public key cannot be converted back into a private key because the math only works one way.\" Recovering k from K = kG is the discrete logarithm problem, considered infeasible.",
     "source": {
       "book": "ch04 > Public Keys (TIP)",
-      "lecture": null
+      "lecture": "W2 s41-42 +note ('calculating the x ... infeasible'); W2 s80"
     },
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "likelihood": "high",
     "difficulty": "easy",
     "tags": [
@@ -3319,10 +3913,10 @@
     "explanation": "\"For now, all we need to understand is that bitcoins are received to an output script that acts like a public key, and bitcoin spending is authorized by an input script that acts like a signature.\" These fields allow extra conditions beyond a simple signature check.",
     "source": {
       "book": "ch04 > Output and Input Scripts",
-      "lecture": null
+      "lecture": "W4 s27-28 (slide: ScriptSig 'typically signature + public key', scriptPubKey 'public key script'); W4 s30 (P2PKH script bytes)"
     },
-    "coverage": "book-only",
-    "likelihood": "high",
+    "coverage": "lecture+book",
+    "likelihood": "medium",
     "difficulty": "medium",
     "tags": [
       "output-script",
@@ -3349,7 +3943,7 @@
       "lecture": null
     },
     "coverage": "book-only",
-    "likelihood": "medium",
+    "likelihood": "low",
     "difficulty": "medium",
     "tags": [
       "p2pk",
@@ -3376,7 +3970,7 @@
       "lecture": null
     },
     "coverage": "book-only",
-    "likelihood": "medium",
+    "likelihood": "low",
     "difficulty": "medium",
     "tags": [
       "p2pk",
@@ -3399,9 +3993,9 @@
     "explanation": "\"A cryptographic hash function will always produce the same output when given the same input, and a secure function will also make it impractical for somebody to choose a different input that produces a previously-seen output. That makes the output a commitment to the input.\" The book's example commits to the answer '2007' for when Satoshi started work.",
     "source": {
       "book": "ch04 > Legacy Addresses for P2PKH",
-      "lecture": null
+      "lecture": "W2 s5-9 +note (one-wayness, collision resistance, random oracle: 'any bit swapped makes the output completely different'); W4 s17 +note"
     },
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "likelihood": "high",
     "difficulty": "medium",
     "tags": [
@@ -3425,9 +4019,9 @@
     "explanation": "\"The original version of Bitcoin made commitments to public keys by first hashing the key with SHA256 and then hashing that output with RIPEMD-160; this produced a 20-byte commitment to the public key.\" SHA256 alone gives 32 bytes; RIPEMD-160 gives 160 bits = 20 bytes. This combination is known as HASH160.",
     "source": {
       "book": "ch04 > Legacy Addresses for P2PKH",
-      "lecture": null
+      "lecture": "W4 s9 +note ('Account # = Hash(Kp)'); W4 s30 (slide: OP_HASH160 + 20-byte PubKey hash) - the SHA256+RIPEMD-160 detail is book-only"
     },
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "likelihood": "high",
     "difficulty": "medium",
     "tags": [
@@ -3453,9 +4047,9 @@
     "explanation": "The P2PKH walk-through: OP_DUP duplicates the pubkey, OP_HASH160 hashes the copy, the commitment is pushed, OP_EQUALVERIFY checks they match, and OP_CHECKSIG verifies the signature. The other templates are P2SH, P2PK, and P2WPKH respectively.",
     "source": {
       "book": "ch04 > Legacy Addresses for P2PKH",
-      "lecture": null
+      "lecture": "W4 s30-31 (slide only: scriptPubKey 'OP_DUP OP_HASH160 <hash> OP_EQUALVERIFY OP_CHECKSIG')"
     },
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "likelihood": "medium",
     "difficulty": "hard",
     "tags": [
@@ -3483,7 +4077,7 @@
       "lecture": null
     },
     "coverage": "book-only",
-    "likelihood": "high",
+    "likelihood": "medium",
     "difficulty": "medium",
     "tags": [
       "base58",
@@ -3509,7 +4103,7 @@
       "lecture": null
     },
     "coverage": "book-only",
-    "likelihood": "high",
+    "likelihood": "medium",
     "difficulty": "medium",
     "tags": [
       "base58check",
@@ -3536,7 +4130,7 @@
       "lecture": null
     },
     "coverage": "book-only",
-    "likelihood": "high",
+    "likelihood": "medium",
     "difficulty": "medium",
     "tags": [
       "version-byte",
@@ -3563,7 +4157,7 @@
       "lecture": null
     },
     "coverage": "book-only",
-    "likelihood": "high",
+    "likelihood": "medium",
     "difficulty": "easy",
     "tags": [
       "address-prefix",
@@ -3589,7 +4183,7 @@
       "lecture": null
     },
     "coverage": "book-only",
-    "likelihood": "high",
+    "likelihood": "medium",
     "difficulty": "medium",
     "tags": [
       "compressed-public-key",
@@ -3615,7 +4209,7 @@
       "lecture": null
     },
     "coverage": "book-only",
-    "likelihood": "high",
+    "likelihood": "medium",
     "difficulty": "hard",
     "tags": [
       "compressed-public-key",
@@ -3642,7 +4236,7 @@
       "lecture": null
     },
     "coverage": "book-only",
-    "likelihood": "high",
+    "likelihood": "medium",
     "difficulty": "medium",
     "tags": [
       "p2sh",
@@ -3660,10 +4254,10 @@
     "explanation": "False. \"P2SH is not necessarily the same as a multisignature transaction. A P2SH address most often represents a multisignature script, but it might also represent a script encoding other types of transactions.\"",
     "source": {
       "book": "ch04 > Legacy Pay to Script Hash (P2SH) (TIP)",
-      "lecture": null
+      "lecture": "W2 s47-48 +note (multi-signatures: 'multiple parties have to participate'); P2SH itself is book-only"
     },
-    "coverage": "book-only",
-    "likelihood": "high",
+    "coverage": "lecture+book",
+    "likelihood": "medium",
     "difficulty": "medium",
     "tags": [
       "p2sh",
@@ -3690,7 +4284,7 @@
       "lecture": null
     },
     "coverage": "book-only",
-    "likelihood": "medium",
+    "likelihood": "low",
     "difficulty": "medium",
     "tags": [
       "legacy-addresses",
@@ -3714,10 +4308,10 @@
     "explanation": "\"When an attacker is able to influence the original input value ... the strength of hash algorithm is reduced to its square root. For HASH160, the probability becomes 1-in-2^80. This is a collision attack.\" All Bitcoin miners perform about 2^80 hashes per hour, so the book recommends newer address types with at least 128 bits of collision resistance.",
     "source": {
       "book": "ch04 > P2SH Collision Attacks (sidebar)",
-      "lecture": null
+      "lecture": "W2 s6 +note (two types of collision); W2 s11-16 +note (birthday attack; brute force ~2^(n/2))"
     },
-    "coverage": "book-only",
-    "likelihood": "medium",
+    "coverage": "lecture+book",
+    "likelihood": "high",
     "difficulty": "hard",
     "tags": [
       "collision-attack",
@@ -3741,9 +4335,9 @@
     "explanation": "\"In 2017, the Bitcoin protocol was upgraded. When the upgrade is used, it prevents transaction identifiers (txids) from being changed without the consent of a spending user ... The upgrade, called segregated witness (or segwit for short), also provided additional capacity for transaction data in blocks and several other benefits.\"",
     "source": {
       "book": "ch04 > Bech32 Addresses",
-      "lecture": null
+      "lecture": "W2 s82 +note (ECDSA malleability 'one of the root causes of Bitcoin transaction malleability'); W2 s84 (EC-Schnorr free of malleability)"
     },
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "likelihood": "high",
     "difficulty": "medium",
     "tags": [
@@ -3771,7 +4365,7 @@
       "lecture": null
     },
     "coverage": "book-only",
-    "likelihood": "medium",
+    "likelihood": "low",
     "difficulty": "medium",
     "tags": [
       "bech32",
@@ -3797,7 +4391,7 @@
       "lecture": null
     },
     "coverage": "book-only",
-    "likelihood": "medium",
+    "likelihood": "low",
     "difficulty": "medium",
     "tags": [
       "bech32",
@@ -3821,10 +4415,10 @@
     "explanation": "\"The letter 'q' is the encoding of '0' for segwit v0, the initial version of segwit where bech32 addresses were introduced. The letter 'p' is the encoding of '1' for segwit v1 (also called taproot) where bech32m began to be used.\" The network is indicated by the HRP (bc mainnet, tb testnet).",
     "source": {
       "book": "ch04 > Bech32m",
-      "lecture": null
+      "lecture": "W4 s46, s49-50 (skipped case study: Feds address bc1q... = pay-to-witness-pubkey-hash vs 1HQ3... = pay-to-pubkey-hash)"
     },
-    "coverage": "book-only",
-    "likelihood": "high",
+    "coverage": "skipped-slide",
+    "likelihood": "medium",
     "difficulty": "medium",
     "tags": [
       "bech32",
@@ -3852,7 +4446,7 @@
       "lecture": null
     },
     "coverage": "book-only",
-    "likelihood": "medium",
+    "likelihood": "low",
     "difficulty": "medium",
     "tags": [
       "bech32",
@@ -3879,7 +4473,7 @@
       "lecture": null
     },
     "coverage": "book-only",
-    "likelihood": "medium",
+    "likelihood": "low",
     "difficulty": "hard",
     "tags": [
       "bech32m",
@@ -3905,7 +4499,7 @@
       "lecture": null
     },
     "coverage": "book-only",
-    "likelihood": "medium",
+    "likelihood": "low",
     "difficulty": "medium",
     "tags": [
       "wif",
@@ -3931,7 +4525,7 @@
       "lecture": null
     },
     "coverage": "book-only",
-    "likelihood": "medium",
+    "likelihood": "low",
     "difficulty": "hard",
     "tags": [
       "wif",
@@ -3984,7 +4578,7 @@
       "lecture": null
     },
     "coverage": "book-only",
-    "likelihood": "medium",
+    "likelihood": "low",
     "difficulty": "medium",
     "tags": [
       "vanity-address",
@@ -4011,7 +4605,7 @@
       "lecture": null
     },
     "coverage": "book-only",
-    "likelihood": "high",
+    "likelihood": "medium",
     "difficulty": "easy",
     "tags": [
       "paper-wallet",
@@ -4028,9 +4622,9 @@
     "explanation": "False. A legacy address is the base58check encoding of a version byte plus a 20-byte HASH160 commitment (hash) of the public key (or of a redeem script for P2SH) plus a 4-byte checksum; the public key itself is revealed only when the output is spent.",
     "source": {
       "book": "ch04 > Legacy Addresses for P2PKH; Base58check Encoding",
-      "lecture": null
+      "lecture": "W4 s9 +note ('digital signature - ties Alice to the account using a hash of the public key')"
     },
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "likelihood": "high",
     "difficulty": "medium",
     "tags": [
@@ -4049,9 +4643,9 @@
     "explanation": "Key points: SHA256 then RIPEMD-160; version byte; double-SHA256 checksum (4 bytes); base58; leading 1.",
     "source": {
       "book": "ch04 > Legacy Addresses for P2PKH; Base58check Encoding",
-      "lecture": null
+      "lecture": "W4 s9 +note (Account # = Hash(Kp)); W4 s30 (OP_HASH160, 20-byte hash)"
     },
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "likelihood": "medium",
     "difficulty": "medium",
     "tags": [
@@ -4070,15 +4664,309 @@
     "explanation": "Key points: one-way derivation; discrete log infeasible; signatures need the private key.",
     "source": {
       "book": "ch04 > Public Keys",
-      "lecture": null
+      "lecture": "W2 s5 +note; W2 s41-42 +note; W4 s9 +note"
     },
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "likelihood": "medium",
     "difficulty": "medium",
     "tags": [
       "one-way-function",
       "public-key",
       "security"
+    ]
+  },
+  {
+    "id": "mb-ch04-q41",
+    "chapter": 4,
+    "section": "Keys and Addresses > Cryptographic foundations (lecture week 2)",
+    "type": "mcq",
+    "prompt": "Which three basic cryptographic algorithms did the week-2 lecture name as the foundations of cryptocurrencies?",
+    "choices": [
+      "One-way hash algorithms, public key digital signatures, and elliptic curve cryptography.",
+      "Symmetric encryption, password hashing, and steganography.",
+      "RSA encryption, Diffie-Hellman key exchange, and AES.",
+      "Merkle trees, Bloom filters, and zero-knowledge proofs."
+    ],
+    "answer": 0,
+    "explanation": "W2 s2 \"Basic Cryptographic Algorithms\": one-way hash algorithm; public key digital signature; elliptic curve cryptography. Mastering Bitcoin ch04 uses all three: hash functions as commitments, signatures to authorize spending, and secp256k1 elliptic-curve keys.",
+    "source": {
+      "book": "ch04 > Public Key Cryptography; Legacy Addresses for P2PKH (hash functions)",
+      "lecture": "W2 s2 +note"
+    },
+    "coverage": "lecture+book",
+    "likelihood": "high",
+    "difficulty": "easy",
+    "tags": [
+      "cryptography",
+      "hash",
+      "signatures",
+      "ecc"
+    ]
+  },
+  {
+    "id": "mb-ch04-q42",
+    "chapter": 4,
+    "section": "Keys and Addresses > Digital signature properties (lecture)",
+    "type": "mcq",
+    "prompt": "Which set of properties of digital signatures did the week-2 lecture list?",
+    "choices": [
+      "Secret, reversible, recognizable by handwriting experts, and identical for every document.",
+      "Encrypted, revocable by the recipient, verifiable only by banks, and reusable across documents.",
+      "Unforgeable, undeniable by the signer (non-repudiation), universally verifiable, and different from document to document.",
+      "Anonymous, transferable, valid for 10 minutes, and issued by miners."
+    ],
+    "answer": 2,
+    "explanation": "W2 s26 \"Useful Properties of Digital Signature\": unforgeable (\"takes 1 billion years to forge\"), un-deniable by the signatory, universally verifiable, differs from document to document, easily implementable. Notes W2 s26-27: changing the amount on the signed bill invalidates the signature. The book: anyone can verify every signature while only private-key holders can produce them.",
+    "source": {
+      "book": "ch04 > Public Key Cryptography (sidebar on digital signatures)",
+      "lecture": "W2 s26-27 +note"
+    },
+    "coverage": "lecture+book",
+    "likelihood": "medium",
+    "difficulty": "easy",
+    "tags": [
+      "signatures",
+      "properties"
+    ]
+  },
+  {
+    "id": "mb-ch04-q43",
+    "chapter": 4,
+    "section": "Keys and Addresses > One-way hash properties (lecture)",
+    "type": "mcq",
+    "prompt": "Which statement matches the lecture's definition of a one-way hash algorithm?",
+    "choices": [
+      "It encrypts an input so that only the key holder can recover it.",
+      "It maps a fixed-length input to a variable-length output that grows with security.",
+      "It maps an input of any length (even an empty string) to a fixed-length output (e.g., 256 bits); it is infeasible to find an input for a given output (one-wayness) or two inputs with the same output (collision resistance).",
+      "It compresses a file so that the original can be perfectly reconstructed."
+    ],
+    "answer": 2,
+    "explanation": "W2 s4-5: a document of any length -> condensed output of fixed length (say 256 bits / 32 bytes); one-wayness; collision resistance. Notes W2 s4: \"Input can be any length, even an empty string; key difference between one-way hash function and others.\" W2 s9: deterministic yet random-oracle-like. The book (ch04): a hash function takes a potentially large input and outputs a fixed amount of data; the output is a commitment.",
+    "source": {
+      "book": "ch04 > Legacy Addresses for P2PKH (hash functions and commitments)",
+      "lecture": "W2 s4-9 +note (E5, E6)"
+    },
+    "coverage": "lecture+book",
+    "likelihood": "high",
+    "difficulty": "easy",
+    "tags": [
+      "hash",
+      "one-way",
+      "collision-resistance"
+    ]
+  },
+  {
+    "id": "mb-ch04-q44",
+    "chapter": 4,
+    "section": "Keys and Addresses > Collision types and the birthday attack (lecture)",
+    "type": "mcq",
+    "prompt": "The lecture distinguished two types of hash collision and explained the birthday attack. Which statement is correct?",
+    "choices": [
+      "Type 1: given a specific input, find a different input with the same hash; Type 2: find any two inputs that collide. The birthday paradox makes Type 2 roughly as hard as 2^(n/2) trials for an n-bit hash, not 2^n.",
+      "Both types are equally hard and require 2^n trials for an n-bit hash.",
+      "Type 1 is impossible in principle; Type 2 requires knowing the private key.",
+      "Collisions can only be found by decrypting the hash."
+    ],
+    "answer": 0,
+    "explanation": "W2 s6 \"2 Types of Collision\"; W2 s11-16: brute force uses the birthday paradox (23 people give a 50% chance of a shared birthday, 57 give 99%); SHA-256's birthday bound is 2^128. The book's P2SH collision sidebar (ch04) makes the same point: a 160-bit hash gives only 2^80 collision resistance when the attacker can influence the input.",
+    "source": {
+      "book": "ch04 > P2SH Collision Attacks (sidebar)",
+      "lecture": "W2 s6, s11-16 +note (S7)"
+    },
+    "coverage": "lecture+book",
+    "likelihood": "medium",
+    "difficulty": "hard",
+    "tags": [
+      "hash",
+      "collision",
+      "birthday-attack"
+    ]
+  },
+  {
+    "id": "mb-ch04-q45",
+    "chapter": 4,
+    "section": "Keys and Addresses > SHA family (lecture)",
+    "type": "mcq",
+    "prompt": "Which statement about the SHA hash families matches the week-2 lecture?",
+    "choices": [
+      "SHA-1 is the strongest because it is the oldest and most tested.",
+      "SHA-256 was broken in 2015 and replaced by MD5.",
+      "SHA-1 (1995) is no longer secure; SHA-2 (2001), including SHA-256, and SHA-3 (2015) are still considered secure.",
+      "SHA-3 is the only family Bitcoin can use."
+    ],
+    "answer": 2,
+    "explanation": "W2 s10 table: SHA1 (SHA-160, 1995) still secure? No; SHA2 (SHA-224/256/384/512, 2001) Yes; SHA3 (2015) Yes. Notes W2 s10: \"SHA2 is still a strong standard for security though it was conservatively produced in 2001.\" Bitcoin uses SHA-256 (the book, ch04) and RIPEMD-160.",
+    "source": {
+      "book": "ch04 > Legacy Addresses for P2PKH (SHA256)",
+      "lecture": "W2 s10, s16 +note"
+    },
+    "coverage": "lecture-only",
+    "likelihood": "medium",
+    "difficulty": "easy",
+    "tags": [
+      "hash",
+      "sha256",
+      "sha-family"
+    ]
+  },
+  {
+    "id": "mb-ch04-q46",
+    "chapter": 4,
+    "section": "Keys and Addresses > secp256k1 parameters (lecture)",
+    "type": "mcq",
+    "prompt": "The lecture called Bitcoin's curve a \"Koblitz curve\" and listed system-wide parameters shared by all parties. Which parameter set is correct?",
+    "choices": [
+      "(N, e, d): an RSA modulus with public and private exponents.",
+      "(p, q, g, y): the DSS public key parameters.",
+      "(E, G, p, n): the curve E (y^2 = x^3 + 7 over GF(p)), a base point G, the prime p, and the (prime) order n of the group of points.",
+      "(k, r, s): a private key and a signature pair."
+    ],
+    "answer": 2,
+    "explanation": "W2 s79: \"(E, G, p, n) are system-wide parameters, used by all parties in Bitcoin ... The elliptic curve E (a Koblitz curve): y^2 = x^3 + 7 mod p\"; notes W2 s79: \"in the case of bitcoin, a Koblitz curve was selected.\" The book (ch04) gives the same equation, p = 2^256 - 2^32 - 2^9 - 2^8 - 2^7 - 2^6 - 2^4 - 1, and the generator point G, but never uses the word Koblitz. (N, e, d) is RSA; (p, q, g, y) is DSS.",
+    "source": {
+      "book": "ch04 > Elliptic Curve Cryptography Explained; Public Keys (generator point)",
+      "lecture": "W2 s79 +note (B6)"
+    },
+    "coverage": "lecture+book",
+    "likelihood": "high",
+    "difficulty": "medium",
+    "tags": [
+      "secp256k1",
+      "koblitz",
+      "ecc",
+      "parameters"
+    ]
+  },
+  {
+    "id": "mb-ch04-q47",
+    "chapter": 4,
+    "section": "Keys and Addresses > ECDSA malleability (lecture)",
+    "type": "mcq",
+    "prompt": "What is the \"twin signature\" problem of ECDSA that the lecture linked to Bitcoin transaction malleability?",
+    "choices": [
+      "Any two users who pick the same private key produce identical signatures.",
+      "ECDSA signatures can be reused on any other message from the same signer.",
+      "If (r, s) is a valid signature, then (r, -s mod n), i.e., (r, n - s), is also valid, because r depends only on the x-coordinate of kG; a third party can swap in the twin and change the transaction's ID.",
+      "The public key can be recovered from a signature, revealing the private key."
+    ],
+    "answer": 2,
+    "explanation": "W2 s82: \"If (r, s) is a valid signature of m, then both (r, -s mod n) and (r, n - s) are a valid signature of m also ... This is one of the root causes of Bitcoin 'transaction malleability'.\" Notes W2 s82: the twin lets someone \"replace the original signature with the digital twin\" producing a different but valid transaction. The book: a txid is not authoritative before confirmation (ch03) and segwit (2017) prevents third-party txid changes (ch04).",
+    "source": {
+      "book": "ch03 > Exploring and Decoding Transactions (malleability TIP); ch04 > Bech32 Addresses (segwit fixes malleability)",
+      "lecture": "W2 s82 +note (B7)"
+    },
+    "coverage": "lecture+book",
+    "likelihood": "high",
+    "difficulty": "hard",
+    "tags": [
+      "ecdsa",
+      "malleability",
+      "signatures"
+    ]
+  },
+  {
+    "id": "mb-ch04-q48",
+    "chapter": 4,
+    "section": "Keys and Addresses > Schnorr vs ECDSA (lecture)",
+    "type": "mcq",
+    "prompt": "According to the lecture, why is EC-Schnorr considered better than ECDSA, and how does it relate to Bitcoin?",
+    "choices": [
+      "It uses shorter private keys, so wallets need less storage; Bitcoin has never used it.",
+      "It encrypts the transaction as well as signing it; Bitcoin uses it for all private payments.",
+      "It admits security proofs, supports threshold/multi-signatures (MuSig) and blind signatures, is free of signature malleability, and is cleaner and slightly faster; the instructor said Bitcoin has adopted the Schnorr (r, s) approach.",
+      "It requires no random number, so it can run without entropy; Bitcoin banned it in 2017."
+    ],
+    "answer": 2,
+    "explanation": "W2 s84 \"Why EC-Schnorr is better?\": security proofs, easy threshold signature, blind signature, free of signature malleability, cleaner and slightly faster. Notes W2 s46: \"Bitcoin has moved to the 'r, s version'\"; notes W2 s85: \"the EC-Schnorr Multi-Signature approach is what is actually used by bitcoin.\" Book context (ch04): taproot (segwit v1, bc1p... addresses) is the output type that uses Schnorr signatures; legacy and segwit v0 outputs still use ECDSA.",
+    "source": {
+      "book": "ch04 > Bech32m (taproot / P2TR)",
+      "lecture": "W2 s83-85 +note (B4, B8, B9)"
+    },
+    "coverage": "lecture-only",
+    "likelihood": "medium",
+    "difficulty": "hard",
+    "tags": [
+      "schnorr",
+      "ecdsa",
+      "musig",
+      "taproot"
+    ]
+  },
+  {
+    "id": "mb-ch04-q49",
+    "chapter": 4,
+    "section": "Keys and Addresses > Hard problems behind signatures (lecture)",
+    "type": "mcq",
+    "prompt": "Which \"hard problem\" underlies RSA, and which underlies the elliptic-curve signatures Bitcoin uses?",
+    "choices": [
+      "RSA rests on the difficulty of factoring the product of two large primes; DSS, Schnorr, and elliptic-curve schemes rest on the discrete logarithm problem.",
+      "RSA rests on the discrete logarithm problem; elliptic-curve schemes rest on factoring.",
+      "Both rest on the difficulty of finding hash collisions.",
+      "RSA rests on the traveling salesman problem; elliptic-curve schemes rest on graph coloring."
+    ],
+    "answer": 0,
+    "explanation": "Notes W2 s33: RSA is secure because of the \"factorization problem\"; W2 s28: DSS and Schnorr are \"based on infeasibility of discrete logarithm\"; W2 s41-42 and s61-62: discrete logs in finite fields and on elliptic curves. The book (ch04): ECC is based on the discrete logarithm problem; prime-number exponentiation and elliptic-curve multiplication are both one-way functions.",
+    "source": {
+      "book": "ch04 > Public Key Cryptography; Elliptic Curve Cryptography Explained",
+      "lecture": "W2 s28, s33-34, s41-42, s61-62 +note"
+    },
+    "coverage": "lecture+book",
+    "likelihood": "medium",
+    "difficulty": "medium",
+    "tags": [
+      "rsa",
+      "discrete-log",
+      "factoring",
+      "ecc"
+    ]
+  },
+  {
+    "id": "mb-ch04-q50",
+    "chapter": 4,
+    "section": "Keys and Addresses > Post-quantum cryptography (lecture)",
+    "type": "tf",
+    "prompt": "True or false: According to the lecture, RSA, DSS, Schnorr, and elliptic-curve signatures can all be broken by sufficiently powerful quantum computers, motivating post-quantum signature standards such as Dilithium and SPHINCS+.",
+    "answer": true,
+    "explanation": "True. Notes W2 s28: \"RSA, DSS, Schnorr digital signature, and elliptic curves can all be broken by quantum computers. People are trying to build post-quantum secure blockchains.\" W2 s28 and s100 name Dilithium (module-lattice) and SPHINCS+ (stateless hash-based); notes W2 s100 add that Ethereum is ahead of Bitcoin on this. Not in Mastering Bitcoin ch. 1-5.",
+    "source": {
+      "book": "not in ch01-05",
+      "lecture": "W2 s28, s100 +note (B3, B10)"
+    },
+    "coverage": "lecture-only",
+    "likelihood": "low",
+    "difficulty": "easy",
+    "tags": [
+      "post-quantum",
+      "signatures"
+    ]
+  },
+  {
+    "id": "mb-ch04-q51",
+    "chapter": 4,
+    "section": "Keys and Addresses > Account = Hash(Kp) (lecture model)",
+    "type": "mcq",
+    "prompt": "In the lecture's model, how is an anonymous Bitcoin \"account\" linked to its owner, and how does the owner later claim the money?",
+    "choices": [
+      "The account number is the one-way hash of a freshly generated public key, Account # = Hash(Kp); the owner claims funds by producing a signature with the matching secret key Ks, which anyone can verify with Kp.",
+      "The account number is the owner's email address; the owner claims funds with a password.",
+      "The account number is the private key itself; the owner claims funds by publishing it.",
+      "The account number is assigned by the miner who first pays the owner; claims require the miner's approval."
+    ],
+    "answer": 0,
+    "explanation": "W4 s9 \"Answering Q1 & Q2 Using Digital Signature\": generate a random key pair (Kp, Ks); use the 1-way hash of the public key as the account number; claim money by signing with Ks; anyone verifies with Kp. Notes W4 s9 (B13). This is exactly the book's P2PKH address (HASH160 of the public key) and signature-based spending (ch04).",
+    "source": {
+      "book": "ch04 > Legacy Addresses for P2PKH; Public Key Cryptography",
+      "lecture": "W4 s6, s9 +note (B13)"
+    },
+    "coverage": "lecture+book",
+    "likelihood": "high",
+    "difficulty": "easy",
+    "tags": [
+      "address",
+      "hash-of-public-key",
+      "signatures",
+      "lecture-framing"
     ]
   },
   {
@@ -4097,9 +4985,9 @@
     "explanation": "\"Many people mistakenly believe that Bitcoin wallets contain bitcoins. In fact, what many people call a Bitcoin wallet--which we call a wallet database ...--contains only keys. Those keys are associated with bitcoins recorded on the blockchain.\"",
     "source": {
       "book": "ch05 > Independent Key Generation",
-      "lecture": null
+      "lecture": "W4 s12 +note (wallets in the ecosystem); W4 s29 +note ('Bitcoin doesn't tell you how much you have, but the transactions')"
     },
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "likelihood": "high",
     "difficulty": "easy",
     "tags": [
@@ -4124,10 +5012,10 @@
     "explanation": "\"All early Bitcoin wallet applications did this, but it required users to back up the wallet database each time they generated and distributed new keys ... Failure to back up the wallet database on time would lead to the user losing access to any funds received to keys that had not been backed up.\"",
     "source": {
       "book": "ch05 > Independent Key Generation",
-      "lecture": null
+      "lecture": "W4 s5, s9 +note (a new random key pair per received payment - the lecture's model is independent key generation)"
     },
-    "coverage": "book-only",
-    "likelihood": "high",
+    "coverage": "lecture+book",
+    "likelihood": "medium",
     "difficulty": "medium",
     "tags": [
       "nondeterministic-wallet",
@@ -4306,9 +5194,9 @@
     "explanation": "\"SLIP39 allows a single seed to be distributed using multiple recovery codes that can be stored in different places (or by different people). When you create the recovery codes, you can specify how many will be required to recover the seed. For example, you create five recovery codes but only require three of them.\" Codex32 is a newer proposal with similar goals.",
     "source": {
       "book": "ch05 > Seeds and Recovery Codes",
-      "lecture": null
+      "lecture": "W2 s58-60, s97-98 +note (threshold signatures: t of n must collaborate) - a related idea, not SLIP39 itself"
     },
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "likelihood": "medium",
     "difficulty": "medium",
     "tags": [
@@ -4335,7 +5223,7 @@
       "lecture": null
     },
     "coverage": "book-only",
-    "likelihood": "medium",
+    "likelihood": "low",
     "difficulty": "hard",
     "tags": [
       "aezeed",
@@ -4362,7 +5250,7 @@
       "lecture": null
     },
     "coverage": "book-only",
-    "likelihood": "high",
+    "likelihood": "medium",
     "difficulty": "medium",
     "tags": [
       "passphrase",
@@ -4389,7 +5277,7 @@
       "lecture": null
     },
     "coverage": "book-only",
-    "likelihood": "high",
+    "likelihood": "medium",
     "difficulty": "medium",
     "tags": [
       "labels",
@@ -4416,7 +5304,7 @@
       "lecture": null
     },
     "coverage": "book-only",
-    "likelihood": "medium",
+    "likelihood": "low",
     "difficulty": "medium",
     "tags": [
       "nonkey-data",
@@ -4443,7 +5331,7 @@
       "lecture": null
     },
     "coverage": "book-only",
-    "likelihood": "high",
+    "likelihood": "medium",
     "difficulty": "medium",
     "tags": [
       "derivation-path",
@@ -4469,7 +5357,7 @@
       "lecture": null
     },
     "coverage": "book-only",
-    "likelihood": "high",
+    "likelihood": "medium",
     "difficulty": "medium",
     "tags": [
       "implicit-paths",
@@ -4497,7 +5385,7 @@
       "lecture": null
     },
     "coverage": "book-only",
-    "likelihood": "medium",
+    "likelihood": "low",
     "difficulty": "hard",
     "tags": [
       "bip84",
@@ -4525,7 +5413,7 @@
       "lecture": null
     },
     "coverage": "book-only",
-    "likelihood": "medium",
+    "likelihood": "low",
     "difficulty": "medium",
     "tags": [
       "explicit-paths",
@@ -4578,7 +5466,7 @@
       "lecture": null
     },
     "coverage": "book-only",
-    "likelihood": "high",
+    "likelihood": "medium",
     "difficulty": "medium",
     "tags": [
       "bip39",
@@ -4605,7 +5493,7 @@
       "lecture": null
     },
     "coverage": "book-only",
-    "likelihood": "high",
+    "likelihood": "medium",
     "difficulty": "medium",
     "tags": [
       "bip39",
@@ -4659,7 +5547,7 @@
       "lecture": null
     },
     "coverage": "book-only",
-    "likelihood": "high",
+    "likelihood": "medium",
     "difficulty": "medium",
     "tags": [
       "bip39",
@@ -4684,9 +5572,9 @@
     "explanation": "\"The security strength of a Bitcoin public key is 128 bits ... The implication of a security strength of 128 bits is that there's no apparent benefit to using more than 128 bits of entropy.\" The one extra benefit of longer codes: if an attacker sees half of a 256-bit code they still can't brute-force the rest. BIP32 accepts seeds of 128-512 bits.",
     "source": {
       "book": "ch05 > How Much Entropy Do You Need? (sidebar)",
-      "lecture": null
+      "lecture": "W2 s16 +note (SHA-256 birthday bound 2^128 - the same 128-bit security-strength logic)"
     },
-    "coverage": "book-only",
+    "coverage": "lecture+book",
     "likelihood": "medium",
     "difficulty": "hard",
     "tags": [
@@ -4733,7 +5621,7 @@
       "lecture": null
     },
     "coverage": "book-only",
-    "likelihood": "high",
+    "likelihood": "medium",
     "difficulty": "medium",
     "tags": [
       "passphrase",
@@ -4760,7 +5648,7 @@
       "lecture": null
     },
     "coverage": "book-only",
-    "likelihood": "high",
+    "likelihood": "medium",
     "difficulty": "medium",
     "tags": [
       "bip32",
@@ -4788,7 +5676,7 @@
       "lecture": null
     },
     "coverage": "book-only",
-    "likelihood": "high",
+    "likelihood": "medium",
     "difficulty": "hard",
     "tags": [
       "ckd",
@@ -4896,7 +5784,7 @@
       "lecture": null
     },
     "coverage": "book-only",
-    "likelihood": "medium",
+    "likelihood": "low",
     "difficulty": "medium",
     "tags": [
       "gap-limit",
@@ -4922,7 +5810,7 @@
       "lecture": null
     },
     "coverage": "book-only",
-    "likelihood": "high",
+    "likelihood": "medium",
     "difficulty": "hard",
     "tags": [
       "hardened-derivation",
@@ -4950,7 +5838,7 @@
       "lecture": null
     },
     "coverage": "book-only",
-    "likelihood": "high",
+    "likelihood": "medium",
     "difficulty": "medium",
     "tags": [
       "hardened-derivation",
@@ -4977,7 +5865,7 @@
       "lecture": null
     },
     "coverage": "book-only",
-    "likelihood": "high",
+    "likelihood": "medium",
     "difficulty": "medium",
     "tags": [
       "derivation-path",
@@ -5029,7 +5917,7 @@
       "lecture": null
     },
     "coverage": "book-only",
-    "likelihood": "medium",
+    "likelihood": "low",
     "difficulty": "hard",
     "tags": [
       "bip44",
@@ -5117,6 +6005,34 @@
       "hardened-derivation",
       "xpub",
       "security"
+    ]
+  },
+  {
+    "id": "mb-ch05-q41",
+    "chapter": 5,
+    "section": "Wallet Recovery > One key per payment (lecture model vs book)",
+    "type": "mcq",
+    "prompt": "The lecture said a new random key pair is generated each time you receive a payment, so accounts are \"created on the fly\". How does this compare with the book's description of modern wallets?",
+    "choices": [
+      "They contradict: the book says one address must be reused forever.",
+      "Both use a fresh key/address per payment; the lecture describes independently generated random keys, while the book says modern wallets derive each new key deterministically from one seed (BIP32 HD wallets), so a single recovery code backs them all up.",
+      "They are identical: both require a new recovery code for every payment.",
+      "The lecture's keys are public only; the book's keys are private only."
+    ],
+    "answer": 1,
+    "explanation": "W4 s5 (\"accounts are created on the fly when receiving a payment (= a random number!)\") and W4 s9 (\"Generate a random pair of public / secret keys\") describe the whitepaper-style model of independent keys. Mastering Bitcoin ch05 explains that independently generated keys forced constant re-backups, so modern wallets use deterministic (HD) derivation from a seed while still giving every payment a new address.",
+    "source": {
+      "book": "ch05 > Independent Key Generation; Deterministic Key Generation; ch01 > Bitcoin Addresses",
+      "lecture": "W4 s5, s9 +note"
+    },
+    "coverage": "lecture+book",
+    "likelihood": "high",
+    "difficulty": "medium",
+    "tags": [
+      "hd-wallet",
+      "address-reuse",
+      "nondeterministic-wallet",
+      "lecture-vs-book"
     ]
   }
 ]

@@ -92,8 +92,8 @@ export interface ScheduleItem {
   title: string
   type: string
   points: number | null
-  /** ISO-8601 with explicit offset */
-  at: string
+  /** ISO-8601 with explicit offset, or null when the date has not been announced yet */
+  at: string | null
   /** Unit id when a study unit exists for this assessment */
   unit: string | null
 }

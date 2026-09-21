@@ -5,16 +5,20 @@
   "term": "Fall 2026",
   "institution": "University of Alabama at Birmingham",
   "instructor": "Dr. Yuliang Zheng (TA: Amulya Kanumuri)",
-  "meeting": "Tuesdays 5:00-7:30 pm, UH 4002",
+  "meeting": "Tuesdays 5:00-7:30 pm, UH 4002 (Aug 24 - Dec 11)",
   "timezone": "America/Chicago",
   "textbooks": [
     {
-      "title": "Mastering Bitcoin, 3rd ed. (Antonopoulos & Harding) - free online",
+      "title": "Mastering Bitcoin, 3rd ed. (Antonopoulos & Harding, 2023) - free online",
       "url": "https://github.com/bitcoinbook/bitcoinbook"
     },
     {
-      "title": "Mastering Ethereum, 2nd ed. (Parisi, Mazza, Pozzolini) - free online",
+      "title": "Mastering Ethereum, 2nd ed. (Parisi, Mazza, Pozzolini, 2025) - free online",
       "url": "https://github.com/ethereumbook/ethereumbook"
+    },
+    {
+      "title": "Bitcoin: A Peer-to-Peer Electronic Cash System (Nakamoto, 2008) - assigned reading",
+      "url": "https://bitcoin.org/en/bitcoin-paper"
     }
   ],
   "schedule": [
@@ -26,7 +30,7 @@
       "unit": "quiz-1-mastering-bitcoin-ch01-05"
     },
     {
-      "title": "Midterm exam (Respondus LockDown Browser)",
+      "title": "Midterm exam (Respondus LockDown Browser + Monitor)",
       "type": "exam",
       "points": null,
       "at": "2026-09-29T17:00:00-05:00",
@@ -61,15 +65,52 @@
       "unit": null
     },
     {
-      "title": "Final exam (time per official UAB exam schedule)",
+      "title": "Final exam (time per the official UAB exam schedule)",
       "type": "exam",
       "points": null,
       "at": "2026-12-08T17:00:00-06:00",
       "unit": null
+    },
+    {
+      "title": "Quiz 2: Mastering Bitcoin Chapters 06-10",
+      "type": "quiz",
+      "points": 20,
+      "at": null,
+      "unit": null
+    },
+    {
+      "title": "Quiz 3: Mastering Bitcoin Chapters 11-14",
+      "type": "quiz",
+      "points": 16,
+      "at": null,
+      "unit": null
+    },
+    {
+      "title": "Quiz 4: Mastering Ethereum Chapters 01-06",
+      "type": "quiz",
+      "points": 18,
+      "at": null,
+      "unit": null
+    },
+    {
+      "title": "Quiz 5: Mastering Ethereum Chapters 07-12",
+      "type": "quiz",
+      "points": 16,
+      "at": null,
+      "unit": null
+    },
+    {
+      "title": "Quiz 6: Mastering Ethereum Chapters 13-17",
+      "type": "quiz",
+      "points": 8,
+      "at": null,
+      "unit": null
     }
   ],
   "notes": [
-    "Remaining chapter quizzes from the syllabus: Mastering Bitcoin ch06-10 (20 pts), ch11-14 (16 pts); Mastering Ethereum ch01-06 (18 pts), ch07-12 (16 pts), ch13-17 (8 pts). Dates are announced in Canvas; add a schedule entry when a date is known.",
-    "All deadlines are Central Time."
+    "Quiz dates other than Quiz 1 are announced in Canvas; the syllabus lists only the points. Add the date to the entry (and a study unit) when it is known.",
+    "Grading: assignments and projects 50%, midterm 20%, final 30%. Graduate scale: A 90-100, B 80-89, C 60-79, F below 60. You must score at least 60% in every component.",
+    "Exams are proctored with Respondus LockDown Browser and Monitor; the syllabus recommends a laptop or desktop for quizzes as well.",
+    "All deadlines are US Central Time."
   ]
 }
