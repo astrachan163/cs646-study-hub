@@ -1,0 +1,83 @@
+# Validates the study content, runs the tests, builds the site and, on the
+# main branch only, publishes it to GitHub Pages.
+#
+# A broken content file (bad id, answer out of range, unknown likelihood, ...)
+# fails the "check" job, so the last good version of the site stays live.
+name: Validate, test and deploy
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# Never run two deployments at once; let an in-progress one finish.
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  check:
+    name: Validate content, lint, test, build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v7
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies (exact versions from package-lock.json)
+        run: npm ci
+
+      - name: Validate content (fails the build on bad ids, answers or enums)
+        run: npm run validate
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Type-check
+        run: npm run typecheck
+
+      - name: Unit tests (quiz selection, scoring, validator)
+        run: npm test
+
+      - name: Build the static site
+        run: npm run build
+        env:
+          # Project sites live at https://<user>.github.io/<repo>/ so the site must know its prefix.
+          # Set a repository variable named BASE_PATH to "/" if you ever move to a custom domain.
+          BASE_PATH: ${{ vars.BASE_PATH || format('/{0}/', github.event.repository.name) }}
+
+      - name: Upload the built site for deployment
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: dist
+
+  deploy:
+    name: Deploy to GitHub Pages
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    needs: check
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      # Pages must already be enabled with "Source: GitHub Actions" in the
+      # repository settings (see PUBLISHING.md). This step only reads metadata.
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v6
+
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v5
