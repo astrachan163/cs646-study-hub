@@ -52,7 +52,7 @@ cs646-study-hub/                      <- project root
 │           ├── cross-reference.md    <- lecture <-> book tables
 │           ├── lexicon.json          <- glossary terms
 │           ├── questions.json        <- the question bank
-│           └── likely-quiz.json      <- the predicted 20 question ids, in order
+│           └── likely-quizzes.json   <- three predicted quizzes (lecture-only, lecture + book, book-only)
 ├── templates/unit-template/          <- a tiny complete unit to copy from
 ├── src/                              <- the app code (you do not need to touch it)
 ├── scripts/validate-content.ts       <- the validator the CI and you run
@@ -190,16 +190,60 @@ in the quiz setup use `chapter`, `coverage`, `difficulty` and `likelihood`.
 Terms must be unique. Names in `related` should be other terms in the same file (otherwise you get
 a warning, not an error). The Lexicon and Flashcards pages are built from this file.
 
-### 3.4 `likely-quiz.json` (recommended): the predicted quiz
+### 3.4 `likely-quizzes.json` (required): the three predicted quizzes
 
-A plain list of question ids in the order the predicted quiz should be shown:
+A list of **exactly three** quiz objects. Each one predicts the real quiz from a different
+source ("basis"): what the lecture covered, lecture and book together, or the book alone. The
+Likely Quiz page shows them as three tabs and the home page links to the one marked `primary`.
 
 ```json
-["mb-ch01-q01", "mb-ch01-q02", "mb-ch02-q07"]
+[
+  {
+    "id": "lecture",
+    "basis": "lecture",
+    "primary": false,
+    "title": "Lecture-only quiz",
+    "description": "20 questions built only from what the instructor covered in class (coverage lecture-only or lecture+book), written from the lecture's framing.",
+    "questionIds": ["mb-ch01-q02", "mb-ch01-q03", "mb-ch02-q42"]
+  },
+  {
+    "id": "mixed",
+    "basis": "mixed",
+    "primary": true,
+    "title": "Lecture + book quiz (primary prediction)",
+    "description": "20 questions grounded in lecture content AND the corresponding book material; the most accurate reflection of testable material.",
+    "questionIds": ["mb-ch01-q05", "mb-ch01-q07", "mb-ch02-q41"]
+  },
+  {
+    "id": "book",
+    "basis": "book",
+    "primary": false,
+    "title": "Book-only quiz",
+    "description": "20 questions drawn entirely from the assigned chapters, including material the lecture did not reach.",
+    "questionIds": ["mb-ch01-q26", "mb-ch02-q23", "mb-ch03-q02"]
+  }
+]
 ```
 
-Every id must exist in `questions.json`, none may repeat, and ideally the list has exactly
-`assessment.questions` entries (20 for Quiz 1); a different length is a warning.
+| Field | Rule |
+|---|---|
+| `id` | Short text, unique within the file (`lecture`, `mixed`, `book` is the convention). |
+| `basis` | Exactly one of `lecture`, `mixed`, `book`, and each value appears **once** (so the page always has its three tabs). |
+| `primary` | `true` or `false` without quotes; **exactly one** quiz is `true` (normally the `mixed` one). It is the default tab and the home page's "Predicted quiz" link. |
+| `title` / `description` | Shown at the top of the tab. Say what the quiz is built from; if the basis makes an even chapter spread impossible, say so here. |
+| `questionIds` | Exactly `assessment.questions` ids (20 for Quiz 1), in the order the quiz should be shown. Every id must exist in `questions.json` and none may repeat **within** the same quiz; the same id **may** appear in two different quizzes. |
+
+The validator treats a missing file, a wrong number of quizzes, an unknown or repeated basis,
+zero or several primaries, unknown or repeated ids and a wrong id count as errors. Aim for about
+four questions per chapter (for five chapters) unless the basis rules that out.
+
+"Take this as a timed practice quiz" on any tab launches the Practice Quiz with exactly those
+questions in that order, the real quiz's time limit and feedback at the end, then shows the
+normal results screen.
+
+Before September 2026 this file was a single list named `likely-quiz.json`. That file is no longer
+read: convert it into the `mixed` quiz above, add the other two, and delete the old file (the
+validator warns while it is still there).
 
 ### 3.5 `chapters/chNN.md` (recommended): one Markdown file per chapter
 
@@ -263,7 +307,7 @@ Naming rules: lower-case letters, digits and hyphens only; no spaces. The name i
 site's web address, e.g. `.../#/unit/quiz-2-mastering-bitcoin-ch06-10`.
 
 Verify: the tree now shows `content/units/quiz-2-mastering-bitcoin-ch06-10/` containing
-`unit.json`, `questions.json`, `lexicon.json`, `likely-quiz.json`, `cross-reference.md` and a
+`unit.json`, `questions.json`, `lexicon.json`, `likely-quizzes.json`, `cross-reference.md` and a
 `chapters/` folder.
 
 Pitfall to avoid: do not edit the template itself; always copy it. The template is also used by
@@ -299,10 +343,10 @@ Aim for at least 40 per chapter so the random quiz feels fresh. Checklist per qu
 - [ ] `coverage`, `likelihood`, `difficulty` use the allowed words exactly
 - [ ] calculation questions carry the tag `calculation` and `likelihood: low`
 
-### Step 6: write `lexicon.json`, `likely-quiz.json` and `cross-reference.md`
+### Step 6: write `lexicon.json`, `likely-quizzes.json` and `cross-reference.md`
 
-Follow 3.3, 3.4 and 3.6. The predicted quiz should have exactly as many ids as the real quiz has
-questions.
+Follow 3.3, 3.4 and 3.6. Each of the three predicted quizzes must have exactly as many ids as the
+real quiz has questions, and exactly one of them carries `"primary": true`.
 
 ### Step 7: add the assessment to the course calendar
 
@@ -335,8 +379,8 @@ npm run validate
 Expected output when everything is right:
 
 ```
-Unit quiz-1-mastering-bitcoin-ch01-05 [200 questions, 210 terms, 20 predicted, 5 chapters]: OK (0 error(s), 0 warning(s))
-Unit quiz-2-mastering-bitcoin-ch06-10 [212 questions, 180 terms, 20 predicted, 5 chapters]: OK (0 error(s), 0 warning(s))
+Unit quiz-1-mastering-bitcoin-ch01-05 [234 questions, 210 terms, 3 predicted quizzes, 5 chapters]: OK (0 error(s), 0 warning(s))
+Unit quiz-2-mastering-bitcoin-ch06-10 [212 questions, 180 terms, 3 predicted quizzes, 5 chapters]: OK (0 error(s), 0 warning(s))
 Course cs646-fall-2026: OK (0 error(s), 0 warning(s))
 
 Content is valid. 0 error(s), 0 warning(s).
@@ -457,13 +501,19 @@ Publishes the undo. The automation runs again and the previous content is live i
 | `"answer" is 4; with 4 choices it must be ... 0 to 3` | Choices are counted from 0. | Set `answer` to the position minus one. |
 | `true/false questions need "answer": true or false (no quotes)` | You wrote `"true"` with quotes. | Remove the quotes. |
 | `questions tagged "calculation" must have "likelihood": "low"` | Instructor rule. | Set `likelihood` to `low` or remove the tag. |
-| `id "..." does not exist in questions.json` (likely-quiz.json) | A typo in the predicted list. | Copy the id from `questions.json`. |
+| `id "..." does not exist in questions.json` (likely-quizzes.json) | A typo in one quiz's `questionIds`. | Copy the id from `questions.json`; the message names the quiz and the position. |
+| `lists 2 quizzes but there must be exactly 3` | `likely-quizzes.json` needs one quiz per basis. | Add the missing quiz (lecture, mixed or book). |
+| `no quiz has "primary": true` / `2 quizzes have "primary": true` | Exactly one quiz is the primary prediction. | Set `"primary": true` on the lecture + book quiz only. |
+| `"basis" is "..." but must be one of: lecture, mixed, book` | A misspelled or invented basis. | Use one of the three words, lower-case. |
+| `lists 19 question ids but the assessment has 20 questions` | A predicted quiz is too short or too long. | Add or remove ids until every quiz has exactly `assessment.questions`. |
+| `likely-quiz.json → file: is the old single-list format` (warning) | The unit still has the pre-September-2026 file. | Move its ids into the `mixed` quiz of `likely-quizzes.json` and delete `likely-quiz.json`. |
 | `npm: command not found` | Node.js is not installed or the terminal was opened before installing it. | Install Node.js (see `PUBLISHING.md`), then open a new terminal. |
 | `npm ci` fails with `ENOENT package-lock.json` | The terminal is not in the project root. | `cd ~/Projects/cs646-study-hub` and try again. |
 | Actions page shows a red cross | A check failed on GitHub. | Click the run, then the failed step; fix locally, `npm run validate`, commit, push. The live site is unchanged until a run is green. |
 | Live site still shows old content | Browser cache or the run is not finished. | Wait for the green check, then Command+Shift+R (Mac) / Control+F5 (Windows). |
 | A diagram shows red text "This diagram could not be drawn" | Mermaid syntax error. | Quote labels with `["..."]`; test the snippet at https://mermaid.live. |
-| Cross-Reference or Likely Quiz tab is missing | The unit has no `cross-reference.md` / `likely-quiz.json`. | Add the file; the tab appears automatically. |
+| Cross-Reference or Likely Quiz tab is missing | The unit has no `cross-reference.md` / `likely-quizzes.json`. | Add the file; the tab appears automatically. |
+| A link to `#/unit/<id>/likely/book` opens the lecture + book tab | The tab name in the link is misspelled (only `lecture`, `mixed`, `book` are known), so the page falls back to the primary quiz. | Copy the link from the tab itself (right-click > Copy Link). |
 
 Notes: people often say "upload to GitHub" when they mean **push**, and "save" when they mean
 **commit**. Both are fine in conversation; the commands are `git commit` then `git push`.
@@ -483,3 +533,6 @@ so the next person skips it.
 - A Markdown file that starts with a `---` metadata block is fine: the site strips it before rendering.
 - Content produced elsewhere drops straight in: the first unit's 200 questions and 210 terms were
   copied into the folder unchanged and passed the validator on the first run.
+- One predicted quiz was not enough: the lecture and the book disagree about what matters, so
+  the format grew to three quizzes (`likely-quizzes.json`, September 2026). Keep the three
+  descriptions honest about what each quiz is built from; students choose a tab based on them.
