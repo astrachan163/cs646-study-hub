@@ -15,7 +15,7 @@ export function UnitNav({ unit, currentPath }: UnitNavProps) {
     { href: routes.lexicon(id), label: 'Lexicon', match: `/unit/${id}/lexicon`, show: unit.hasLexicon },
     { href: routes.flashcards(id), label: 'Flashcards', match: `/unit/${id}/flashcards`, show: unit.hasLexicon },
     { href: routes.quiz(id), label: 'Practice Quiz', match: `/unit/${id}/quiz`, show: unit.hasQuestions },
-    { href: routes.likely(id), label: 'Likely Quiz', match: `/unit/${id}/likely`, show: unit.hasLikelyQuiz },
+    { href: routes.likely(id), label: 'Likely Quiz', match: `/unit/${id}/likely`, show: unit.likelyQuizzes.length > 0 },
     { href: routes.bank(id), label: 'Question Bank', match: `/unit/${id}/bank`, show: unit.hasQuestions },
   ]
   return (

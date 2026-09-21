@@ -2,8 +2,10 @@ import {
   COVERAGES,
   DIFFICULTIES,
   LIKELIHOODS,
+  LIKELY_QUIZ_COUNT,
   QUESTION_ID_PATTERN,
   QUESTION_TYPES,
+  QUIZ_BASES,
 } from '../content/types.ts'
 
 /**
@@ -18,7 +20,8 @@ export interface UnitFiles {
   unit: unknown
   questions: unknown | undefined
   lexicon: unknown | undefined
-  likelyQuiz: unknown | undefined
+  /** Parsed likely-quizzes.json, or undefined when the file is missing */
+  likelyQuizzes: unknown | undefined
   /** Chapter numbers found as chapters/chNN.md */
   chapters: number[]
   hasCrossReference: boolean
@@ -39,7 +42,7 @@ export interface ValidationResult {
   unitId: string
   errors: ValidationIssue[]
   warnings: ValidationIssue[]
-  counts: { questions: number; lexicon: number; likelyQuiz: number; chapters: number }
+  counts: { questions: number; lexicon: number; likelyQuizzes: number; chapters: number }
 }
 
 type Issues = ValidationIssue[]
@@ -288,25 +291,89 @@ function validateLexicon(issues: Issues, lexicon: unknown): number {
   return lexicon.length
 }
 
-// ---------------------------------------------------------- likely-quiz.json
+// ------------------------------------------------------- likely-quizzes.json
 
-function validateLikelyQuiz(issues: Issues, likelyQuiz: unknown, questionIds: string[], expectedCount: number | null): number {
-  const file = 'likely-quiz.json'
-  if (!isStringArray(likelyQuiz)) {
-    push(issues, 'error', file, 'top level', 'The file must be a JSON list of question ids, e.g. ["mb-ch01-q01", "mb-ch02-q03"].', 'List the ids in the order the predicted quiz should be shown.')
+const LIKELY_QUIZZES_FILE = 'likely-quizzes.json'
+const LIKELY_QUIZZES_SHAPE =
+  'The file must be a JSON list of exactly three quiz objects {"id", "basis", "primary", "title", "description", "questionIds"}, one per basis (lecture, mixed, book).'
+
+function quizWhere(index: number, quiz: unknown): string {
+  const label = isRecord(quiz) && typeof quiz.id === 'string' ? ` (id ${quiz.id})` : ''
+  return `quiz ${index + 1}${label}`
+}
+
+/** Checks one quiz's own fields; returns its question ids (empty when the field is unusable). */
+function validateLikelyQuizFields(issues: Issues, quiz: Record<string, unknown>, where: string): string[] {
+  const file = LIKELY_QUIZZES_FILE
+  if (!isNonEmptyString(quiz.id)) {
+    push(issues, 'error', file, where, '"id" must be a non-empty text string.', 'Give the quiz a short id such as "lecture", "mixed" or "book".')
+  }
+  checkEnum(issues, file, where, 'basis', quiz.basis, QUIZ_BASES)
+  if (typeof quiz.primary !== 'boolean') {
+    push(issues, 'error', file, where, `"primary" must be true or false (no quotes); got ${JSON.stringify(quiz.primary)}.`, 'Set "primary": true on the lecture + book quiz and false on the other two.')
+  }
+  if (!isNonEmptyString(quiz.title)) {
+    push(issues, 'error', file, where, '"title" must be a non-empty text string.', 'Add a title such as "Lecture + book quiz (primary prediction)".')
+  }
+  if (typeof quiz.description !== 'string') {
+    push(issues, 'error', file, where, '"description" must be text (what the quiz is built from and why).', 'Add a one- or two-sentence "description".')
+  } else if (quiz.description.trim() === '') {
+    push(issues, 'warning', file, where, '"description" is empty, so the tab cannot explain what this prediction is based on.', 'Write one or two sentences of description.')
+  }
+  if (!isStringArray(quiz.questionIds)) {
+    push(issues, 'error', file, where, '"questionIds" must be a list of question ids, e.g. ["mb-ch01-q01", "mb-ch02-q03"].', 'List the ids in the order the quiz should be shown.')
+    return []
+  }
+  return quiz.questionIds
+}
+
+function validateLikelyQuizzes(issues: Issues, likelyQuizzes: unknown, questionIds: string[], expectedCount: number | null): number {
+  const file = LIKELY_QUIZZES_FILE
+  if (!Array.isArray(likelyQuizzes)) {
+    push(issues, 'error', file, 'top level', LIKELY_QUIZZES_SHAPE, 'Wrap the three quiz objects in [ ] and separate them with commas (see CONTENT-GUIDE.md).')
     return 0
   }
-  const known = new Set(questionIds)
-  const seen = new Set<string>()
-  likelyQuiz.forEach((id, i) => {
-    if (!known.has(id)) push(issues, 'error', file, `item ${i + 1}`, `id "${id}" does not exist in questions.json.`, 'Fix the typo or add the question to questions.json.')
-    if (seen.has(id)) push(issues, 'error', file, `item ${i + 1}`, `id "${id}" is listed more than once.`, 'Remove the duplicate.')
-    seen.add(id)
-  })
-  if (expectedCount !== null && likelyQuiz.length !== expectedCount) {
-    push(issues, 'warning', file, 'top level', `lists ${likelyQuiz.length} ids but the assessment has ${expectedCount} questions.`, `Aim for exactly ${expectedCount} ids so the predicted quiz matches the real one.`)
+  if (likelyQuizzes.length !== LIKELY_QUIZ_COUNT) {
+    push(issues, 'error', file, 'top level', `lists ${likelyQuizzes.length} quizzes but there must be exactly ${LIKELY_QUIZ_COUNT} (basis lecture, mixed and book).`, 'Add the missing quiz or remove the extra one so each basis appears exactly once.')
   }
-  return likelyQuiz.length
+  const known = new Set(questionIds)
+  const seenQuizIds = new Map<string, number>()
+  const seenBases = new Map<string, number>()
+  let primaries = 0
+  likelyQuizzes.forEach((quiz, i) => {
+    const where = quizWhere(i, quiz)
+    if (!isRecord(quiz)) {
+      push(issues, 'error', file, where, 'must be an object { ... }.', 'Check for a stray comma or a missing brace.')
+      return
+    }
+    const ids = validateLikelyQuizFields(issues, quiz, where)
+    if (typeof quiz.id === 'string') {
+      const first = seenQuizIds.get(quiz.id)
+      if (first !== undefined) push(issues, 'error', file, where, `duplicate quiz id "${quiz.id}" (also used by quiz ${first + 1}).`, 'Give every quiz a unique id.')
+      else seenQuizIds.set(quiz.id, i)
+    }
+    if (typeof quiz.basis === 'string') {
+      const first = seenBases.get(quiz.basis)
+      if (first !== undefined) push(issues, 'error', file, where, `"basis" "${quiz.basis}" is also used by quiz ${first + 1}; each of ${QUIZ_BASES.join(', ')} must appear exactly once.`, 'Change one of the two to the missing basis.')
+      else seenBases.set(quiz.basis, i)
+    }
+    if (quiz.primary === true) primaries++
+    const seenIds = new Set<string>()
+    ids.forEach((id, j) => {
+      if (!known.has(id)) push(issues, 'error', file, `${where} → questionIds item ${j + 1}`, `id "${id}" does not exist in questions.json.`, 'Fix the typo or add the question to questions.json.')
+      if (seenIds.has(id)) push(issues, 'error', file, `${where} → questionIds item ${j + 1}`, `id "${id}" is listed more than once in this quiz.`, 'Remove the duplicate (the same id may appear in a different quiz).')
+      seenIds.add(id)
+    })
+    if (isStringArray(quiz.questionIds) && expectedCount !== null && ids.length !== expectedCount) {
+      push(issues, 'error', file, where, `lists ${ids.length} question ids but the assessment has ${expectedCount} questions.`, `Give every predicted quiz exactly ${expectedCount} ids so it matches the real one.`)
+    }
+  })
+  if (primaries === 0) {
+    push(issues, 'error', file, 'top level', 'no quiz has "primary": true.', 'Mark exactly one quiz (normally the lecture + book one) with "primary": true.')
+  } else if (primaries > 1) {
+    push(issues, 'error', file, 'top level', `${primaries} quizzes have "primary": true but exactly one is allowed.`, 'Keep "primary": true on one quiz and set the others to false.')
+  }
+  return likelyQuizzes.length
 }
 
 // -------------------------------------------------------------------- unit
@@ -341,10 +408,10 @@ export function validateUnit(files: UnitFiles): ValidationResult {
     isRecord(files.unit) && isRecord(files.unit.assessment) && isPositiveInt(files.unit.assessment.questions)
       ? files.unit.assessment.questions
       : null
-  if (files.likelyQuiz === undefined) {
-    push(issues, 'warning', 'likely-quiz.json', 'file', 'missing, so the Likely Quiz page will be empty.', 'Add likely-quiz.json listing the predicted question ids in order.')
+  if (files.likelyQuizzes === undefined) {
+    push(issues, 'error', LIKELY_QUIZZES_FILE, 'file', 'missing. A unit needs its three predicted quizzes (the old single-list likely-quiz.json is no longer read).', 'Add likely-quizzes.json with the lecture, mixed and book quizzes (see CONTENT-GUIDE.md section 3.4).')
   } else {
-    likelyCount = validateLikelyQuiz(issues, files.likelyQuiz, questionIds, expected)
+    likelyCount = validateLikelyQuizzes(issues, files.likelyQuizzes, questionIds, expected)
   }
 
   return {
@@ -354,7 +421,7 @@ export function validateUnit(files: UnitFiles): ValidationResult {
     counts: {
       questions: Array.isArray(files.questions) ? files.questions.length : 0,
       lexicon: lexiconCount,
-      likelyQuiz: likelyCount,
+      likelyQuizzes: likelyCount,
       chapters: files.chapters.length,
     },
   }

@@ -46,7 +46,7 @@ function Router({ location, theme }: { location: AppLocation; theme: Theme }) {
     case 'quiz':
       return <QuizPage unit={unit} path={path} params={params} />
     case 'likely':
-      return <LikelyQuizPage unit={unit} path={path} />
+      return <LikelyQuizPage unit={unit} path={path} basisArg={arg} />
     case 'bank':
       return <BankPage unit={unit} path={path} params={params} />
     default:

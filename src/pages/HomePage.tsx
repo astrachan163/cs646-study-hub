@@ -4,6 +4,7 @@ import { useNow } from '../app/useNow.ts'
 import { Countdown } from '../components/Countdown.tsx'
 import { listCourses, listUnits } from '../content/repository.ts'
 import type { Course, UnitIndex } from '../content/types.ts'
+import { BASIS_HELP, BASIS_LABEL, primaryLikelyQuiz, sortLikelyQuizzes } from '../lib/likelyQuizzes.ts'
 import { bestAttempt, loadAttempts } from '../lib/storage.ts'
 import { formatDateTime } from '../lib/time.ts'
 
@@ -44,6 +45,8 @@ function UnitCard({ unit, timeZone }: { unit: UnitIndex; timeZone?: string }) {
   const a = unit.meta.assessment
   const attempts = loadAttempts(unit.meta.id)
   const best = bestAttempt(attempts)
+  const predictions = sortLikelyQuizzes(unit.likelyQuizzes)
+  const primary = primaryLikelyQuiz(predictions)
   return (
     <article className="card unit-card">
       <div>
@@ -78,10 +81,23 @@ function UnitCard({ unit, timeZone }: { unit: UnitIndex; timeZone?: string }) {
         <a className="btn" href={routes.flashcards(unit.meta.id)}>
           Flashcards
         </a>
-        <a className="btn" href={routes.likely(unit.meta.id)}>
-          Likely quiz
-        </a>
+        {primary && (
+          <a className="btn" href={routes.likely(unit.meta.id, primary.basis)} title={`${primary.title}: ${BASIS_HELP[primary.basis]}`}>
+            Predicted quiz
+          </a>
+        )}
       </div>
+      {predictions.length > 0 && (
+        <div className="unit-card__predictions small muted">
+          <span>Predicted quizzes:</span>
+          {predictions.map((quiz) => (
+            <a key={quiz.basis} href={routes.likely(unit.meta.id, quiz.basis)} title={BASIS_HELP[quiz.basis]}>
+              {BASIS_LABEL[quiz.basis]} <strong>{quiz.questionIds.length}</strong>
+              {quiz.primary ? ' (primary)' : ''}
+            </a>
+          ))}
+        </div>
+      )}
     </article>
   )
 }

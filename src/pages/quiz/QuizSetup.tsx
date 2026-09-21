@@ -1,8 +1,9 @@
 import { useMemo, useState } from 'react'
 import { routes } from '../../app/routes.ts'
 import { ChipGroup } from '../../components/ChipGroup.tsx'
-import { COVERAGES, DIFFICULTIES, LIKELIHOODS, type Question, type UnitIndex } from '../../content/types.ts'
+import { COVERAGES, DIFFICULTIES, LIKELIHOODS, type LikelyQuiz, type Question, type UnitIndex } from '../../content/types.ts'
 import { COVERAGE_HELP, COVERAGE_LABEL } from '../../lib/labels.ts'
+import { BASIS_HELP, BASIS_LABEL, findLikelyQuiz, sortLikelyQuizzes } from '../../lib/likelyQuizzes.ts'
 import { describeQuizConfig, serializeQuizConfig, type QuizConfig } from '../../lib/quizConfig.ts'
 import { randomSeedString } from '../../lib/random.ts'
 import { filterQuestions } from '../../lib/select.ts'
@@ -10,15 +11,18 @@ import { filterQuestions } from '../../lib/select.ts'
 interface QuizSetupProps {
   unit: UnitIndex
   questions: Question[]
-  likelyIds: string[]
+  likelyQuizzes: LikelyQuiz[]
   config: QuizConfig
   defaults: QuizConfig
   onChange: (config: QuizConfig) => void
   onStart: () => void
 }
 
-export function QuizSetup({ unit, questions, likelyIds, config, defaults, onChange, onStart }: QuizSetupProps) {
+export function QuizSetup({ unit, questions, likelyQuizzes, config, defaults, onChange, onStart }: QuizSetupProps) {
   const [copied, setCopied] = useState(false)
+  const predictions = useMemo(() => sortLikelyQuizzes(likelyQuizzes), [likelyQuizzes])
+  const prediction = config.set === 'likely' ? findLikelyQuiz(predictions, config.likelyQuiz) : undefined
+  const predictedCount = prediction?.questionIds.length ?? 0
   const pool = useMemo(
     () =>
       filterQuestions(questions, {
@@ -31,7 +35,7 @@ export function QuizSetup({ unit, questions, likelyIds, config, defaults, onChan
     [questions, config],
   )
   const chapterOptions = useMemo(() => unit.chapters.map((n) => ({ value: n, label: `ch ${n}` })), [unit.chapters])
-  const willGet = config.set === 'likely' ? likelyIds.length : Math.min(config.n, pool.length)
+  const willGet = config.set === 'likely' ? predictedCount : Math.min(config.n, pool.length)
   const shareUrl = `${window.location.origin}${window.location.pathname}${routes.quiz(unit.meta.id, serializeQuizConfig(config, defaults))}`
 
   const copyLink = async () => {
@@ -48,12 +52,42 @@ export function QuizSetup({ unit, questions, likelyIds, config, defaults, onChan
     <div className="two-col">
       <div className="card stack">
         {config.set === 'likely' && (
-          <div className="alert alert--info">
-            This is the <strong>predicted quiz</strong>: the {likelyIds.length} questions from the Likely Quiz page, in order. Filters do not apply.{' '}
-            <button type="button" className="btn btn--sm" onClick={() => onChange({ ...config, set: 'random', ids: [] })}>
-              Switch to a random quiz
-            </button>
-          </div>
+          <>
+            <div className="alert alert--info">
+              This is a <strong>predicted quiz</strong>: the {predictedCount} questions of one prediction from the Likely Quiz page, in order. Filters do not apply.{' '}
+              <button type="button" className="btn btn--sm" onClick={() => onChange({ ...config, set: 'random', ids: [], likelyQuiz: null })}>
+                Switch to a random quiz
+              </button>
+            </div>
+            <div className="filter-block" role="radiogroup" aria-label="Which prediction">
+              <div className="filter-block__label">Which prediction</div>
+              <div className="chip-group">
+                {predictions.map((quiz) => {
+                  const active = prediction?.basis === quiz.basis
+                  return (
+                    <button
+                      type="button"
+                      key={quiz.basis}
+                      className="chip"
+                      role="radio"
+                      aria-checked={active}
+                      aria-pressed={active}
+                      title={BASIS_HELP[quiz.basis]}
+                      onClick={() => onChange({ ...config, likelyQuiz: quiz.basis })}
+                    >
+                      {BASIS_LABEL[quiz.basis]}
+                      {quiz.primary ? ' (primary)' : ''}
+                    </button>
+                  )
+                })}
+              </div>
+              {prediction && (
+                <p className="small muted" style={{ margin: '0.2rem 0 0' }}>
+                  <strong>{prediction.title}.</strong> {prediction.description}
+                </p>
+              )}
+            </div>
+          </>
         )}
         {config.set === 'random' && config.ids.length > 0 && (
           <div className="alert alert--info">
@@ -162,7 +196,7 @@ export function QuizSetup({ unit, questions, likelyIds, config, defaults, onChan
         <div className="row row--between" style={{ marginTop: '0.4rem' }}>
           <span className="muted small">
             {config.set === 'likely'
-              ? `${likelyIds.length} predicted questions, in order`
+              ? `${predictedCount} predicted questions, in order`
               : `${pool.length} questions match · you will get ${willGet}${pool.length > willGet ? ', weighted toward high likelihood' : ''}`}
           </span>
           <div className="row">
@@ -192,10 +226,10 @@ export function QuizSetup({ unit, questions, likelyIds, config, defaults, onChan
             <li>Use "at the end" feedback with the timer on to rehearse the real conditions.</li>
             <li>Use "after each question" to learn: every answer comes with an explanation and source.</li>
             <li>Share the link with a classmate; the seed gives you both the identical questions.</li>
-            {likelyIds.length > 0 && config.set === 'random' && (
+            {predictions.length > 0 && config.set === 'random' && (
               <li>
                 Or take the{' '}
-                <button type="button" className="link-chip" onClick={() => onChange({ ...config, set: 'likely', ids: [] })}>
+                <button type="button" className="link-chip" onClick={() => onChange({ ...config, set: 'likely', ids: [], likelyQuiz: null })}>
                   predicted quiz in order
                 </button>
                 .

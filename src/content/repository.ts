@@ -10,6 +10,7 @@ import {
   CHAPTER_FILE_PATTERN,
   type Course,
   type LexiconEntry,
+  type LikelyQuiz,
   type Question,
   type UnitIndex,
   type UnitMeta,
@@ -25,14 +26,17 @@ const unitMetaModules = import.meta.glob<JsonModule<UnitMeta>>('/content/units/*
 const courseModules = import.meta.glob<JsonModule<Course>>('/content/courses/*.json', {
   eager: true,
 })
+// Three quizzes of question ids is about 2 KB, and the home page needs the counts
+// and the primary quiz synchronously, so this file is bundled with the metadata.
+const likelyQuizModules = import.meta.glob<JsonModule<LikelyQuiz[]>>(
+  '/content/units/*/likely-quizzes.json',
+  { eager: true },
+)
 const questionModules = import.meta.glob<JsonModule<Question[]>>(
   '/content/units/*/questions.json',
 )
 const lexiconModules = import.meta.glob<JsonModule<LexiconEntry[]>>(
   '/content/units/*/lexicon.json',
-)
-const likelyQuizModules = import.meta.glob<JsonModule<string[]>>(
-  '/content/units/*/likely-quiz.json',
 )
 const chapterModules = import.meta.glob<string>('/content/units/*/chapters/*.md', {
   query: '?raw',
@@ -67,7 +71,7 @@ function buildIndex(): Map<string, UnitIndex> {
       hasCrossReference: false,
       hasLexicon: false,
       hasQuestions: false,
-      hasLikelyQuiz: false,
+      likelyQuizzes: [],
     })
   }
   const mark = (paths: string[], apply: (u: UnitIndex, path: string) => void) => {
@@ -84,7 +88,10 @@ function buildIndex(): Map<string, UnitIndex> {
   mark(Object.keys(crossReferenceModules), (u) => (u.hasCrossReference = true))
   mark(Object.keys(lexiconModules), (u) => (u.hasLexicon = true))
   mark(Object.keys(questionModules), (u) => (u.hasQuestions = true))
-  mark(Object.keys(likelyQuizModules), (u) => (u.hasLikelyQuiz = true))
+  mark(Object.keys(likelyQuizModules), (u, path) => {
+    const quizzes = likelyQuizModules[path]?.default
+    if (Array.isArray(quizzes)) u.likelyQuizzes = quizzes
+  })
   for (const unit of index.values()) unit.chapters.sort((a, b) => a - b)
   return index
 }
@@ -128,8 +135,9 @@ export function loadLexicon(unitId: string): Promise<LexiconEntry[]> {
   return loadJson(findLazy(lexiconModules, unitId, 'lexicon.json'), 'lexicon.json', unitId)
 }
 
-export function loadLikelyQuiz(unitId: string): Promise<string[]> {
-  return loadJson(findLazy(likelyQuizModules, unitId, 'likely-quiz.json'), 'likely-quiz.json', unitId)
+/** The unit's predicted quizzes (already bundled; empty when the unit has no likely-quizzes.json). */
+export function getLikelyQuizzes(unitId: string): LikelyQuiz[] {
+  return unitIndex.get(unitId)?.likelyQuizzes ?? []
 }
 
 export async function loadChapter(unitId: string, chapter: number): Promise<string> {

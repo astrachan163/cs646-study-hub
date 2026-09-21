@@ -32,7 +32,7 @@ export function UnitPage({ unit, path }: UnitPageProps) {
     { href: routes.lexicon(meta.id), icon: '📚', title: 'Lexicon', meta: 'searchable definitions by chapter', show: unit.hasLexicon },
     { href: routes.flashcards(meta.id), icon: '🃏', title: 'Flashcards', meta: 'term ↔ definition, spaced shuffle', show: unit.hasLexicon },
     { href: routes.quiz(meta.id), icon: '⏱️', title: 'Practice Quiz', meta: `${a.questions} questions in ${a.minutes} min, like the real one`, show: unit.hasQuestions },
-    { href: routes.likely(meta.id), icon: '🎯', title: 'Likely Quiz', meta: 'our predicted questions, printable', show: unit.hasLikelyQuiz },
+    { href: routes.likely(meta.id), icon: '🎯', title: 'Likely Quiz', meta: 'three predictions: lecture-only, lecture + book, book-only; printable', show: unit.likelyQuizzes.length > 0 },
     { href: routes.bank(meta.id), icon: '🗂️', title: 'Question Bank', meta: 'browse and filter every question', show: unit.hasQuestions },
   ]
 

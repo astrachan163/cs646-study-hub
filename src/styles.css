@@ -706,6 +706,16 @@ main {
   color: var(--text-muted);
 }
 
+.unit-card__predictions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 0.9rem;
+}
+
+.unit-card__predictions strong {
+  color: var(--text);
+}
+
 /* ---------------------------------------------------------------- markdown */
 .markdown {
   max-width: 78ch;
@@ -1390,6 +1400,68 @@ main {
 }
 
 /* --------------------------------------------------------------- likely */
+.tabs {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.tab {
+  flex: 1 1 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0.7rem 0.95rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--text-muted);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.tab:hover {
+  text-decoration: none;
+  background: var(--surface-2);
+  color: var(--text);
+}
+
+.tab.is-active {
+  background: var(--primary-soft);
+  color: var(--primary-strong);
+  border-color: color-mix(in srgb, var(--primary) 45%, transparent);
+  box-shadow: inset 0 -3px 0 var(--primary);
+}
+
+.tab__label {
+  font-size: 1rem;
+  color: inherit;
+}
+
+.tab__tag {
+  align-self: flex-start;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.1rem 0.45rem;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.tab__count {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.likely-intro__description {
+  color: var(--text-muted);
+  max-width: 75ch;
+}
+
 .likely-item {
   padding: 0.9rem 1.1rem;
 }
@@ -1483,5 +1555,15 @@ main {
     box-shadow: none;
     border-color: #bbb;
     break-inside: avoid;
+  }
+
+  /* The printed predicted quiz keeps its title and description as a header sheet. */
+  .likely-intro {
+    border: none;
+    padding: 0 0 0.5rem;
+  }
+
+  .likely-intro__description {
+    color: #333;
   }
 }

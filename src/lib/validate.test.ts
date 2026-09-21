@@ -27,7 +27,7 @@ function loadUnitDir(dir: string, unitId: string): UnitFiles {
     unit: readJson(dir, 'unit.json'),
     questions: readJson(dir, 'questions.json'),
     lexicon: readJson(dir, 'lexicon.json'),
-    likelyQuiz: readJson(dir, 'likely-quiz.json'),
+    likelyQuizzes: readJson(dir, 'likely-quizzes.json'),
     chapters,
     hasCrossReference: existsSync(join(dir, 'cross-reference.md')),
   }
@@ -42,6 +42,10 @@ function questionsOf(files: UnitFiles): Record<string, unknown>[] {
   return files.questions as Record<string, unknown>[]
 }
 
+function quizzesOf(files: UnitFiles): Record<string, unknown>[] {
+  return files.likelyQuizzes as Record<string, unknown>[]
+}
+
 function errorsMentioning(files: UnitFiles, text: string): number {
   return validateUnit(files).errors.filter((e) => e.message.includes(text) || e.where.includes(text)).length
 }
@@ -52,16 +56,18 @@ describe('shipped content', () => {
     expect(result.errors).toEqual([])
     expect(result.warnings).toEqual([])
     expect(result.counts.questions).toBe(6)
-    expect(result.counts.likelyQuiz).toBe(6)
+    expect(result.counts.likelyQuizzes).toBe(3)
   })
 
-  it('every unit under content/units/ passes with no errors', () => {
+  it('every unit under content/units/ passes with no errors and ships three predicted quizzes', () => {
     const unitIds = readdirSync(UNITS_DIR)
     expect(unitIds.length).toBeGreaterThan(0)
     for (const unitId of unitIds) {
       const result = validateUnit(loadUnitDir(join(UNITS_DIR, unitId), unitId))
       expect(result.errors, `unit ${unitId}`).toEqual([])
       expect(result.counts.questions).toBeGreaterThan(0)
+      expect(result.counts.likelyQuizzes, `unit ${unitId}`).toBe(3)
+      expect(existsSync(join(UNITS_DIR, unitId, 'likely-quiz.json')), `unit ${unitId} still has the old likely-quiz.json`).toBe(false)
     }
   })
 
@@ -122,37 +128,111 @@ describe('validateUnit catches content mistakes', () => {
     expect(errorsMentioning(files, 'tagged "calculation"')).toBe(1)
   })
 
-  it('rejects likely-quiz ids that do not exist or repeat', () => {
-    const files = fixture()
-    const ids = files.likelyQuiz as string[]
-    files.likelyQuiz = [...ids.slice(0, 4), 'ex-ch99-q99', ids[0]!]
-    const errors = validateUnit(files).errors
-    expect(errors.some((e) => e.message.includes('"ex-ch99-q99" does not exist'))).toBe(true)
-    expect(errors.some((e) => e.message.includes('listed more than once'))).toBe(true)
-  })
-
   it('rejects a unit id that does not match its folder', () => {
     const files = fixture()
     files.unitId = 'renamed-folder'
     expect(errorsMentioning(files, 'folder is named')).toBe(1)
   })
 
-  it('treats a missing question bank as an error but missing extras as warnings', () => {
+  it('treats a missing question bank and missing predicted quizzes as errors, other missing extras as warnings', () => {
     const files = fixture()
     files.questions = undefined
     files.lexicon = undefined
-    files.likelyQuiz = undefined
+    files.likelyQuizzes = undefined
     files.hasCrossReference = false
     files.chapters = []
     const result = validateUnit(files)
-    expect(result.errors.map((e) => e.file)).toEqual(['questions.json'])
-    expect(result.warnings.map((w) => w.file).sort()).toEqual(['chapters/', 'cross-reference.md', 'lexicon.json', 'likely-quiz.json'])
+    expect(result.errors.map((e) => e.file).sort()).toEqual(['likely-quizzes.json', 'questions.json'])
+    expect(result.errors.find((e) => e.file === 'likely-quizzes.json')?.message).toContain('likely-quiz.json is no longer read')
+    expect(result.warnings.map((w) => w.file).sort()).toEqual(['chapters/', 'cross-reference.md', 'lexicon.json'])
+  })
+})
+
+describe('validateUnit enforces the likely-quizzes.json contract', () => {
+  it('accepts the template: three quizzes, one per basis, one primary, ids shared across quizzes', () => {
+    const quizzes = quizzesOf(fixture())
+    expect(quizzes.map((q) => q.basis)).toEqual(['lecture', 'mixed', 'book'])
+    expect(quizzes.filter((q) => q.primary === true)).toHaveLength(1)
+    const [a, b] = quizzes as { questionIds: string[] }[]
+    expect(a!.questionIds.some((id) => b!.questionIds.includes(id))).toBe(true)
+    expect(validateUnit(fixture()).errors).toEqual([])
   })
 
-  it('warns when the predicted quiz length differs from the real assessment', () => {
+  it('rejects a file that is not a list of quizzes', () => {
     const files = fixture()
-    files.likelyQuiz = (files.likelyQuiz as string[]).slice(0, 2)
-    expect(validateUnit(files).warnings.some((w) => w.message.includes('lists 2 ids but the assessment has 6'))).toBe(true)
+    files.likelyQuizzes = { lecture: [], mixed: [], book: [] }
+    expect(errorsMentioning(files, 'exactly three quiz objects')).toBe(1)
+    files.likelyQuizzes = ['ex-ch01-q01', 'ex-ch01-q05']
+    expect(validateUnit(files).errors.filter((e) => e.file === 'likely-quizzes.json').length).toBeGreaterThan(0)
+  })
+
+  it('rejects the wrong number of quizzes', () => {
+    const two = fixture()
+    two.likelyQuizzes = quizzesOf(two).slice(0, 2)
+    expect(errorsMentioning(two, 'lists 2 quizzes but there must be exactly 3')).toBe(1)
+    const four = fixture()
+    four.likelyQuizzes = [...quizzesOf(four), { ...quizzesOf(four)[0]!, id: 'extra', primary: false }]
+    expect(errorsMentioning(four, 'lists 4 quizzes but there must be exactly 3')).toBe(1)
+  })
+
+  it('rejects an unknown basis and a basis used twice', () => {
+    const files = fixture()
+    quizzesOf(files)[0]!.basis = 'slides'
+    expect(errorsMentioning(files, '"basis" is "slides"')).toBe(1)
+    const twice = fixture()
+    quizzesOf(twice)[0]!.basis = 'book'
+    expect(errorsMentioning(twice, '"basis" "book" is also used by quiz 1')).toBe(1)
+  })
+
+  it('rejects zero primaries and multiple primaries', () => {
+    const none = fixture()
+    for (const q of quizzesOf(none)) q.primary = false
+    expect(errorsMentioning(none, 'no quiz has "primary": true')).toBe(1)
+    const many = fixture()
+    for (const q of quizzesOf(many)) q.primary = true
+    expect(errorsMentioning(many, '3 quizzes have "primary": true')).toBe(1)
+    const quoted = fixture()
+    quizzesOf(quoted)[1]!.primary = 'true'
+    expect(errorsMentioning(quoted, '"primary" must be true or false')).toBe(1)
+  })
+
+  it('rejects question ids that do not exist or repeat inside one quiz', () => {
+    const files = fixture()
+    const quiz = quizzesOf(files)[1]!
+    const ids = quiz.questionIds as string[]
+    quiz.questionIds = [...ids.slice(0, 4), 'ex-ch99-q99', ids[0]!]
+    const errors = validateUnit(files).errors
+    expect(errors.some((e) => e.message.includes('"ex-ch99-q99" does not exist') && e.where.includes('quiz 2 (id mixed)'))).toBe(true)
+    expect(errors.some((e) => e.message.includes('"ex-ch01-q05" is listed more than once in this quiz'))).toBe(true)
+  })
+
+  it('rejects a quiz whose question count differs from the real assessment', () => {
+    const files = fixture()
+    const quiz = quizzesOf(files)[2]!
+    quiz.questionIds = (quiz.questionIds as string[]).slice(0, 2)
+    expect(errorsMentioning(files, 'lists 2 question ids but the assessment has 6')).toBe(1)
+  })
+
+  it('rejects duplicate quiz ids and missing text fields', () => {
+    const files = fixture()
+    const quizzes = quizzesOf(files)
+    quizzes[2]!.id = quizzes[0]!.id
+    quizzes[1]!.title = ''
+    delete quizzes[0]!.description
+    quizzes[0]!.questionIds = 'ex-ch01-q01'
+    const errors = validateUnit(files).errors
+    expect(errors.some((e) => e.message.includes('duplicate quiz id "lecture"'))).toBe(true)
+    expect(errors.some((e) => e.message.includes('"title" must be a non-empty text string'))).toBe(true)
+    expect(errors.some((e) => e.message.includes('"description" must be text'))).toBe(true)
+    expect(errors.some((e) => e.message.includes('"questionIds" must be a list of question ids'))).toBe(true)
+  })
+
+  it('only warns about an empty description', () => {
+    const files = fixture()
+    quizzesOf(files)[0]!.description = '   '
+    const result = validateUnit(files)
+    expect(result.errors).toEqual([])
+    expect(result.warnings.some((w) => w.message.includes('"description" is empty'))).toBe(true)
   })
 
   it('warns about a question whose chapter has no study guide file', () => {

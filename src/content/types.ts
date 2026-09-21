@@ -142,7 +142,8 @@ export interface UnitIndex {
   hasCrossReference: boolean
   hasLexicon: boolean
   hasQuestions: boolean
-  hasLikelyQuiz: boolean
+  /** The three predicted quizzes (small, so bundled eagerly); empty when the unit has none. */
+  likelyQuizzes: LikelyQuiz[]
 }
 
 export const CHAPTER_FILE_PATTERN = /^ch(\d{2})\.md$/

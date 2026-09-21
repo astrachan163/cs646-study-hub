@@ -5,9 +5,10 @@ import { useDocumentTitle } from '../app/useDocumentTitle.ts'
 import { navigate } from '../app/useHashLocation.ts'
 import { ErrorBox, Loading } from '../components/States.tsx'
 import { UnitNav } from '../components/UnitNav.tsx'
-import { loadLikelyQuiz, loadQuestions } from '../content/repository.ts'
+import { loadQuestions } from '../content/repository.ts'
 import type { Question, UnitIndex } from '../content/types.ts'
-import { defaultQuizConfig, parseQuizConfig, serializeQuizConfig, type QuizConfig } from '../lib/quizConfig.ts'
+import { findLikelyQuiz } from '../lib/likelyQuizzes.ts'
+import { defaultQuizConfig, isAutostartRequested, parseQuizConfig, serializeQuizConfig, type QuizConfig } from '../lib/quizConfig.ts'
 import { randomSeedString, rngFromSeed } from '../lib/random.ts'
 import { scoreAttempt, type AnswerRecord, type Response } from '../lib/score.ts'
 import { selectQuiz } from '../lib/select.ts'
@@ -24,6 +25,8 @@ interface QuizPageProps {
 
 type Phase =
   | { kind: 'setup' }
+  /** A "Take this as a timed practice quiz" link asked to begin as soon as the questions load. */
+  | { kind: 'starting' }
   | { kind: 'running'; startedAt: number }
   | { kind: 'finished'; seconds: number; autoSubmitted: boolean; attemptId: string }
 
@@ -32,31 +35,23 @@ export function QuizPage({ unit, path, params }: QuizPageProps) {
   const unitId = unit.meta.id
   const defaults = useMemo(() => defaultQuizConfig(unit.meta, randomSeedString()), [unit.meta])
   const [config, setConfig] = useState<QuizConfig>(() => parseQuizConfig(params, defaults))
-  const [phase, setPhase] = useState<Phase>({ kind: 'setup' })
+  const [phase, setPhase] = useState<Phase>(() => (isAutostartRequested(params) ? { kind: 'starting' } : { kind: 'setup' }))
   const [selected, setSelected] = useState<Question[]>([])
   const [records, setRecords] = useState<Map<string, AnswerRecord>>(() => new Map())
   const lastPushed = useRef<string>(serializeQuizConfig(config, defaults).toString())
 
-  const data = useAsync(
-    async () => {
-      const [questions, likelyIds] = await Promise.all([
-        loadQuestions(unitId),
-        unit.hasLikelyQuiz ? loadLikelyQuiz(unitId) : Promise.resolve([] as string[]),
-      ])
-      return { questions, likelyIds }
-    },
-    [unitId],
-  )
+  const data = useAsync(() => loadQuestions(unitId), [unitId])
+  const likelyQuizzes = unit.likelyQuizzes
 
-  // Navigation from outside (a share link, "retry missed" from history) resets to setup with the new config.
-  // URLs this page pushed itself are recognised by comparing the canonical serialisation.
+  // Navigation from outside (a share link, "retry missed" from history, a launch link) resets to setup
+  // with the new config. URLs this page pushed itself are recognised by comparing the canonical serialisation.
   useEffect(() => {
     const incoming = parseQuizConfig(params, defaults)
     const incomingKey = serializeQuizConfig(incoming, defaults).toString()
     if (incomingKey === lastPushed.current) return
     lastPushed.current = incomingKey
     setConfig(incoming)
-    setPhase({ kind: 'setup' })
+    setPhase(isAutostartRequested(params) ? { kind: 'starting' } : { kind: 'setup' })
     setRecords(new Map())
   }, [params, defaults])
 
@@ -69,15 +64,21 @@ export function QuizPage({ unit, path, params }: QuizPageProps) {
     [defaults, unitId],
   )
 
-  const start = useCallback(
-    (next: QuizConfig) => {
-      if (!data.data) return
+  const startWith = useCallback(
+    (questions: Question[], next: QuizConfig) => {
+      // The predicted quiz is exactly its listed questions, in order; nothing to pick randomly.
+      const likely = next.set === 'likely' ? findLikelyQuiz(likelyQuizzes, next.likelyQuiz) : undefined
+      if (next.set === 'likely' && !likely) {
+        // A launch link for a unit without predictions: fall back to the setup screen.
+        setPhase({ kind: 'setup' })
+        return
+      }
       const selection = selectQuiz(
-        data.data.questions,
+        questions,
         {
           n: next.ids.length > 0 ? Math.min(next.n, next.ids.length) : next.n,
           filters: { chapters: next.chapters, coverage: next.coverage, difficulty: next.difficulty, likelihood: next.likelihood, ids: next.ids },
-          orderedIds: next.set === 'likely' ? data.data.likelyIds : undefined,
+          orderedIds: likely?.questionIds,
         },
         rngFromSeed(next.seed),
       )
@@ -88,8 +89,33 @@ export function QuizPage({ unit, path, params }: QuizPageProps) {
       pushUrl(next)
       window.scrollTo({ top: 0 })
     },
-    [data.data, pushUrl],
+    [likelyQuizzes, pushUrl],
   )
+
+  const start = useCallback(
+    (next: QuizConfig) => {
+      if (data.data) startWith(data.data, next)
+    },
+    [data.data, startWith],
+  )
+
+  // A launch link: begin as soon as the question bank arrives (the same cached chunk the page loads anyway).
+  useEffect(() => {
+    if (phase.kind !== 'starting') return
+    let cancelled = false
+    loadQuestions(unitId).then(
+      (questions) => {
+        if (!cancelled) startWith(questions, config)
+      },
+      () => {
+        // The page's own loader reports the error; just leave the "starting" state.
+        if (!cancelled) setPhase({ kind: 'setup' })
+      },
+    )
+    return () => {
+      cancelled = true
+    }
+  }, [phase.kind, unitId, startWith, config])
 
   const respond = useCallback((questionId: string, response: Response) => {
     setRecords((prev) => {
@@ -156,16 +182,18 @@ export function QuizPage({ unit, path, params }: QuizPageProps) {
       </div>
       <h1 className="page-title">Practice Quiz</h1>
       {phase.kind === 'setup' && (
-        <p className="page-lead">
-          Built like the real one: {unit.meta.assessment.questions} questions, {unit.meta.assessment.minutes} minutes, one question per screen. Questions the instructor is likely to ask are picked more often.
-        </p>
+        <>
+          <p className="page-lead">
+            Built like the real one: {unit.meta.assessment.questions} questions, {unit.meta.assessment.minutes} minutes, one question per screen. Questions the instructor is likely to ask are picked more often.
+          </p>
+          <UnitNav unit={unit} currentPath={path} />
+        </>
       )}
-      {phase.kind === 'setup' && <UnitNav unit={unit} currentPath={path} />}
 
-      {data.status === 'loading' && <Loading what="questions" />}
+      {(data.status === 'loading' || phase.kind === 'starting') && <Loading what={phase.kind === 'starting' ? 'the predicted quiz' : 'questions'} />}
       {data.status === 'error' && <ErrorBox error={data.error} />}
       {data.status === 'ready' && phase.kind === 'setup' && (
-        <QuizSetup unit={unit} questions={data.data.questions} likelyIds={data.data.likelyIds} config={config} defaults={defaults} onChange={setConfig} onStart={() => start(config)} />
+        <QuizSetup unit={unit} questions={data.data} likelyQuizzes={likelyQuizzes} config={config} defaults={defaults} onChange={setConfig} onStart={() => start(config)} />
       )}
       {data.status === 'ready' && phase.kind === 'running' && (
         <QuizRunner

@@ -87,17 +87,17 @@ if (unitIds.length === 0) {
 for (const unitId of unitIds) {
   const dir = join(unitsRoot, unitId)
   const syntaxErrors: ValidationIssue[] = []
-  const parsed: Record<'unit' | 'questions' | 'lexicon' | 'likelyQuiz', unknown | undefined> = {
+  const parsed: Record<'unit' | 'questions' | 'lexicon' | 'likelyQuizzes', unknown | undefined> = {
     unit: undefined,
     questions: undefined,
     lexicon: undefined,
-    likelyQuiz: undefined,
+    likelyQuizzes: undefined,
   }
   const fileNames = {
     unit: 'unit.json',
     questions: 'questions.json',
     lexicon: 'lexicon.json',
-    likelyQuiz: 'likely-quiz.json',
+    likelyQuizzes: 'likely-quizzes.json',
   } as const
   for (const [k, fileName] of Object.entries(fileNames) as [keyof typeof fileNames, string][]) {
     const result = readJsonFile(join(dir, fileName))
@@ -121,7 +121,7 @@ for (const unitId of unitIds) {
     unit: parsed.unit ?? {},
     questions: parsed.questions,
     lexicon: parsed.lexicon,
-    likelyQuiz: parsed.likelyQuiz,
+    likelyQuizzes: parsed.likelyQuizzes,
     chapters: chapterNumbers(dir),
     hasCrossReference: existsSync(join(dir, 'cross-reference.md')),
   }
@@ -134,11 +134,21 @@ for (const unitId of unitIds) {
       fix: 'Copy the unit.json template from CONTENT-GUIDE.md into the folder.',
     })
   }
+  const staleWarnings: ValidationIssue[] = []
+  if (existsSync(join(dir, 'likely-quiz.json'))) {
+    staleWarnings.push({
+      level: 'warning',
+      file: 'likely-quiz.json',
+      where: 'file',
+      message: 'is the old single-list format and is no longer read by the site.',
+      fix: 'Move its ids into likely-quizzes.json (three quizzes, see CONTENT-GUIDE.md section 3.4) and delete likely-quiz.json.',
+    })
+  }
   const result = validateUnit(files)
   report(
-    `Unit ${unitId} [${result.counts.questions} questions, ${result.counts.lexicon} terms, ${result.counts.likelyQuiz} predicted, ${result.counts.chapters} chapters]`,
+    `Unit ${unitId} [${result.counts.questions} questions, ${result.counts.lexicon} terms, ${result.counts.likelyQuizzes} predicted quizzes, ${result.counts.chapters} chapters]`,
     [...syntaxErrors, ...result.errors],
-    result.warnings,
+    [...staleWarnings, ...result.warnings],
   )
 }
 
