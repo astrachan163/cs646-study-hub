@@ -1,0 +1,26 @@
+[
+  {
+    "id": "lecture",
+    "basis": "lecture",
+    "primary": false,
+    "title": "Lecture-only quiz",
+    "description": "Questions built only from what the instructor covered in class (coverage lecture-only or lecture+book), written from the lecture's framing. This template unit has only six questions, so all three quizzes reuse them in a different order; a real unit lists 20 different-looking predictions per quiz.",
+    "questionIds": ["ex-ch01-q01", "ex-ch01-q05", "ex-ch01-q12", "ex-ch02-q01", "ex-ch02-q04", "ex-ch02-q13"]
+  },
+  {
+    "id": "mixed",
+    "basis": "mixed",
+    "primary": true,
+    "title": "Lecture + book quiz (primary prediction)",
+    "description": "Questions grounded in lecture content AND the corresponding book material; the most accurate reflection of testable material. Exactly one quiz has \"primary\": true; it is the default tab and the one the home page links to.",
+    "questionIds": ["ex-ch01-q05", "ex-ch02-q04", "ex-ch01-q01", "ex-ch02-q13", "ex-ch01-q12", "ex-ch02-q01"]
+  },
+  {
+    "id": "book",
+    "basis": "book",
+    "primary": false,
+    "title": "Book-only quiz",
+    "description": "Questions drawn entirely from the assigned chapters, including material the lecture did not reach (coverage book-only).",
+    "questionIds": ["ex-ch02-q13", "ex-ch02-q04", "ex-ch02-q01", "ex-ch01-q12", "ex-ch01-q05", "ex-ch01-q01"]
+  }
+]
